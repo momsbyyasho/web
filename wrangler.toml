@@ -2,14 +2,13 @@ name = "web"
 main = "worker.js"
 compatibility_date = "2026-06-20"
 
-# Optional but recommended for production stability
+# Recommended for modern runtime behavior
 compatibility_flags = ["nodejs_compat"]
 
-# If your worker serves static files like index.html
-[assets]
-directory = "."
-binding = "ASSETS"
+# Production environment
+[env.production]
+name = "web"
 
-# Optional: limits and observability
+# Optional observability (logs + analytics in Cloudflare dashboard)
 [observability]
 enabled = true
