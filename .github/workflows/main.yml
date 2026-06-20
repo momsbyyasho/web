@@ -12,32 +12,35 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Map secrets to environment variables to ensure they are available to the action
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Execute Pipeline Production Check
-        run: |
-          echo "🚀 Starting automated deployment pipeline..."
-          echo "📅 Trigger Event: ${{ github.event_name }}"
-          echo "✅ Repository files verified successfully."
+      # Ensure you run your build step here if your site uses a framework
+      # - name: Install and Build
+      #   run: |
+      #     npm install
+      #     npm run build
 
-      # NEW: Directly publishes your index.html to your Cloudflare Workers/Pages site
-      - name: Deploy to Cloudflare Workers KV/Pages
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=web # Adjust if using a specific project/worker name
+          # Replace 'web' with your actual Cloudflare Pages project name
+          command: pages deploy . --project-name=web
 
-      - name: Send Telegram Alert Notification
-        if: always() # Ensures you get a message even if the deployment fails!
+      - name: Send Telegram Alert
+        if: always()
         run: |
-          MESSAGE="🔔 *GitHub Action Alert* 🔔%0A%0A*Repo:* ${{ github.repository }}%0A*Event:* \`${{ github.event_name }}\`%0A*Status:* ${{ job.status == 'success' && '✅ Success' || '❌ Failed' }}%0A%0A🌐 *Live URL:* https://web.tbmsaranga.workers.dev/"
-          
+          STATUS="${{ job.status == 'success' && '✅ Success' || '❌ Failed' }}"
+          MESSAGE="🔔 *Deployment Alert* 🔔%0A%0A*Repo:* ${{ github.repository }}%0A*Status:* $STATUS"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d parse_mode="Markdown" \
