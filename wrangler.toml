@@ -1,0 +1,15 @@
+name = "web"
+main = "worker.js"
+compatibility_date = "2026-06-20"
+
+# Optional but recommended for production stability
+compatibility_flags = ["nodejs_compat"]
+
+# If your worker serves static files like index.html
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# Optional: limits and observability
+[observability]
+enabled = true
