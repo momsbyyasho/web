@@ -1,47 +1,50 @@
 name: Deploy Codebase Pipeline
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '.gitignore'
-  workflow_dispatch:
+push:
+branches:
+- main
+paths-ignore:
+- '**.md'
+- '.gitignore'
+workflow_dispatch:
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    # Map secrets to environment variables to ensure they are available to the action
-    env:
-      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+deploy:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
+```
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
-      # Ensure you run your build step here if your site uses a framework
-      # - name: Install and Build
-      #   run: |
-      #     npm install
-      #     npm run build
+steps:
+  - name: Checkout Source Code
+    uses: actions/checkout@v4
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Replace 'web' with your actual Cloudflare Pages project name
-          command: pages deploy . --project-name=web
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: 20
 
-      - name: Send Telegram Alert
-        if: always()
-        run: |
-          STATUS="${{ job.status == 'success' && '✅ Success' || '❌ Failed' }}"
-          MESSAGE="🔔 *Deployment Alert* 🔔%0A%0A*Repo:* ${{ github.repository }}%0A*Status:* $STATUS"
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-            -d parse_mode="Markdown" \
-            -d text="$MESSAGE"
+  - name: Deploy Worker
+    uses: cloudflare/wrangler-action@v3
+    with:
+      apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  - name: Send Telegram Alert
+    if: always()
+    run: |
+      if [ "${{ job.status }}" = "success" ]; then
+        STATUS="✅ Success"
+      else
+        STATUS="❌ Failed"
+      fi
+
+      MESSAGE="🔔 *Deployment Alert* 🔔%0A%0A*Repo:* ${{ github.repository }}%0A*Status:* $STATUS"
+
+      curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+        -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+        -d parse_mode="Markdown" \
+        -d text="$MESSAGE"
+```
