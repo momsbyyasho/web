@@ -228,6 +228,11 @@
 
             <!-- Right side -->
             <div class="flex items-center gap-3">
+                <!-- Kit Builder shortcut -->
+                <a href="/kit-builder.html" class="hidden sm:inline-flex items-center gap-2 font-bold px-4 py-2 rounded-xl text-[11px] transition hover:opacity-80"
+                    style="background: var(--rose); color: white; text-decoration:none">
+                    🎨 Build Your Kit
+                </a>
                 <!-- Trust pill -->
                 <div class="hidden sm:flex items-center gap-1.5 bg-white border border-pink-100 rounded-full px-3 py-1.5 text-[10px] font-semibold" style="color: var(--stone)">
                     <span class="w-1.5 h-1.5 rounded-full pulse-dot" style="background: #22c55e; display:inline-block"></span>
@@ -397,7 +402,7 @@
     <div class="section-rule mx-auto" style="max-width: 400px"></div>
 
     <!-- ═══════════════════════════════════════
-         OPTION B — CUSTOM BUILDER
+         OPTION B — CUSTOM BUILDER (links to separate page)
     ═══════════════════════════════════════ -->
     <section id="custom-builder" class="py-16 md:py-20" style="background: var(--petal)">
         <div class="max-w-4xl mx-auto px-5">
@@ -410,54 +415,56 @@
                     Build Your Own Kit
                 </h2>
                 <p id="txt_optB_desc" class="mt-2 text-sm" style="color: var(--stone)">
-                    Pick exactly what you need. Choose boy or girl color theme.
+                    Pick exactly what you need. Choose boy, girl or mom theme.
                 </p>
             </div>
 
+            <!-- CTA card to open kit builder -->
             <div class="rounded-3xl overflow-hidden border" style="border-color: rgba(232,73,106,0.15); background: white">
-                
-                <!-- Theme selector -->
-                <div class="p-5 flex items-center justify-between flex-wrap gap-4" style="background: var(--rose-light); border-bottom: 1px solid var(--rose-mid)">
-                    <span id="txt_theme_select" class="text-xs font-semibold" style="color: var(--ink-mid)">🎨 Choose color theme:</span>
-                    <div class="flex gap-5">
-                        <label class="flex items-center gap-2 cursor-pointer text-xs font-bold" style="color: #3b82f6">
-                            <input type="radio" name="baby_theme" value="Boy" checked onchange="updateThemeSelection(this.value)" class="accent-blue-500 w-4 h-4">
-                            <span id="txt_theme_boy">💙 Boy</span>
-                        </label>
-                        <label class="flex items-center gap-2 cursor-pointer text-xs font-bold" style="color: var(--rose)">
-                            <input type="radio" name="baby_theme" value="Girl" onchange="updateThemeSelection(this.value)" class="w-4 h-4" style="accent-color: var(--rose)">
-                            <span id="txt_theme_girl">💗 Girl</span>
-                        </label>
+                <div class="p-8 md:p-12 text-center">
+                    <!-- Preview icons -->
+                    <div class="flex items-center justify-center gap-4 mb-8">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm" style="background: #EEF6FD">💙</div>
+                        <div class="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl shadow-md" style="background: var(--rose-light)">👶</div>
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm" style="background: var(--rose-light)">💗</div>
                     </div>
+
+                    <h3 id="txt_optB_cta_title" class="font-display text-2xl mb-3" style="color: var(--ink)">30+ Items to Choose From</h3>
+                    <p id="txt_optB_cta_desc" class="text-sm mb-8 max-w-md mx-auto leading-relaxed" style="color: var(--stone)">
+                        Baby clothing, accessories, nappies, maternity frocks, nursing bras, hospital essentials — every item available. Switch between Boy 💙, Girl 💗 or Mom 👩 themes as you shop.
+                    </p>
+
+                    <!-- Theme preview pills -->
+                    <div class="flex items-center justify-center gap-3 mb-8 flex-wrap">
+                        <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold" style="background: #EEF6FD; color: #1F6699; border: 2px solid #BFE0F5">💙 Baby Boy</span>
+                        <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold" style="background: var(--rose-light); color: var(--rose); border: 2px solid var(--rose-mid)">💗 Baby Girl</span>
+                        <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold" style="background: #FDF0F6; color: #D4608A; border: 2px solid #F9D0E0">👩 For Mom</span>
+                    </div>
+
+                    <a href="/kit-builder.html" id="btn_open_builder"
+                        class="inline-flex items-center gap-3 font-bold px-10 py-4 rounded-2xl text-sm tracking-wide transition hover:opacity-90 shadow-lg"
+                        style="background: var(--ink); color: white; text-decoration: none">
+                        🎨 Open Kit Builder →
+                    </a>
+
+                    <p class="mt-4 text-[11px]" style="color: var(--stone)">COD available · Free exchange within 7 days</p>
                 </div>
 
-                <!-- Item grid -->
-                <div class="p-6 grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 id="txt_baby_heading" class="text-[10px] font-bold tracking-widest uppercase pb-3 mb-4"
-                            style="color: var(--rose); border-bottom: 1px solid var(--rose-mid)">👶 Baby Items</h3>
-                        <div class="space-y-2.5" id="babyItemsContainer"></div>
-                    </div>
-                    <div>
-                        <h3 id="txt_mom_heading" class="text-[10px] font-bold tracking-widest uppercase pb-3 mb-4"
-                            style="color: var(--gold); border-bottom: 1px solid rgba(201,150,42,0.2)">🤰 Mother Items</h3>
-                        <div class="space-y-2.5" id="motherItemsContainer"></div>
-                    </div>
+                <!-- Hidden elements kept for backward-compat JS references -->
+                <div style="display:none">
+                    <div id="babyItemsContainer"></div>
+                    <div id="motherItemsContainer"></div>
+                    <p id="txt_matrix_total"></p>
+                    <p id="liveTotalDisplay"></p>
+                    <span id="txt_theme_select"></span>
+                    <span id="txt_theme_boy"></span>
+                    <span id="txt_theme_girl"></span>
+                    <h3 id="txt_baby_heading"></h3>
+                    <h3 id="txt_mom_heading"></h3>
+                    <button id="btn_checkout_custom"></button>
                 </div>
+            </div>
 
-                <!-- Total + checkout -->
-                <div class="p-5 flex flex-col sm:flex-row items-center justify-between gap-4"
-                    style="background: var(--petal); border-top: 1px solid rgba(232,73,106,0.1)">
-                    <div>
-                        <p id="txt_matrix_total" class="text-[10px] font-bold tracking-wider uppercase" style="color: var(--stone)">Your Total</p>
-                        <p id="liveTotalDisplay" class="font-display text-3xl mt-0.5" style="color: var(--ink)">LKR 0</p>
-                    </div>
-                    <button type="button" id="btn_checkout_custom" onclick="transferCustomItemsToForm()"
-                        class="w-full sm:w-auto font-bold px-8 py-4 rounded-2xl text-sm tracking-wide cursor-pointer transition"
-                        style="background: var(--ink); color: white">
-                        👉 Checkout Custom Selection
-                    </button>
-                </div>
             </div>
         </div>
     </section>

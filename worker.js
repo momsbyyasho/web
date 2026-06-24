@@ -81,10 +81,13 @@ export default {
     }
 
     // -----------------------------
-    // 3. FRONTEND (INDEX.HTML)
+    // 3. FRONTEND PAGES
     // -----------------------------
     if (url.pathname === "/" || url.pathname === "/index.html") {
       return env.ASSETS.fetch(request);
+    }
+    if (url.pathname === "/kit-builder" || url.pathname === "/kit-builder.html") {
+      return env.ASSETS.fetch(new Request(new URL("/kit-builder.html", request.url)));
     }
 
     // -----------------------------

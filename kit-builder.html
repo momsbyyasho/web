@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Own Kit | Mom & Baby Care Sri Lanka</title>
+    <meta name="description" content="Customise your own hospital bag kit. Choose from all baby and mother items. Boy, Girl or Mom theme. Cash on Delivery islandwide.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── CSS Custom Properties ── */
+        :root {
+            /* Default: Mom theme (warm rose gold) */
+            --primary:       #D4608A;
+            --primary-light: #FDF0F6;
+            --primary-mid:   #F9D0E0;
+            --primary-dark:  #A83F67;
+            --accent:        #C9962A;
+            --accent-light:  #FBF4E3;
+            --bg:            #FFF8FB;
+            --ink:           #1A1018;
+            --ink-mid:       #3D2B38;
+            --stone:         #7A6672;
+            --tag-bg:        rgba(212,96,138,0.1);
+            --scrollbar:     #D4608A;
+            --header-emoji:  "👑";
+        }
+
+        /* Boy theme */
+        body.theme-boy {
+            --primary:       #3A8FC8;
+            --primary-light: #EEF6FD;
+            --primary-mid:   #BFE0F5;
+            --primary-dark:  #1F6699;
+            --accent:        #5BB8A8;
+            --accent-light:  #E8F8F5;
+            --bg:            #F5FAFF;
+            --ink:           #0D1B2A;
+            --ink-mid:       #1E3A5F;
+            --stone:         #566F84;
+            --tag-bg:        rgba(58,143,200,0.1);
+            --scrollbar:     #3A8FC8;
+        }
+
+        /* Girl theme */
+        body.theme-girl {
+            --primary:       #E8496A;
+            --primary-light: #FDF0F3;
+            --primary-mid:   #F9D6DE;
+            --primary-dark:  #C53058;
+            --accent:        #F0A0C0;
+            --accent-light:  #FFF0F6;
+            --bg:            #FFF8FA;
+            --ink:           #1A1018;
+            --ink-mid:       #3D2B38;
+            --stone:         #7A6672;
+            --tag-bg:        rgba(232,73,106,0.1);
+            --scrollbar:     #E8496A;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.35s ease, color 0.2s ease;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 99px; }
+
+        .font-display { font-family: 'DM Serif Display', serif; }
+
+        /* ── Navigation ── */
+        .nav-glass {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--primary-mid);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            transition: border-color 0.35s;
+        }
+
+        /* ── Theme switcher pills ── */
+        .theme-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 99px;
+            border: 2px solid transparent;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            background: white;
+            letter-spacing: 0.02em;
+        }
+        .theme-pill.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .theme-pill:not(.active) {
+            color: var(--stone);
+            border-color: var(--primary-mid);
+        }
+        .theme-pill:not(.active):hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* ── Category tabs ── */
+        .cat-tab {
+            padding: 8px 18px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid var(--primary-mid);
+            background: white;
+            color: var(--stone);
+            white-space: nowrap;
+        }
+        .cat-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ── Product card ── */
+        .product-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            cursor: default;
+            position: relative;
+        }
+        .product-card:hover {
+            border-color: var(--primary-mid);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+            transform: translateY(-1px);
+        }
+        .product-card.has-qty {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            transition: background 0.35s;
+        }
+
+        /* ── Stepper ── */
+        .stepper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .stepper-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-mid);
+            background: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            color: var(--stone);
+            flex-shrink: 0;
+        }
+        .stepper-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .stepper-btn.add {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        .stepper-btn.add:hover { background: var(--primary-dark); }
+        .stepper-btn:active { transform: scale(0.9); }
+        .stepper-count {
+            min-width: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--ink);
+        }
+
+        /* ── Qty badge on card ── */
+        .qty-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+        }
+        .qty-badge.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Sticky cart bar ── */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: var(--ink);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 -8px 32px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background 0.35s;
+        }
+        .cart-bar.hidden-bar {
+            transform: translateY(100%);
+        }
+
+        .checkout-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .checkout-btn:hover { background: var(--primary-dark); transform: scale(1.02); }
+
+        /* ── Section header ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-mid);
+            margin-bottom: 16px;
+            transition: border-color 0.35s;
+        }
+        .section-header-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* ── Premium stripe ── */
+        .premium-stripe {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        /* ── Chat ── */
+        .chat-popup {
+            animation: chatSlideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        }
+        @keyframes chatSlideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .bubble-msg {
+            animation: bubbleIn 0.2s ease forwards;
+        }
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chat-bg {
+            background-color: #f5f1f0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8d5d9' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+        .chat-trigger {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+        .chat-trigger:hover { transform: scale(1.06); }
+
+        /* ── Modal ── */
+        .modal-backdrop {
+            background: rgba(26,16,24,0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            animation: fadeIn 0.4s ease both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Hero banner ── */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+            border-bottom: 1px solid var(--primary-mid);
+            transition: background 0.35s, border-color 0.35s;
+        }
+
+        /* ── Select ── */
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 28px !important;
+        }
+
+        /* ── Item count chip ── */
+        .item-count-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--primary);
+            color: white;
+            border-radius: 99px;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* ── Tabs scroll ── */
+        .tabs-scroll {
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tabs-scroll::-webkit-scrollbar { display: none; }
+
+        /* ── Grid ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        @media (max-width: 640px) {
+            .products-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── Price tag ── */
+        .price-tag {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            transition: color 0.35s;
+        }
+        .price-unit { font-size: 10px; font-weight: 500; color: var(--stone); }
+
+        /* Transition all theme-dependent colors */
+        .product-card, .section-header, .cat-tab, .stepper-btn,
+        .price-tag, .product-icon, .checkout-btn {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="theme-mom">
+
+    <!-- ══════════════ NAVIGATION ══════════════ -->
+    <header class="nav-glass">
+        <div style="max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+
+            <!-- Back + Logo -->
+            <div style="display:flex; align-items:center; gap:12px">
+                <a href="/" style="display:flex; align-items:center; gap:6px; text-decoration:none; font-size:12px; font-weight:600; color:var(--stone); border:1px solid var(--primary-mid); border-radius:10px; padding:6px 12px; background:white; transition:all 0.2s" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='var(--primary-mid)';this.style.color='var(--stone)'">
+                    ← Back
+                </a>
+                <div style="display:flex; align-items:center; gap:10px">
+                    <div class="premium-stripe" style="width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
+                        <span style="color:white; font-size:16px">👑</span>
+                    </div>
+                    <div>
+                        <div class="font-display" style="font-size:17px; color:var(--ink); line-height:1">Mom & Baby</div>
+                        <div style="font-size:10px; color:var(--stone); font-weight:500; letter-spacing:0.05em">Build Your Own Kit</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Lang + COD -->
+            <div style="display:flex; align-items:center; gap:10px">
+                <div style="display:none; align-items:center; gap:6px; background:white; border:1px solid rgba(0,0,0,0.08); border-radius:99px; padding:6px 12px; font-size:10px; font-weight:600; color:var(--stone)" id="cod-pill" class="sm:flex">
+                    <span class="pulse-dot" style="width:8px; height:8px; border-radius:50%; background:#22c55e; display:inline-block"></span>
+                    COD Available
+                </div>
+                <select id="langSelector" onchange="switchLang(this.value)"
+                    style="border:1px solid var(--primary-mid); border-radius:12px; padding:7px 28px 7px 12px; font-size:12px; font-weight:600; color:var(--primary); background:white; cursor:pointer; font-family:inherit; outline:none">
+                    <option value="si">සිංහල</option>
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ்</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════════ HERO BANNER ══════════════ -->
+    <div class="hero-banner" style="padding: 32px 20px 28px">
+        <div style="max-width:1200px; margin:0 auto">
+            <!-- Theme switcher — the centrepiece -->
+            <div style="text-align:center; margin-bottom:24px">
+                <p id="txt_theme_label" style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--stone); margin-bottom:14px">
+                    Choose Your Profile
+                </p>
+                <div style="display:inline-flex; gap:10px; background:white; border-radius:99px; padding:6px; box-shadow:0 4px 20px rgba(0,0,0,0.08); flex-wrap:wrap; justify-content:center">
+                    <button class="theme-pill active" id="pill-mom" onclick="applyTheme('mom')" style="--tw-ring-color: #D4608A">
+                        <span style="font-size:16px">👩</span>
+                        <span id="txt_pill_mom">For Mom</span>
+                    </button>
+                    <button class="theme-pill" id="pill-boy" onclick="applyTheme('boy')">
+                        <span style="font-size:16px">💙</span>
+                        <span id="txt_pill_boy">Baby Boy</span>
+                    </button>
+                    <button class="theme-pill" id="pill-girl" onclick="applyTheme('girl')">
+                        <span style="font-size:16px">💗</span>
+                        <span id="txt_pill_girl">Baby Girl</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div style="text-align:center">
+                <h1 id="txt_page_title" class="font-display fade-in" style="font-size:clamp(28px, 5vw, 42px); color:var(--ink); margin-bottom:8px">
+                    Build Your Own Kit
+                </h1>
+                <p id="txt_page_desc" style="font-size:14px; color:var(--stone); max-width:460px; margin:0 auto; line-height:1.6">
+                    Pick exactly what you need. Every item — nothing missed.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ MAIN CONTENT ══════════════ -->
+    <div style="max-width:1200px; margin:0 auto; padding:28px 20px 120px">
+
+        <!-- Category filter tabs -->
+        <div class="tabs-scroll" style="margin-bottom:24px">
+            <div style="display:flex; gap:8px; padding-bottom:4px">
+                <button class="cat-tab active" id="tab-all" onclick="filterCategory('all')" data-label-si="සියල්ල" data-label-en="All Items" data-label-ta="அனைத்தும்">All Items</button>
+                <button class="cat-tab" id="tab-baby-clothing" onclick="filterCategory('baby-clothing')" data-label-si="බබා ඇඳුම්" data-label-en="Baby Clothing" data-label-ta="குழந்தை ஆடை">Baby Clothing</button>
+                <button class="cat-tab" id="tab-baby-accessories" onclick="filterCategory('baby-accessories')" data-label-si="බබා ද්‍රව්‍ය" data-label-en="Baby Accessories" data-label-ta="குழந்தை பொருட்கள்">Baby Accessories</button>
+                <button class="cat-tab" id="tab-baby-care" onclick="filterCategory('baby-care')" data-label-si="බබා සත්කාර" data-label-en="Baby Care" data-label-ta="குழந்தை பராமரிப்பு">Baby Care</button>
+                <button class="cat-tab" id="tab-mom-clothing" onclick="filterCategory('mom-clothing')" data-label-si="අම්මා ඇඳුම්" data-label-en="Mom Clothing" data-label-ta="தாய் ஆடை">Mom Clothing</button>
+                <button class="cat-tab" id="tab-mom-care" onclick="filterCategory('mom-care')" data-label-si="අම්මා සත්කාර" data-label-en="Mom Care" data-label-ta="தாய் பராமரிப்பு">Mom Care</button>
+            </div>
+        </div>
+
+        <!-- Baby Items Section -->
+        <div id="section-baby" style="margin-bottom:36px">
+            <div class="section-header">
+                <div class="section-header-icon">👶</div>
+                <div>
+                    <h2 id="txt_baby_heading" style="font-size:16px; font-weight:700; color:var(--ink)">Baby Items</h2>
+                    <p id="txt_baby_sub" style="font-size:11px; color:var(--stone); margin-top:1px">Newborn essentials — 100% pure cotton</p>
+                </div>
+            </div>
+            <div class="products-grid" id="baby-grid"></div>
+        </div>
+
+        <!-- Mom Items Section -->
+        <div id="section-mom" style="margin-bottom:36px">
+            <div class="section-header">
+                <div class="section-header-icon">🤰</div>
+                <div>
+                    <h2 id="txt_mom_heading" style="font-size:16px; font-weight:700; color:var(--ink)">Mother Items</h2>
+                    <p id="txt_mom_sub" style="font-size:11px; color:var(--stone); margin-top:1px">Maternity & postnatal care essentials</p>
+                </div>
+            </div>
+            <div class="products-grid" id="mom-grid"></div>
+        </div>
+
+    </div>
+
+    <!-- ══════════════ STICKY CART BAR ══════════════ -->
+    <div class="cart-bar hidden-bar" id="cartBar">
+        <div>
+            <div style="font-size:11px; font-weight:600; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px" id="txt_cart_label">Your Kit</div>
+            <div class="font-display" style="font-size:24px; color:white" id="cartTotal">LKR 0</div>
+            <div style="font-size:10px; color:rgba(255,255,255,0.45); margin-top:1px" id="cartItemCount">0 items selected</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px">
+            <button onclick="clearAll()" style="font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); background:none; border:none; cursor:pointer; padding:8px" id="btn_clear">Clear</button>
+            <button class="checkout-btn" onclick="initiateCheckout()" id="btn_checkout">👉 Checkout</button>
+        </div>
+    </div>
+
+    <!-- ══════════════ FLOATING CHAT ══════════════ -->
+    <div style="position:fixed; bottom:90px; right:20px; z-index:49; display:flex; flex-direction:column; align-items:flex-end; gap:12px" id="chatWrapper">
+        <!-- Chat window -->
+        <div id="chatBubbleWindow" class="hidden chat-popup" style="width:340px; height:500px; background:white; border-radius:24px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 16px 48px rgba(0,0,0,0.18); border:1px solid var(--primary-mid)">
+            <div style="padding:14px 16px; display:flex; align-items:center; justify-content:space-between; background:var(--ink)">
+                <div style="display:flex; align-items:center; gap:10px">
+                    <div style="position:relative">
+                        <div class="premium-stripe" style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:14px">👑</div>
+                        <span style="position:absolute; bottom:0; right:0; width:10px; height:10px; background:#22c55e; border-radius:50%; border:2px solid var(--ink)"></span>
+                    </div>
+                    <div>
+                        <div id="txt_chat_header" style="color:white; font-weight:700; font-size:12px">Mom & Baby Support</div>
+                        <div id="txt_chat_sub" style="color:rgba(255,255,255,0.4); font-size:10px">Online now</div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" style="width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,0.1); border:none; color:rgba(255,255,255,0.6); cursor:pointer; font-size:12px; display:flex; align-items:center; justify-content:center">✕</button>
+            </div>
+            <div id="chatMessages" class="chat-bg" style="flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px"></div>
+            <div id="chatInputWrap" style="padding:10px 12px; background:white; border-top:1px solid var(--primary-mid); display:flex; gap:8px">
+                <input id="chatInput" type="text" placeholder="Type a message..."
+                    style="flex:1; border:1px solid var(--primary-mid); border-radius:16px; padding:9px 14px; font-size:12px; outline:none; font-family:inherit; background:var(--bg); color:var(--ink)"
+                    onkeydown="if(event.key==='Enter')handleChat()">
+                <button onclick="handleChat()" id="btn_chat_send" style="background:var(--primary); color:white; border:none; border-radius:12px; padding:9px 16px; font-size:12px; font-weight:700; cursor:pointer">Send</button>
+            </div>
+        </div>
+        <!-- Trigger -->
+        <button onclick="toggleChat()" class="chat-trigger" style="width:54px; height:54px; border-radius:50%; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center">
+            <svg style="width:22px; height:22px; fill:white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+        </button>
+    </div>
+
+    <!-- ══════════════ SUCCESS MODAL ══════════════ -->
+    <div id="successModal" class="hidden modal-backdrop" style="position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center; padding:20px">
+        <div class="chat-popup" style="background:white; border-radius:24px; padding:36px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 24px 64px rgba(0,0,0,0.2)">
+            <div class="premium-stripe" style="width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 16px">🎉</div>
+            <h3 id="txt_modal_title" class="font-display" style="font-size:22px; color:var(--ink); margin-bottom:8px">Order Confirmed!</h3>
+            <p id="txt_modal_desc" style="font-size:13px; color:var(--stone); line-height:1.6; margin-bottom:24px">We've received your order. Our team will contact you soon.</p>
+            <button id="btn_modal_close" onclick="document.getElementById('successModal').classList.add('hidden'); resetChat()"
+                style="width:100%; background:var(--ink); color:white; border:none; padding:14px; border-radius:14px; font-weight:700; font-size:14px; cursor:pointer">Done</button>
+        </div>
+    </div>
+
+    <!-- ══════════════ JS ══════════════ -->
+    <script>
+        const WORKER_URL = 'https://babycare-backend-api.tbmsaranga.workers.dev';
+        let currentLang = 'si';
+        let currentTheme = 'mom';
+        let currentCategory = 'all';
+        let chatStep = 0;
+        let chatIntentMode = 'qna';
+        let basePriceInt = 0, orderPayload = '', orderTotalStr = '';
+        let customerName = '', customerPhone = '', customerDistrict = '', customerAddress = '';
+
+        // ─── ALL PRODUCTS ───────────────────────────────────────────────────
+        const products = [
+            // ── Baby Clothing ──
+            { id: 'b_shirt',       category: 'baby-clothing',    price: 350,  emoji: '👕', en: 'Cotton Baby Shirts',        si: 'කපු Baby Shirts',           ta: 'பருத்தி Baby Shirts',         note_en: '100% pure cotton, pre-washed',           note_si: '100% කපු, සෝදා ඇත',           note_ta: '100% பருத்தி, துவைக்கப்பட்டது' },
+            { id: 'b_vest',        category: 'baby-clothing',    price: 280,  emoji: '🧸', en: 'Baby Vests (Banian)',        si: 'Baby Vests (Banian)',        ta: 'Baby Vests (Banian)',          note_en: 'Soft cotton inner vests',                note_si: 'මෘදු කපු inner vest',          note_ta: 'மென் பருத்தி உள்ளாடை' },
+            { id: 'b_trouser',     category: 'baby-clothing',    price: 300,  emoji: '👖', en: 'Baby Trousers / Drawers',    si: 'Baby Trousers / Drawers',    ta: 'Baby Trousers / Drawers',      note_en: 'Elastic waist, soft cotton',             note_si: 'Elastic허리, මෘදු කපු',         note_ta: 'மென் பருத்தி கால்சட்டை' },
+            { id: 'b_sleepsuit',   category: 'baby-clothing',    price: 420,  emoji: '🌙', en: 'Baby Sleep Suits',           si: 'Baby Sleep Suits',           ta: 'Baby Sleep Suits',             note_en: 'Full-body snap-button cotton suits',      note_si: 'Button snap full-body suit',   note_ta: 'முழு உடல் பட்டன் கொசு' },
+            { id: 'b_romper',      category: 'baby-clothing',    price: 380,  emoji: '🎀', en: 'Baby Rompers',               si: 'Baby Rompers',               ta: 'Baby Rompers',                 note_en: 'One-piece cotton onesie',                note_si: 'One-piece කපු onesie',          note_ta: 'ஒரே துண்டு கோட்டன் ரோம்பர்' },
+            { id: 'b_frock',       category: 'baby-clothing',    price: 450,  emoji: '👗', en: 'Baby Frocks (Girl)',          si: 'Baby Frocks (ගැහැණු)',       ta: 'Baby Frocks (பெண்)',           note_en: 'Soft cotton frocks for baby girls',      note_si: 'Girls සඳහා කපු frocks',        note_ta: 'பெண் குழந்தை ஃப்ராக்' },
+            { id: 'b_socks',       category: 'baby-clothing',    price: 180,  emoji: '🧦', en: 'Baby Socks',                 si: 'Baby Socks',                 ta: 'Baby Socks',                   note_en: 'Anti-slip cotton socks',                 note_si: 'Anti-slip කපු socks',           note_ta: 'பருத்தி குழந்தை சாக்ஸ்' },
+
+            // ── Baby Accessories ──
+            { id: 'b_cap',         category: 'baby-accessories', price: 150,  emoji: '🎩', en: 'Baby Caps',                  si: 'Baby Caps',                  ta: 'Baby Caps',                    note_en: 'Soft cotton hospital caps',              note_si: 'රෝහල් කපු caps',               note_ta: 'மென் பருத்தி தொப்பி' },
+            { id: 'b_mittens',     category: 'baby-accessories', price: 130,  emoji: '🧤', en: 'Baby Mittens',               si: 'Baby Mittens',               ta: 'Baby Mittens',                 note_en: 'Scratch-proof soft mittens',             note_si: 'Scratch-proof mittens',         note_ta: 'கீறல் தடுப்பு கையுறை' },
+            { id: 'b_booties',     category: 'baby-accessories', price: 130,  emoji: '👟', en: 'Baby Booties',               si: 'Baby Booties',               ta: 'Baby Booties',                 note_en: 'Warm cotton foot covers',                note_si: 'Warm foot covers',              note_ta: 'மென் காலணி உறை' },
+            { id: 'b_swaddle',     category: 'baby-accessories', price: 650,  emoji: '🌿', en: 'Swaddle Wraps',              si: 'Swaddle Wraps',              ta: 'Swaddle Wraps',                note_en: 'Muslin cotton swaddle blankets',          note_si: 'Muslin කපු swaddle blankets',  note_ta: 'மஸ்லின் சுடர் போர்வை' },
+            { id: 'b_blanket',     category: 'baby-accessories', price: 750,  emoji: '🛏️', en: 'Baby Blankets',              si: 'Baby Blankets',              ta: 'Baby Blankets',                note_en: 'Soft double-layer cotton blanket',       note_si: 'Double-layer blanket',          note_ta: 'இரட்டை அடுக்கு போர்வை' },
+            { id: 'b_hooded_towel',category: 'baby-accessories', price: 550,  emoji: '🦊', en: 'Hooded Towels',              si: 'Hooded Towels',              ta: 'Hooded Towels',                note_en: 'Soft cotton hooded bath towels',         note_si: 'Hood සහිත bath towels',         note_ta: 'ஹுட் குளியல் துண்டு' },
+            { id: 'b_facecloth',   category: 'baby-accessories', price: 120,  emoji: '🫧', en: 'Baby Face Cloths',           si: 'Baby Face Cloths',           ta: 'Baby Face Cloths',             note_en: 'Ultra-soft muslin face cloths',          note_si: 'Muslin face cloths',            note_ta: 'மஸ்லின் முகத் துண்டு' },
+            { id: 'b_bib',         category: 'baby-accessories', price: 160,  emoji: '🍼', en: 'Baby Bibs',                  si: 'Baby Bibs',                  ta: 'Baby Bibs',                    note_en: 'Waterproof cotton-lined bibs',           note_si: 'Waterproof bibs',               note_ta: 'கொட்டு துண்டு' },
+
+            // ── Baby Care ──
+            { id: 'b_nappy',       category: 'baby-care',        price: 250,  emoji: '🌼', en: 'Cotton Nappies',             si: 'Cotton Nappies',             ta: 'Cotton Nappies',               note_en: 'Double-layer reusable cotton nappies',   note_si: 'Double-layer nappies',          note_ta: 'டபுள் அடுக்கு நாப்பி' },
+            { id: 'b_nappy_liner', category: 'baby-care',        price: 200,  emoji: '🧻', en: 'Nappy Liners',               si: 'Nappy Liners',               ta: 'Nappy Liners',                 note_en: 'Biodegradable disposable liners',        note_si: 'Biodegradable liners',          note_ta: 'பயோடிக்ரேடபிள் லைனர்' },
+            { id: 'b_diaper_bag',  category: 'baby-care',        price: 850,  emoji: '🎒', en: 'Diaper / Nappy Bag',         si: 'Nappy Bag',                  ta: 'Nappy Bag',                    note_en: 'Multi-pocket waterproof changing bag',   note_si: 'Waterproof changing bag',       note_ta: 'வாட்டர்ப்ரூஃப் ஸ்லிங் பேக்' },
+            { id: 'b_changing_mat',category: 'baby-care',        price: 480,  emoji: '🛁', en: 'Baby Changing Mat',          si: 'Baby Changing Mat',          ta: 'Baby Changing Mat',            note_en: 'Waterproof wipe-clean changing mat',     note_si: 'Waterproof changing mat',       note_ta: 'வாட்டர்ப்ரூஃப் மாற்று மேடை' },
+            { id: 'b_mosquito',    category: 'baby-care',        price: 350,  emoji: '🦟', en: 'Mosquito Net (Crib)',         si: 'Mosquito Net (Cot)',         ta: 'Mosquito Net (தொட்டில்)',      note_en: 'Fine mesh crib mosquito net',            note_si: 'Fine mesh cot net',             note_ta: 'நுண்ணிய கொசு வலை' },
+            { id: 'b_bath_tub',    category: 'baby-care',        price: 950,  emoji: '🛁', en: 'Newborn Bath Tub',           si: 'Newborn Bath Tub',           ta: 'Newborn Bath Tub',             note_en: 'Anti-slip baby bath tub with insert',    note_si: 'Anti-slip bath tub',            note_ta: 'அலுக்கு தடுப்பு குளியல் தொட்டி' },
+            { id: 'b_feeding_pillow',category:'baby-care',       price: 1200, emoji: '🌙', en: 'Nursing / Feeding Pillow',   si: 'Nursing Pillow',             ta: 'Nursing Pillow',               note_en: 'C-shaped ergonomic nursing pillow',      note_si: 'C-shape nursing pillow',        note_ta: 'C-வடிவ தாய்ப்பால் தலையணை' },
+
+            // ── Mom Clothing ──
+            { id: 'm_frock',       category: 'mom-clothing',     price: 1850, emoji: '👗', en: 'Maternity Frocks',           si: 'Maternity Frocks',           ta: 'Maternity Frocks',             note_en: 'Loose-fit cotton maternity frocks',      note_si: 'Loose-fit maternity frocks',    note_ta: 'தளர்வான பருத்தி கர்ப்பகால ஃப்ராக்' },
+            { id: 'm_nightdress',  category: 'mom-clothing',     price: 1600, emoji: '🌙', en: 'Maternity Nightdress',       si: 'Maternity Nightdress',       ta: 'Maternity Nightdress',         note_en: 'Hospital-friendly feeding nightdress',   note_si: 'Feeding-friendly nightdress',   note_ta: 'தாய்ப்பால் நைட் டிரஸ்' },
+            { id: 'm_bra',         category: 'mom-clothing',     price: 900,  emoji: '🩱', en: 'Nursing Bra',                si: 'Nursing Bra',                ta: 'Nursing Bra',                  note_en: 'Clip-down nursing & maternity bra',      note_si: 'Clip-down nursing bra',         note_ta: 'கிளிப் நர்சிங் பிரா' },
+            { id: 'm_underpants',  category: 'mom-clothing',     price: 350,  emoji: '🩲', en: 'Maternity Underpants',       si: 'Maternity Underpants',       ta: 'Maternity Underpants',         note_en: 'High-waist post-natal cotton underpants',note_si: 'High-waist cotton underpants',  note_ta: 'உயர் இடுப்பு கர்ப்பகால உள்ளாடை' },
+            { id: 'm_abdominal',   category: 'mom-clothing',     price: 1200, emoji: '🎀', en: 'Abdominal Binder / Belt',    si: 'Abdominal Binder',           ta: 'Abdominal Binder',             note_en: 'Post-delivery belly support belt',       note_si: 'Post-delivery belly belt',      note_ta: 'டெலிவரிக்கு பின் வயிற்று பட்டி' },
+
+            // ── Mom Care ──
+            { id: 'm_pads',        category: 'mom-care',         price: 450,  emoji: '🌸', en: 'Maternity Pads',             si: 'Maternity Pads',             ta: 'Maternity Pads',               note_en: 'Super-absorbent post-natal pads',        note_si: 'Post-natal pads',               note_ta: 'சூப்பர் அப்சார்பன்ட் மேட்டர்னிட்டி' },
+            { id: 'm_breast_pads', category: 'mom-care',         price: 280,  emoji: '🌿', en: 'Breast / Nursing Pads',      si: 'Breast Pads',                ta: 'Breast Pads',                  note_en: 'Reusable cotton nursing pads',           note_si: 'Reusable cotton breast pads',   note_ta: 'மீண்டும் பயன்படுத்தக்கூடிய நர்சிங் பேட்' },
+            { id: 'm_nipple_cream',category: 'mom-care',         price: 380,  emoji: '🧴', en: 'Nipple Cream / Balm',        si: 'Nipple Cream',               ta: 'Nipple Cream',                 note_en: 'Lanolin-free soothing nipple balm',      note_si: 'Soothing nipple balm',          note_ta: 'ஆற்றல் தரும் நிப்பிள் க்ரீம்' },
+            { id: 'm_sitz_pack',   category: 'mom-care',         price: 550,  emoji: '🌡️', en: 'Perineal / Sitz Care Pack',  si: 'Perineal Care Pack',         ta: 'Perineal Care Pack',           note_en: 'Post-delivery sitz wash & cooling pads', note_si: 'Post-delivery sitz pack',       note_ta: 'டெலிவரிக்கு பின் குளியல் பராமரிப்பு' },
+            { id: 'm_toiletry_bag',category: 'mom-care',         price: 480,  emoji: '🧳', en: 'Hospital Toiletry Bag',      si: 'Hospital Toiletry Bag',      ta: 'Hospital Toiletry Bag',        note_en: 'Compact toiletry bag for hospital stay', note_si: 'Hospital stay toiletry bag',    note_ta: 'மருத்துவமனை தாய்ப்பால் பேக்' },
+            { id: 'm_towel',       category: 'mom-care',         price: 650,  emoji: '🛁', en: 'Cotton Towels (Mom)',         si: 'Mom Cotton Towels',          ta: 'Mom Cotton Towels',            note_en: 'Soft cotton bath towels for mom',        note_si: 'Mom bath towels',               note_ta: 'தாய்க்கான பருத்தி குளியல் துண்டு' },
+            { id: 'm_pillow',      category: 'mom-care',         price: 950,  emoji: '🛏️', en: 'Mom Hospital Pillow',        si: 'Mom Hospital Pillow',        ta: 'Mom Hospital Pillow',          note_en: 'Comfort pillow for hospital bed',        note_si: 'Hospital bed pillow',           note_ta: 'மருத்துவமனை தலையணை' },
+            { id: 'm_slip',        category: 'mom-care',         price: 320,  emoji: '🧘', en: 'Non-Slip Hospital Slippers', si: 'Non-Slip Slippers',          ta: 'Non-Slip Slippers',            note_en: 'Anti-slip cotton hospital slippers',     note_si: 'Anti-slip hospital slippers',   note_ta: 'அலுக்காத மருத்துவமனை செருப்பு' },
+        ];
+
+        // ─── STATE ─────────────────────────────────────────────────────────
+        const qtys = {};
+        products.forEach(p => qtys[p.id] = 0);
+
+        const deliveryFees = {
+            "Colombo": 350, "Gampaha": 400, "Kalutara": 450,
+            "Kandy": 500, "Matale": 500, "Galle": 500, "Matara": 500,
+            "Hambantota": 550, "Jaffna": 650, "Trincomalee": 600,
+            "Batticaloa": 600, "Kurunegala": 500, "Puttalam": 550,
+            "Anuradhapura": 550, "Polonnaruwa": 600, "Badulla": 600,
+            "Nuwara Eliya": 550, "Ratnapura": 500, "Kegalle": 500,
+            "Ampara": 650, "Mannar": 700, "Vavuniya": 650,
+            "Mullaitivu": 700, "Kilinochchi": 700, "Monaragala": 600
+        };
+
+        // ─── DICTIONARY ────────────────────────────────────────────────────
+        const dict = {
+            si: {
+                theme_label: 'ඔබේ Profile තෝරන්න',
+                pill_mom: 'අම්මා සඳහා',
+                pill_boy: 'පිරිමි බබා',
+                pill_girl: 'ගැහැණු බබා',
+                page_title: 'ඔබේම Kit එක සාදාගන්න',
+                page_desc: 'ඔබට අවශ්‍ය සෑම දෙයක්ම — එකක්වත්빠skip නොකර.',
+                baby_heading: 'බබාගේ දෑ',
+                baby_sub: 'අලුත් ලේදරු essentials — 100% කපු',
+                mom_heading: 'අම්මාගේ දෑ',
+                mom_sub: 'Maternity & postnatal care essentials',
+                cart_label: 'ඔබේ Kit',
+                btn_clear: 'ඉවත් කරන්න',
+                btn_checkout: '👉 ඇණවුම් කරන්න',
+                items_count: (n) => `${n} item${n!==1?'s':''} selected`,
+                chat_header: 'Mom & Baby සහාය',
+                chat_sub: 'Online දැන්',
+                chat_send: 'යවන්න',
+                chat_placeholder: 'පණිවිඩය ඇතුළු කරන්න...',
+                chat_welcome: '👋 ආයුබෝවන්! Items select කිරීමෙන් checkout ආරම්භ වේ.',
+                ask_name: '🙋‍♀️ ඔබගේ <strong>සම්පූර්ණ නම</strong> කුමක්ද?',
+                ask_phone: '📱 ඔබගේ <strong>දුරකථන අංකය</strong> (ඉලක්කම් 10)?',
+                ask_phone_err: '⚠️ 0ෙන් ආරම්භ වන ඉලක්කම් 10ක් ඇතුළු කරන්න.',
+                ask_district: '📍 Delivery දිස්ත්‍රික්කය:',
+                ask_address: '🏠 ඔබගේ <strong>නිවසේ ලිපිනය</strong>:',
+                confirm_title: '📝 <strong>ඇණවුම තහවුරු කරන්න:</strong>',
+                place_order: 'ඇණවුම් කරන්න (COD) 🚚',
+                delivery_lbl: 'Delivery',
+                total_lbl: 'මුළු',
+                modal_title: 'ඇණවුම සාර්ථකයි! 🎉',
+                modal_desc: 'ඔබගේ ඇණවුම ලැබුණා. ඉක්මනින් සම්බන්ධ කරගනු ඇත.',
+                modal_close: 'හරි',
+            },
+            en: {
+                theme_label: 'Choose Your Profile',
+                pill_mom: 'For Mom',
+                pill_boy: 'Baby Boy',
+                pill_girl: 'Baby Girl',
+                page_title: 'Build Your Own Kit',
+                page_desc: 'Pick exactly what you need. Every item — nothing missed.',
+                baby_heading: 'Baby Items',
+                baby_sub: 'Newborn essentials — 100% pure cotton',
+                mom_heading: 'Mother Items',
+                mom_sub: 'Maternity & postnatal care essentials',
+                cart_label: 'Your Kit',
+                btn_clear: 'Clear',
+                btn_checkout: '👉 Checkout',
+                items_count: (n) => `${n} item${n!==1?'s':''} selected`,
+                chat_header: 'Mom & Baby Support',
+                chat_sub: 'Online now',
+                chat_send: 'Send',
+                chat_placeholder: 'Type a message...',
+                chat_welcome: '👋 Hi! Select items from above. Checkout starts when you\'re ready.',
+                ask_name: '🙋‍♀️ What is your <strong>full name</strong>?',
+                ask_phone: '📱 Your <strong>mobile number</strong>? (10 digits)',
+                ask_phone_err: '⚠️ Please enter a valid 10-digit number starting with 0.',
+                ask_district: '📍 Choose your delivery district:',
+                ask_address: '🏠 Your <strong>full home address</strong>?',
+                confirm_title: '📝 <strong>Confirm your order:</strong>',
+                place_order: 'Place Order (COD) 🚚',
+                delivery_lbl: 'Delivery',
+                total_lbl: 'Total',
+                modal_title: 'Order Confirmed! 🎉',
+                modal_desc: 'We\'ve received your order. Our team will contact you shortly.',
+                modal_close: 'Done',
+            },
+            ta: {
+                theme_label: 'உங்கள் Profile தேர்வு செய்யவும்',
+                pill_mom: 'தாய்க்காக',
+                pill_boy: 'ஆண் குழந்தை',
+                pill_girl: 'பெண் குழந்தை',
+                page_title: 'உங்கள் சொந்த Kit உருவாக்குங்கள்',
+                page_desc: 'தேவையான பொருட்களை தேர்வு செய்யுங்கள். எதுவும் விடாதீர்கள்.',
+                baby_heading: 'குழந்தை பொருட்கள்',
+                baby_sub: 'புதிய குழந்தை essentials — 100% பருத்தி',
+                mom_heading: 'தாய் பொருட்கள்',
+                mom_sub: 'கர்ப்பகால & பிரசவத்திற்கு பிந்தைய பராமரிப்பு',
+                cart_label: 'உங்கள் Kit',
+                btn_clear: 'நீக்கு',
+                btn_checkout: '👉 ஆர்டர் செய்யுங்கள்',
+                items_count: (n) => `${n} பொருட்கள் தேர்ந்தெடுக்கப்பட்டன`,
+                chat_header: 'Mom & Baby உதவி',
+                chat_sub: 'இப்போது Online',
+                chat_send: 'அனுப்பு',
+                chat_placeholder: 'செய்தி தட்டச்சு செய்யவும்...',
+                chat_welcome: '👋 வணக்கம்! பொருட்களை தேர்வு செய்யுங்கள். Checkout தானாக தொடங்கும்.',
+                ask_name: '🙋‍♀️ உங்கள் <strong>முழு பெயர்</strong>?',
+                ask_phone: '📱 உங்கள் <strong>தொலைபேசி எண்</strong>? (10 இலக்கங்கள்)',
+                ask_phone_err: '⚠️ 0 இல் தொடங்கும் 10 இலக்க எண்ணை உள்ளிடவும்.',
+                ask_district: '📍 டெலிவரி மாவட்டம்:',
+                ask_address: '🏠 உங்கள் <strong>வீட்டு முகவரி</strong>?',
+                confirm_title: '📝 <strong>ஆர்டர் உறுதிப்படுத்தல்:</strong>',
+                place_order: 'ஆர்டர் செய்யுங்கள் (COD) 🚚',
+                delivery_lbl: 'டெலிவரி',
+                total_lbl: 'மொத்தம்',
+                modal_title: 'ஆர்டர் உறுதியானது! 🎉',
+                modal_desc: 'உங்கள் ஆர்டர் கிடைத்தது. எங்கள் குழு விரைவில் தொடர்பு கொள்வார்கள்.',
+                modal_close: 'சரி',
+            }
+        };
+
+        // ─── THEME ─────────────────────────────────────────────────────────
+        function applyTheme(theme) {
+            currentTheme = theme;
+            document.body.className = `theme-${theme}`;
+            ['mom','boy','girl'].forEach(t => {
+                const pill = document.getElementById(`pill-${t}`);
+                if (pill) pill.classList.toggle('active', t === theme);
+            });
+            renderAllProducts();
+            updateCartBar();
+        }
+
+        // ─── LANG ──────────────────────────────────────────────────────────
+        function switchLang(lang) {
+            currentLang = lang;
+            const t = dict[lang];
+            document.getElementById('txt_theme_label').textContent = t.theme_label;
+            document.getElementById('txt_pill_mom').textContent = t.pill_mom;
+            document.getElementById('txt_pill_boy').textContent = t.pill_boy;
+            document.getElementById('txt_pill_girl').textContent = t.pill_girl;
+            document.getElementById('txt_page_title').textContent = t.page_title;
+            document.getElementById('txt_page_desc').textContent = t.page_desc;
+            document.getElementById('txt_baby_heading').textContent = t.baby_heading;
+            document.getElementById('txt_baby_sub').textContent = t.baby_sub;
+            document.getElementById('txt_mom_heading').textContent = t.mom_heading;
+            document.getElementById('txt_mom_sub').textContent = t.mom_sub;
+            document.getElementById('txt_cart_label').textContent = t.cart_label;
+            document.getElementById('btn_clear').textContent = t.btn_clear;
+            document.getElementById('btn_checkout').innerHTML = t.btn_checkout;
+            document.getElementById('txt_chat_header').textContent = t.chat_header;
+            document.getElementById('txt_chat_sub').textContent = t.chat_sub;
+            document.getElementById('btn_chat_send').textContent = t.chat_send;
+            document.getElementById('chatInput').placeholder = t.chat_placeholder;
+            document.getElementById('txt_modal_title').textContent = t.modal_title;
+            document.getElementById('txt_modal_desc').textContent = t.modal_desc;
+            document.getElementById('btn_modal_close').textContent = t.modal_close;
+            // Tab labels
+            document.querySelectorAll('.cat-tab').forEach(tab => {
+                const lbl = tab.dataset[`label${lang.charAt(0).toUpperCase()+lang.slice(1)}`];
+                if (lbl) tab.textContent = lbl;
+            });
+            renderAllProducts();
+            updateCartBar();
+        }
+
+        // ─── CATEGORY FILTER ───────────────────────────────────────────────
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`tab-${cat}`).classList.add('active');
+            // Show/hide sections
+            const babyCategories = ['baby-clothing','baby-accessories','baby-care'];
+            const momCategories  = ['mom-clothing','mom-care'];
+            const showBaby = cat === 'all' || babyCategories.includes(cat);
+            const showMom  = cat === 'all' || momCategories.includes(cat);
+            document.getElementById('section-baby').style.display = showBaby ? '' : 'none';
+            document.getElementById('section-mom').style.display  = showMom  ? '' : 'none';
+            renderAllProducts();
+        }
+
+        // ─── RENDER PRODUCTS ───────────────────────────────────────────────
+        function renderAllProducts() {
+            renderGrid('baby-grid', ['baby-clothing','baby-accessories','baby-care']);
+            renderGrid('mom-grid',  ['mom-clothing','mom-care']);
+        }
+
+        function renderGrid(containerId, categories) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            const filtered = products.filter(p => {
+                const catMatch = currentCategory === 'all' || categories.includes(currentCategory)
+                    ? categories.includes(p.category)
+                    : p.category === currentCategory;
+                return catMatch;
+            });
+            if (filtered.length === 0) {
+                container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:32px; color:var(--stone); font-size:13px">No items in this category.</div>`;
+                return;
+            }
+            filtered.forEach(prod => {
+                const qty = qtys[prod.id] || 0;
+                const name = prod[currentLang] || prod.en;
+                const note = prod[`note_${currentLang}`] || prod.note_en;
+                const card = document.createElement('div');
+                card.className = `product-card${qty > 0 ? ' has-qty' : ''}`;
+                card.id = `card-${prod.id}`;
+                card.innerHTML = `
+                    <div class="qty-badge${qty > 0 ? ' visible' : ''}" id="badge-${prod.id}">${qty}</div>
+                    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px">
+                        <div class="product-icon">${prod.emoji}</div>
+                        <div style="flex:1; min-width:0">
+                            <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:2px; line-height:1.3">${name}</div>
+                            <div style="font-size:11px; color:var(--stone); line-height:1.4">${note}</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; justify-content:space-between">
+                        <div>
+                            <span class="price-tag">LKR ${prod.price.toLocaleString()}</span>
+                            <span class="price-unit"> / piece</span>
+                        </div>
+                        <div class="stepper">
+                            <button class="stepper-btn" onclick="changeQty('${prod.id}',-1)">−</button>
+                            <span class="stepper-count" id="qty-${prod.id}">${qty}</span>
+                            <button class="stepper-btn add" onclick="changeQty('${prod.id}',1)">+</button>
+                        </div>
+                    </div>`;
+                container.appendChild(card);
+            });
+        }
+
+        // ─── QTY ───────────────────────────────────────────────────────────
+        function changeQty(id, delta) {
+            qtys[id] = Math.max(0, (qtys[id] || 0) + delta);
+            const q = qtys[id];
+            const qtyEl  = document.getElementById(`qty-${id}`);
+            const badgeEl = document.getElementById(`badge-${id}`);
+            const cardEl  = document.getElementById(`card-${id}`);
+            if (qtyEl) qtyEl.textContent = q;
+            if (badgeEl) { badgeEl.textContent = q; badgeEl.classList.toggle('visible', q > 0); }
+            if (cardEl) cardEl.classList.toggle('has-qty', q > 0);
+            updateCartBar();
+        }
+
+        function getTotal() {
+            return products.reduce((s, p) => s + (qtys[p.id] || 0) * p.price, 0);
+        }
+
+        function getItemCount() {
+            return products.reduce((s, p) => s + (qtys[p.id] || 0), 0);
+        }
+
+        function updateCartBar() {
+            const total = getTotal();
+            const count = getItemCount();
+            const t = dict[currentLang];
+            const bar = document.getElementById('cartBar');
+            document.getElementById('cartTotal').textContent = `LKR ${total.toLocaleString()}`;
+            document.getElementById('cartItemCount').textContent = t.items_count(count);
+            bar.classList.toggle('hidden-bar', count === 0);
+        }
+
+        function clearAll() {
+            products.forEach(p => { qtys[p.id] = 0; });
+            renderAllProducts();
+            updateCartBar();
+        }
+
+        // ─── CHECKOUT ──────────────────────────────────────────────────────
+        function initiateCheckout() {
+            const total = getTotal();
+            if (total === 0) return;
+            basePriceInt = total;
+            const t = dict[currentLang];
+            const summary = products.filter(p => qtys[p.id] > 0)
+                .map(p => `${p[currentLang] || p.en} ×${qtys[p.id]}`).join(', ');
+            const themeLabel = currentTheme === 'boy' ? t.pill_boy : currentTheme === 'girl' ? t.pill_girl : t.pill_mom;
+            orderPayload = `Custom Kit (${themeLabel}): ${summary}`;
+            chatStep = 1;
+            document.getElementById('chatMessages').innerHTML = '';
+            addBotMessage(t.ask_name);
+            const win = document.getElementById('chatBubbleWindow');
+            if (win.classList.contains('hidden')) {
+                win.classList.remove('hidden');
+                win.style.display = 'flex';
+                win.style.flexDirection = 'column';
+            }
+            document.getElementById('chatInput').focus();
+        }
+
+        // ─── CHAT ──────────────────────────────────────────────────────────
+        let chatOpen = false;
+        function toggleChat() {
+            const win = document.getElementById('chatBubbleWindow');
+            chatOpen = !chatOpen;
+            if (chatOpen) {
+                win.classList.remove('hidden');
+                win.style.display = 'flex';
+                win.style.flexDirection = 'column';
+                if (chatStep === 0) {
+                    addBotMessage(dict[currentLang].chat_welcome);
+                }
+            } else {
+                win.classList.add('hidden');
+            }
+        }
+
+        function addBotMessage(html) {
+            const area = document.getElementById('chatMessages');
+            const el = document.createElement('div');
+            el.className = 'bubble-msg';
+            el.style.cssText = 'display:flex; align-items:flex-end; gap:8px';
+            el.innerHTML = `
+                <div class="premium-stripe" style="width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; flex-shrink:0">👑</div>
+                <div style="background:white; border:1px solid var(--primary-mid); border-radius:16px; border-bottom-left-radius:4px; padding:10px 14px; font-size:12px; line-height:1.5; color:var(--ink); max-width:80%">${html}</div>`;
+            area.appendChild(el);
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const area = document.getElementById('chatMessages');
+            const el = document.createElement('div');
+            el.className = 'bubble-msg';
+            el.style.cssText = 'display:flex; justify-content:flex-end';
+            el.innerHTML = `<div style="background:var(--primary); color:white; border-radius:16px; border-bottom-right-radius:4px; padding:10px 14px; font-size:12px; line-height:1.5; max-width:80%">${text}</div>`;
+            area.appendChild(el);
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function renderDistricts() {
+            const area = document.getElementById('chatMessages');
+            const wrap = document.createElement('div');
+            wrap.className = 'bubble-msg';
+            wrap.style.cssText = 'display:flex; flex-wrap:wrap; gap:6px; padding-top:4px';
+            Object.keys(deliveryFees).forEach(d => {
+                const btn = document.createElement('button');
+                btn.textContent = d;
+                btn.style.cssText = `background:white; border:1px solid var(--primary-mid); border-radius:10px; padding:5px 12px; font-size:11px; font-weight:600; cursor:pointer; color:var(--ink); font-family:inherit`;
+                btn.onclick = () => selectDistrict(d);
+                wrap.appendChild(btn);
+            });
+            area.appendChild(wrap);
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function selectDistrict(d) {
+            customerDistrict = d;
+            addUserMessage(d);
+            chatStep = 4;
+            setTimeout(() => addBotMessage(dict[currentLang].ask_address), 300);
+        }
+
+        function renderConfirmButtons() {
+            const area = document.getElementById('chatMessages');
+            const wrap = document.createElement('div');
+            wrap.className = 'bubble-msg';
+            wrap.id = 'finalConfirmWrap';
+            wrap.innerHTML = `<button onclick="submitOrder()" style="background:var(--primary); color:white; border:none; border-radius:14px; padding:12px 24px; font-size:13px; font-weight:700; cursor:pointer; width:100%; margin-top:6px">${dict[currentLang].place_order}</button>`;
+            area.appendChild(wrap);
+            area.scrollTop = area.scrollHeight;
+            document.getElementById('chatInputWrap').style.display = 'none';
+        }
+
+        async function handleChat() {
+            const input = document.getElementById('chatInput');
+            const val = input.value.trim();
+            if (!val) return;
+            addUserMessage(val);
+            input.value = '';
+            const t = dict[currentLang];
+
+            if (chatStep > 0) {
+                if (chatStep === 1) { customerName = val; chatStep = 2; setTimeout(() => addBotMessage(t.ask_phone), 300); }
+                else if (chatStep === 2) {
+                    if (!/^0[0-9]{9}$/.test(val)) { setTimeout(() => addBotMessage(t.ask_phone_err), 300); return; }
+                    customerPhone = val; chatStep = 3;
+                    setTimeout(() => { addBotMessage(t.ask_district); renderDistricts(); }, 300);
+                } else if (chatStep === 4) {
+                    customerAddress = val; chatStep = 5;
+                    setTimeout(() => {
+                        const fee = deliveryFees[customerDistrict] || 500;
+                        const finalTotal = basePriceInt + fee;
+                        orderTotalStr = `LKR ${finalTotal.toLocaleString()}`;
+                        addBotMessage(t.confirm_title);
+                        addBotMessage(`📦 <strong>${currentLang==='si'?'ඇතුළත් දෑ':currentLang==='ta'?'பொருட்கள்':'Items'}:</strong> ${orderPayload}<br>💵 <strong>Subtotal:</strong> LKR ${basePriceInt.toLocaleString()}<br>🚚 <strong>${t.delivery_lbl}:</strong> LKR ${fee}<br>💰 <strong>${t.total_lbl}:</strong> ${orderTotalStr}<br><br>👤 ${customerName}<br>📞 ${customerPhone}<br>🏠 ${customerAddress}, ${customerDistrict}`);
+                        renderConfirmButtons();
+                    }, 300);
+                }
+                return;
+            }
+
+            // Free Q&A via AI
+            addBotMessage(`<span style="color:var(--stone)" class="animate-pulse">🤖 Thinking…</span>`);
+            try {
+                const res = await fetch(`${WORKER_URL}/api/chat`, {
+                    method: 'POST', headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({ intent: 'qna', text: val, lang: currentLang })
+                });
+                const data = await res.json();
+                const area = document.getElementById('chatMessages');
+                if (area.lastChild) area.removeChild(area.lastChild);
+                addBotMessage(data.reply);
+            } catch {
+                const area = document.getElementById('chatMessages');
+                if (area.lastChild) area.removeChild(area.lastChild);
+                addBotMessage("⚠️ Could not reach servers. Please try again.");
+            }
+        }
+
+        async function submitOrder() {
+            const wrap = document.getElementById('finalConfirmWrap');
+            if (wrap) wrap.remove();
+            try {
+                const res = await fetch(`${WORKER_URL}/api/order`, {
+                    method: 'POST', headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({
+                        source: 'Kit Builder Page',
+                        package: orderPayload,
+                        totalPrice: orderTotalStr,
+                        name: customerName, phone: customerPhone,
+                        district: customerDistrict, address: customerAddress
+                    })
+                });
+                if (res.ok) {
+                    document.getElementById('successModal').classList.remove('hidden');
+                    document.getElementById('successModal').style.display = 'flex';
+                    resetChat();
+                } else {
+                    addBotMessage("⚠️ Something went wrong. Please try again.");
+                }
+            } catch {
+                addBotMessage("⚠️ Could not submit. Please try again.");
+            }
+        }
+
+        function resetChat() {
+            chatStep = 0;
+            customerName = customerPhone = customerDistrict = customerAddress = '';
+            const area = document.getElementById('chatMessages');
+            area.innerHTML = '';
+            const inputWrap = document.getElementById('chatInputWrap');
+            if (inputWrap) inputWrap.style.display = '';
+        }
+
+        // ─── INIT ──────────────────────────────────────────────────────────
+        window.onload = () => {
+            // Show COD pill on larger screens
+            const pill = document.getElementById('cod-pill');
+            if (pill && window.innerWidth >= 640) pill.style.display = 'flex';
+            renderAllProducts();
+            updateCartBar();
+            switchLang('si');
+        };
+    </script>
+</body>
+</html>
