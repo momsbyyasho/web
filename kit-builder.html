@@ -560,12 +560,12 @@
     </div>
 
     <!-- ══════════════ SUCCESS MODAL ══════════════ -->
-    <div id="successModal" class="hidden modal-backdrop" style="position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center; padding:20px">
+    <div id="successModal" class="hidden modal-backdrop" style="position:fixed; inset:0; z-index:60; display:none; align-items:center; justify-content:center; padding:20px">
         <div class="chat-popup" style="background:white; border-radius:24px; padding:36px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 24px 64px rgba(0,0,0,0.2)">
             <div class="premium-stripe" style="width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 16px">🎉</div>
             <h3 id="txt_modal_title" class="font-display" style="font-size:22px; color:var(--ink); margin-bottom:8px">Order Confirmed!</h3>
             <p id="txt_modal_desc" style="font-size:13px; color:var(--stone); line-height:1.6; margin-bottom:24px">We've received your order. Our team will contact you soon.</p>
-            <button id="btn_modal_close" onclick="document.getElementById('successModal').classList.add('hidden'); resetChat()"
+            <button id="btn_modal_close" onclick="document.getElementById('successModal').style.display='none'; resetChat()"
                 style="width:100%; background:var(--ink); color:white; border:none; padding:14px; border-radius:14px; font-weight:700; font-size:14px; cursor:pointer">Done</button>
         </div>
     </div>
@@ -748,12 +748,36 @@
         };
 
         // ─── THEME ─────────────────────────────────────────────────────────
+        const themeColors = {
+            mom:  { primary: '#D4608A', primaryLight: '#FDF0F6', primaryMid: '#F9D0E0', primaryDark: '#A83F67' },
+            boy:  { primary: '#3A8FC8', primaryLight: '#EEF6FD', primaryMid: '#BFE0F5', primaryDark: '#1F6699' },
+            girl: { primary: '#E8496A', primaryLight: '#FDF0F3', primaryMid: '#F9D6DE', primaryDark: '#C53058' },
+        };
+        const pillLabels = {
+            mom:  { emoji: '👩', color: '#D4608A' },
+            boy:  { emoji: '💙', color: '#3A8FC8' },
+            girl: { emoji: '💗', color: '#E8496A' },
+        };
+
         function applyTheme(theme) {
             currentTheme = theme;
-            document.body.className = `theme-${theme}`;
+            // Switch body class for CSS variable cascade
+            document.body.className = theme === 'mom' ? '' : `theme-${theme}`;
+            // Update pill styles directly — no CSS var dependency
             ['mom','boy','girl'].forEach(t => {
                 const pill = document.getElementById(`pill-${t}`);
-                if (pill) pill.classList.toggle('active', t === theme);
+                if (!pill) return;
+                if (t === theme) {
+                    pill.style.background = themeColors[t].primary;
+                    pill.style.color = 'white';
+                    pill.style.borderColor = themeColors[t].primary;
+                    pill.style.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
+                } else {
+                    pill.style.background = 'white';
+                    pill.style.color = '#7A6672';
+                    pill.style.borderColor = themeColors[t].primaryMid;
+                    pill.style.boxShadow = 'none';
+                }
             });
             renderAllProducts();
             updateCartBar();
@@ -1050,9 +1074,10 @@
                     })
                 });
                 if (res.ok) {
-                    document.getElementById('successModal').classList.remove('hidden');
-                    document.getElementById('successModal').style.display = 'flex';
+                    const modal = document.getElementById('successModal');
+                    modal.style.display = 'flex';
                     resetChat();
+                    clearAll();
                 } else {
                     addBotMessage("⚠️ Something went wrong. Please try again.");
                 }
@@ -1075,9 +1100,8 @@
             // Show COD pill on larger screens
             const pill = document.getElementById('cod-pill');
             if (pill && window.innerWidth >= 640) pill.style.display = 'flex';
-            renderAllProducts();
-            updateCartBar();
-            switchLang('si');
+            applyTheme('mom');   // sets pill styles + renders products
+            switchLang('si');    // sets all text labels
         };
     </script>
 </body>

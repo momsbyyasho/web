@@ -561,7 +561,7 @@
     <!-- ═══════════════════════════════════════
          SUCCESS MODAL
     ═══════════════════════════════════════ -->
-    <div id="successModal" class="hidden fixed inset-0 modal-backdrop flex items-center justify-center p-4 z-50">
+    <div id="successModal" class="hidden fixed inset-0 modal-backdrop items-center justify-center p-4 z-50" style="display:none">
         <div class="chat-popup rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl" style="background: white">
             <div class="w-16 h-16 rounded-full premium-stripe flex items-center justify-center text-3xl mx-auto mb-4">🎉</div>
             <h3 id="txt_modal_title" class="font-display text-xl" style="color: var(--ink)">Order Confirmed!</h3>
@@ -852,7 +852,7 @@
         }
         
         function closeModal() {
-            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').style.display = 'none';
             toggleChatWindow();
         }
 
@@ -1120,7 +1120,7 @@
                         address: customerAddress
                     })
                 });
-                if (res.ok) { document.getElementById('successModal').classList.remove('hidden'); resetChat(); }
+                if (res.ok) { document.getElementById('successModal').style.display = 'flex'; resetChat(); }
                 else { addBotMessage("⚠️ Something went wrong. Please try again."); }
             } catch { addBotMessage("⚠️ Could not submit order. Please try again."); }
         }
