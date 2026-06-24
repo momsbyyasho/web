@@ -3,481 +3,819 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom & Baby Care | Premium Hospital Bag Kits Sri Lanka</title>
+    <title>Mom & Baby Care | Hospital Bag Kits Sri Lanka</title>
     
-    <meta name="description" content="Premium All-in-One Hospital Bag Kits and Maternity Essentials for pregnant mothers and newborns in Sri Lanka. High quality cotton baby clothing with Cash on Delivery islandwide.">
-    <meta name="keywords" content="hospital bag kit sri lanka, baby items online, newborn clothing, aluthgama baby shop, maternity bag delivery, ammata saha babata badu">
+    <meta name="description" content="Premium All-in-One Hospital Bag Kits and Maternity Essentials for pregnant mothers and newborns in Sri Lanka. 100% Cotton, pre-washed, vacuum-sealed. Cash on Delivery islandwide.">
+    <meta name="keywords" content="hospital bag kit sri lanka, baby items online, newborn clothing, maternity bag delivery, ammata saha babata badu, baby shop sri lanka">
     <meta name="author" content="Mom & Baby Care">
+    <meta property="og:title" content="Mom & Baby Care | Hospital Bag Kits Sri Lanka">
+    <meta property="og:description" content="Premium hospital bag kits delivered to your door. 100% cotton, pre-washed, COD islandwide.">
     
-    <!-- Tailwind CSS & Google Fonts -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif; scroll-behavior: smooth; }
-        
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 99px; }
-
-        .chat-popup {
-            animation: chatPopUp 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        :root {
+            --rose: #E8496A;
+            --rose-light: #FDF0F3;
+            --rose-mid: #F9D6DE;
+            --gold: #C9962A;
+            --gold-light: #FBF4E3;
+            --ink: #1A1018;
+            --ink-mid: #3D2B38;
+            --stone: #7A6672;
+            --petal: #FFF8FA;
         }
-        @keyframes chatPopUp {
-            from { opacity: 0; transform: translateY(30px) scale(0.92); }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'DM Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
+            background: var(--petal);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 99px; }
+
+        /* Display font */
+        .font-display { font-family: 'DM Serif Display', serif; }
+
+        /* Hero decorative elements */
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Nav */
+        .nav-glass {
+            background: rgba(255, 248, 250, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(232, 73, 106, 0.1);
+        }
+
+        /* Cards */
+        .kit-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .kit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(232, 73, 106, 0.12);
+        }
+
+        /* Trust badge strip */
+        .trust-strip {
+            background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mid) 100%);
+        }
+
+        /* Custom item rows */
+        .item-row {
+            transition: background 0.15s;
+        }
+        .item-row:hover { background: rgba(232, 73, 106, 0.04); }
+
+        /* Chat popup */
+        .chat-popup {
+            animation: chatSlideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        }
+        @keyframes chatSlideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .bubble-msg {
-            animation: bubbleSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: bubbleIn 0.2s ease forwards;
         }
-        @keyframes bubbleSlideIn {
-            from { opacity: 0; transform: translateY(8px); }
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Pulse dot */
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Hero entrance */
+        .fade-up {
+            animation: fadeUp 0.6s ease both;
+        }
+        .fade-up:nth-child(2) { animation-delay: 0.1s; }
+        .fade-up:nth-child(3) { animation-delay: 0.2s; }
+        .fade-up:nth-child(4) { animation-delay: 0.3s; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section divider */
+        .section-rule {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(232,73,106,0.2), transparent);
+        }
+
+        /* Package highlight stripe */
+        .premium-stripe {
+            background: linear-gradient(135deg, var(--rose) 0%, #c73557 100%);
+        }
+
+        /* Lang selector */
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E8496A' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 28px !important;
+        }
+
+        /* Number stepper */
+        .stepper-btn {
+            transition: all 0.15s;
+        }
+        .stepper-btn:active { transform: scale(0.9); }
+
+        /* Floating chat trigger */
+        .chat-trigger {
+            background: linear-gradient(135deg, var(--rose) 0%, #c73557 100%);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 24px rgba(232, 73, 106, 0.4);
+        }
+        .chat-trigger:hover {
+            transform: scale(1.06);
+            box-shadow: 0 12px 32px rgba(232, 73, 106, 0.5);
+        }
+
+        /* Notification badge on chat */
+        .chat-badge {
+            background: var(--gold);
+        }
+
+        /* WhatsApp-style chat area */
+        .chat-bg {
+            background-color: #f5f1f0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8d5d9' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Modal backdrop */
+        .modal-backdrop {
+            background: rgba(26, 16, 24, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+        }
+
+        /* Responsive image placeholder */
+        .img-placeholder {
+            background: linear-gradient(135deg, var(--rose-mid) 0%, var(--gold-light) 100%);
+        }
+
+        /* Icon box */
+        .icon-box {
+            background: var(--rose-light);
+            color: var(--rose);
+        }
+
+        /* Divider text */
+        .divider-text {
+            position: relative;
+            text-align: center;
+        }
+        .divider-text::before, .divider-text::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(232,73,106,0.2);
+        }
+        .divider-text::before { left: 0; }
+        .divider-text::after { right: 0; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-pink-100">
+<body>
 
-    <!-- Sticky Header Navigation -->
-    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-pink-100/50 shadow-xs">
-        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2.5 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-                <span class="text-3xl drop-shadow-xs">👑</span>
-                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r bg-clip-text text-transparent from-pink-600 to-amber-600">Mom & Baby</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <select id="langSelector" onchange="switchGlobalLanguage(this.value)" class="border border-pink-200 rounded-xl px-3 py-2 text-xs font-bold bg-white text-pink-700 focus:outline-none shadow-2xs cursor-pointer transition-all">
-                    <option value="si">සිංහල (Sinhala)</option>
+    <!-- ═══════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════ -->
+    <header class="sticky top-0 z-40 nav-glass">
+        <div class="max-w-6xl mx-auto px-5 h-18 flex items-center justify-between py-4">
+            <!-- Logo -->
+            <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="flex items-center gap-3 group cursor-pointer border-0 bg-transparent p-0">
+                <div class="w-9 h-9 rounded-full premium-stripe flex items-center justify-center shadow-sm">
+                    <span class="text-white text-base">👑</span>
+                </div>
+                <div class="text-left">
+                    <div class="font-display text-lg leading-none" style="color: var(--ink)">Mom & Baby</div>
+                    <div class="text-[10px] font-medium tracking-wide" style="color: var(--stone)">Sri Lanka</div>
+                </div>
+            </button>
+
+            <!-- Right side -->
+            <div class="flex items-center gap-3">
+                <!-- Trust pill -->
+                <div class="hidden sm:flex items-center gap-1.5 bg-white border border-pink-100 rounded-full px-3 py-1.5 text-[10px] font-semibold" style="color: var(--stone)">
+                    <span class="w-1.5 h-1.5 rounded-full pulse-dot" style="background: #22c55e; display:inline-block"></span>
+                    COD Available
+                </div>
+                <!-- Language selector -->
+                <select id="langSelector" onchange="switchGlobalLanguage(this.value)" 
+                    class="border rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none cursor-pointer transition-all"
+                    style="border-color: rgba(232,73,106,0.2); background: white; color: var(--rose); font-family: inherit">
+                    <option value="si">සිංහල</option>
                     <option value="en">English</option>
-                    <option value="ta">தமிழ் (Tamil)</option>
+                    <option value="ta">தமிழ்</option>
                 </select>
             </div>
         </div>
     </header>
 
-    <!-- Hero Showcase Header -->
-    <section class="max-w-6xl mx-auto px-4 py-12 md:py-20 text-center space-y-6">
-        <span id="txt_badge" class="inline-flex items-center bg-pink-50 text-pink-700 text-[11px] font-bold px-4 py-1.5 rounded-full border border-pink-100 tracking-wide uppercase">
-            🌸 Premium Maternity Store - Sri Lanka
-        </span>
-        <h1 id="txt_hero_title" class="text-3xl md:text-5xl font-black text-slate-900 leading-tight max-w-3xl mx-auto tracking-tight">
-            රෝහලට යන්න සූදානම් කළ <span class="bg-gradient-to-r bg-clip-text text-transparent from-pink-600 to-pink-500">සම්පූර්ණ පැකේජය</span> නිවසටම ගෙන්වා ගන්න.
-        </h1>
-        <p id="txt_hero_desc" class="text-sm md:text-base text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
-            උසස්ම තත්ත්වයේ කපු රෙදිපිළි (100% Cotton) මඟින් සකසා සෝදා පිරිසිදු කර විෂබීජහරණය කළ ඇසුරුම්. දිවයින පුරා භාණ්ඩ ලැබුණු පසු මුදල් ගෙවීමේ හැකියාව (Cash on Delivery).
-        </p>
-        <div class="flex justify-center gap-4 pt-2">
-            <a href="#packages" id="btn_explore" class="bg-slate-950 hover:bg-slate-900 text-white font-bold px-8 py-4 rounded-2xl transition shadow-md text-xs tracking-wider uppercase">
-                Explore Kits Catalog 🔽
-            </a>
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section class="relative overflow-hidden py-16 md:py-24">
+        <!-- Decorative blobs -->
+        <div class="hero-blob w-96 h-96 top-0 -right-32 opacity-30" style="background: var(--rose-mid)"></div>
+        <div class="hero-blob w-72 h-72 bottom-0 -left-24 opacity-20" style="background: var(--gold-light)"></div>
+
+        <div class="max-w-6xl mx-auto px-5 relative z-10">
+            <div class="max-w-2xl mx-auto text-center space-y-6">
+                <!-- Badge -->
+                <div class="fade-up">
+                    <span id="txt_badge" class="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold tracking-wider uppercase"
+                        style="background: var(--rose-light); border-color: var(--rose-mid); color: var(--rose)">
+                        🌸 Premium Maternity Store · Sri Lanka
+                    </span>
+                </div>
+
+                <!-- Headline -->
+                <h1 id="txt_hero_title" class="fade-up font-display text-4xl md:text-6xl leading-tight" style="color: var(--ink)">
+                    රෝහලට යන්න සූදානම් කළ <em style="color: var(--rose); font-style: normal;">සම්පූර්ණ පැකේජය</em> නිවසටම ගෙන්වා ගන්න.
+                </h1>
+
+                <!-- Subhead -->
+                <p id="txt_hero_desc" class="fade-up text-base leading-relaxed" style="color: var(--stone); max-width: 480px; margin: 0 auto">
+                    උසස්ම තත්ත්වයේ කපු රෙදිපිළි (100% Cotton) — සෝදා, විෂබීජහරණය කර, vacuum-sealed ඇසුරුම්. දිවයිනේ ඕනෑම තැනකට Cash on Delivery.
+                </p>
+
+                <!-- CTAs -->
+                <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a href="#packages" id="btn_explore" 
+                        class="w-full sm:w-auto premium-stripe text-white font-bold px-8 py-4 rounded-2xl text-sm tracking-wide transition shadow-lg hover:opacity-90">
+                        පැකේජ බලන්න ↓
+                    </a>
+                    <button onclick="toggleChatWindow()"
+                        class="w-full sm:w-auto bg-white border font-bold px-8 py-4 rounded-2xl text-sm tracking-wide transition hover:bg-rose-50"
+                        style="border-color: var(--rose); color: var(--rose)">
+                        💬 හරහා ඇසීමට
+                    </button>
+                </div>
+
+                <!-- Social proof strip -->
+                <div class="fade-up flex items-center justify-center gap-6 pt-4">
+                    <div class="text-center">
+                        <div class="font-display text-2xl" style="color: var(--ink)">500+</div>
+                        <div class="text-[10px] uppercase tracking-wide" style="color: var(--stone)">Orders</div>
+                    </div>
+                    <div style="width:1px; height:32px; background: rgba(232,73,106,0.15)"></div>
+                    <div class="text-center">
+                        <div class="font-display text-2xl" style="color: var(--ink)">100%</div>
+                        <div class="text-[10px] uppercase tracking-wide" style="color: var(--stone)">Cotton</div>
+                    </div>
+                    <div style="width:1px; height:32px; background: rgba(232,73,106,0.15)"></div>
+                    <div class="text-center">
+                        <div class="font-display text-2xl" style="color: var(--ink)">2–4</div>
+                        <div class="text-[10px] uppercase tracking-wide" style="color: var(--stone)">Day Delivery</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- OPTION A: Pre-packed Bundles Section -->
-    <section id="packages" class="bg-white py-16 border-y border-slate-100">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span id="txt_optA_badge" class="text-pink-600 text-xs font-bold tracking-widest uppercase bg-pink-50 px-3 py-1 rounded-full">Option A</span>
-                <h2 id="txt_optA_title" class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Our Pre-Packed Premium Bundles</h2>
-                <p id="txt_optA_desc" class="text-sm text-slate-500 mt-1 font-medium">Complete hassle-free essential kits ready for hospital admission.</p>
+    <!-- ═══════════════════════════════════════
+         TRUST STRIP
+    ═══════════════════════════════════════ -->
+    <div class="trust-strip py-3 overflow-hidden">
+        <div class="flex items-center gap-8 whitespace-nowrap animate-none px-5 justify-center flex-wrap text-[11px] font-medium tracking-wide text-white/70 gap-y-1">
+            <span>🧼 Pre-Washed & Sanitized</span>
+            <span class="opacity-30">·</span>
+            <span>📦 Vacuum Sealed</span>
+            <span class="opacity-30">·</span>
+            <span>🚚 Islandwide COD</span>
+            <span class="opacity-30">·</span>
+            <span>🔄 7-Day Exchange</span>
+            <span class="opacity-30">·</span>
+            <span>💯 100% Pure Cotton</span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         OPTION A — PRE-PACKED BUNDLES
+    ═══════════════════════════════════════ -->
+    <section id="packages" class="py-16 md:py-20" style="background: white">
+        <div class="max-w-6xl mx-auto px-5">
+            
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <span id="txt_optA_badge" class="text-[10px] font-bold tracking-widest uppercase rounded-full px-3 py-1"
+                    style="background: var(--rose-light); color: var(--rose)">Option A</span>
+                <h2 id="txt_optA_title" class="font-display text-3xl md:text-4xl mt-3" style="color: var(--ink)">
+                    Our Pre-Packed Premium Bundles
+                </h2>
+                <p id="txt_optA_desc" class="mt-2 text-sm" style="color: var(--stone)">
+                    Everything you need, ready to go. No shopping list, no stress.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Economy Pack -->
-                <div class="border border-slate-200 rounded-3xl p-6 bg-white shadow-xs flex flex-col justify-between group relative transition-all hover:border-slate-300">
+            <!-- Cards -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                
+                <!-- Essential Kit -->
+                <div class="kit-card rounded-3xl border p-7 flex flex-col" style="border-color: #e8d5d9; background: var(--petal)">
                     <div>
-                        <span id="txt_eco_badge" class="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-100 px-3 py-1 rounded-full uppercase tracking-wider">Essential Kit</span>
-                        <div class="mt-3 text-3xl font-black text-slate-900">LKR 15,000</div>
-                        
-                        <div class="mt-5 pt-4 border-t border-slate-100 space-y-2.5">
-                            <p id="txt_eco_inc" class="text-xs font-bold text-slate-400 uppercase tracking-wide">📦 What's Included inside:</p>
-                            <ul id="list_eco_items" class="text-xs text-slate-600 space-y-2 font-medium"></ul>
+                        <span id="txt_eco_badge" class="text-[10px] font-bold tracking-wider uppercase rounded-full px-3 py-1"
+                            style="background: var(--gold-light); color: var(--gold); border: 1px solid rgba(201,150,42,0.2)">Essential Kit</span>
+                        <div class="mt-4 flex items-baseline gap-2">
+                            <span class="font-display text-4xl" style="color: var(--ink)">15,000</span>
+                            <span class="text-sm font-semibold" style="color: var(--stone)">LKR</span>
+                        </div>
+                        <div class="mt-5 pt-5" style="border-top: 1px solid rgba(232,73,106,0.12)">
+                            <p id="txt_eco_inc" class="text-[10px] font-bold tracking-wider uppercase mb-3" style="color: var(--stone)">📦 What's included</p>
+                            <ul id="list_eco_items" class="space-y-2 text-sm" style="color: var(--ink-mid)"></ul>
                         </div>
                     </div>
-                    <button type="button" id="btn_order_eco" onclick="selectFullPackage('Economy Kit', 15000)" class="mt-8 w-full bg-slate-900 hover:bg-pink-600 text-white font-bold py-3.5 rounded-2xl text-xs tracking-wide transition-all cursor-pointer">Order Economy Bundle</button>
+                    <button type="button" id="btn_order_eco" onclick="selectFullPackage('Economy Kit', 15000)"
+                        class="mt-8 w-full font-bold py-4 rounded-2xl text-sm tracking-wide transition cursor-pointer"
+                        style="background: var(--ink); color: white">
+                        ✦ Order Essential Kit
+                    </button>
                 </div>
 
-                <!-- Premium Pack -->
-                <div class="border-2 border-pink-500 rounded-3xl p-6 bg-gradient-to-b from-white to-pink-50/10 shadow-sm relative flex flex-col justify-between transition-all hover:shadow-md">
-                    <div id="txt_prem_tag" class="absolute top-0 right-0 bg-pink-500 text-white font-bold text-[9px] px-3 py-1 rounded-bl-xl uppercase tracking-widest">Full Luxury</div>
+                <!-- Premium Kit -->
+                <div class="kit-card rounded-3xl p-7 flex flex-col relative overflow-hidden"
+                    style="background: var(--ink); border: 2px solid var(--rose)">
+                    <!-- Corner tag -->
+                    <div id="txt_prem_tag" class="absolute top-0 right-0 text-[9px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-bl-2xl"
+                        style="background: var(--rose); color: white">Full Luxury</div>
                     <div>
-                        <span id="txt_prem_badge" class="text-[10px] font-bold text-pink-700 bg-pink-50 border border-pink-100 px-3 py-1 rounded-full uppercase tracking-wider">Premium Package</span>
-                        <div class="mt-3 text-3xl font-black text-slate-900">LKR 22,000</div>
-                        
-                        <div class="mt-5 pt-4 border-t border-pink-100 space-y-2.5">
-                            <p id="txt_prem_inc" class="text-xs font-bold text-pink-600 uppercase tracking-wide">👑 What's Included inside:</p>
-                            <ul id="list_prem_items" class="text-xs text-slate-600 space-y-2 font-medium"></ul>
+                        <span id="txt_prem_badge" class="text-[10px] font-bold tracking-wider uppercase rounded-full px-3 py-1"
+                            style="background: rgba(232,73,106,0.2); color: var(--rose); border: 1px solid rgba(232,73,106,0.3)">Premium Package</span>
+                        <div class="mt-4 flex items-baseline gap-2">
+                            <span class="font-display text-4xl text-white">22,000</span>
+                            <span class="text-sm font-semibold" style="color: rgba(255,255,255,0.5)">LKR</span>
+                        </div>
+                        <div class="mt-5 pt-5" style="border-top: 1px solid rgba(255,255,255,0.1)">
+                            <p id="txt_prem_inc" class="text-[10px] font-bold tracking-wider uppercase mb-3" style="color: var(--rose)">👑 What's included</p>
+                            <ul id="list_prem_items" class="space-y-2 text-sm text-white/80"></ul>
                         </div>
                     </div>
-                    <button type="button" id="btn_order_prem" onclick="selectFullPackage('Premium Kit', 22000)" class="mt-8 w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 rounded-2xl text-xs tracking-wide shadow-xs transition-all cursor-pointer">Order Premium Bundle</button>
+                    <button type="button" id="btn_order_prem" onclick="selectFullPackage('Premium Kit', 22000)"
+                        class="mt-8 w-full font-bold py-4 rounded-2xl text-sm tracking-wide transition cursor-pointer hover:opacity-90"
+                        style="background: var(--rose); color: white">
+                        👑 Order Premium Kit
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- OPTION B: Dynamic Customization Builder -->
-    <section id="custom-builder" class="max-w-4xl mx-auto px-4 py-16">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <span id="txt_optB_badge" class="text-amber-600 text-xs font-bold tracking-widest uppercase bg-amber-50 px-3 py-1 rounded-full">Option B</span>
-            <h2 id="txt_optB_title" class="text-2xl font-extrabold text-slate-900 tracking-tight mt-2">Or, Build Your Own Custom Kit</h2>
-            <p id="txt_optB_desc" class="text-sm text-slate-500 mt-1 font-medium">Add individual pieces freely. Change the theme style dynamically to tailor fabric trims coloring.</p>
-        </div>
+    <div class="section-rule mx-auto" style="max-width: 400px"></div>
 
-        <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-xs">
-            <!-- Global Color Theme Settings Selection Controller -->
-            <div class="mb-6 p-4 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-between flex-wrap gap-4">
-                <span id="txt_theme_select" class="text-xs font-bold text-slate-700">🎨 Select Fabric Color Theme Profile:</span>
-                <div class="flex gap-4">
-                    <label class="flex items-center space-x-2 text-xs font-bold text-blue-600 cursor-pointer">
-                        <input type="radio" name="baby_theme" value="Boy" checked onchange="updateThemeSelection(this.value)" class="w-4 h-4 accent-blue-500">
-                        <span id="txt_theme_boy">💙 Boy Profile Pack</span>
-                    </label>
-                    <label class="flex items-center space-x-2 text-xs font-bold text-pink-600 cursor-pointer">
-                        <input type="radio" name="baby_theme" value="Girl" onchange="updateThemeSelection(this.value)" class="w-4 h-4 accent-pink-500">
-                        <span id="txt_theme_girl">💗 Girl Profile Pack</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Product Entry Layout Matrix Grid -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 id="txt_baby_heading" class="text-xs font-bold text-pink-600 border-b border-pink-100 pb-2 mb-4 tracking-wider uppercase">👶 Individual Baby Items</h3>
-                    <div class="space-y-3" id="babyItemsContainer"></div>
-                </div>
-                <div>
-                    <h3 id="txt_mom_heading" class="text-xs font-bold text-amber-600 border-b border-amber-100 pb-2 mb-4 tracking-wider uppercase">🤰 Individual Mother Items</h3>
-                    <div class="space-y-3" id="motherItemsContainer"></div>
-                </div>
-            </div>
-
-            <!-- Realtime Dynamic Total Calculation Block -->
-            <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center bg-slate-50/70 p-6 rounded-2xl gap-4">
-                <div>
-                    <p id="txt_matrix_total" class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Custom Layout Total Matrix:</p>
-                    <p class="text-3xl font-black text-slate-900" id="liveTotalDisplay">LKR 0</p>
-                </div>
-                <button type="button" id="btn_checkout_custom" onclick="transferCustomItemsToForm()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-4 rounded-xl text-xs uppercase tracking-wider transition-colors cursor-pointer w-full sm:w-auto text-center">
-                    👉 Checkout Custom Selection
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW ADDITION: Store Policies Trust & Guarantee FAQs Section -->
-    <section class="max-w-4xl mx-auto px-4 py-8 mb-16">
-        <div class="grid md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white border border-slate-100 p-5 rounded-2xl shadow-2xs">
-                <span class="text-2xl">🧼</span>
-                <h4 id="faq_t1" class="font-extrabold text-xs text-slate-900 uppercase mt-2">Pre-Washed & Sanitized</h4>
-                <p id="faq_d1" class="text-[11px] text-slate-500 mt-1">Hypoallergenic pre-washed garments safely vacuum sealed inside our boxes.</p>
-            </div>
-            <div class="bg-white border border-slate-100 p-5 rounded-2xl shadow-2xs">
-                <span class="text-2xl">🚚</span>
-                <h4 id="faq_t2" class="font-extrabold text-xs text-slate-900 uppercase mt-2">Islandwide COD Delivery</h4>
-                <p id="faq_d2" class="text-[11px] text-slate-500 mt-1">Pay comfortably in cash at your doorstep inside 2-4 working business days.</p>
-            </div>
-            <div class="bg-white border border-slate-100 p-5 rounded-2xl shadow-2xs">
-                <span class="text-2xl">🔄</span>
-                <h4 id="faq_t3" class="font-extrabold text-xs text-slate-900 uppercase mt-2">7-Day Free Exchange</h4>
-                <p id="faq_d3" class="text-[11px] text-slate-500 mt-1">Zero arguments structural material defect return support protection framework.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FLOATING INTERACTIVE CONVERSATIONAL CHECKOUT DRAWER -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
-        
-        <!-- Redesigned High-Fidelity Chat Overlay Window -->
-        <div id="chatBubbleWindow" class="hidden w-[360px] md:w-[390px] bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col h-[540px] overflow-hidden chat-popup">
+    <!-- ═══════════════════════════════════════
+         OPTION B — CUSTOM BUILDER
+    ═══════════════════════════════════════ -->
+    <section id="custom-builder" class="py-16 md:py-20" style="background: var(--petal)">
+        <div class="max-w-4xl mx-auto px-5">
             
-            <!-- Terminal Header Meta Settings -->
-            <div class="bg-slate-900 p-4 text-white flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-                    <div>
-                        <h3 id="txt_chat_header" class="font-bold text-xs tracking-wide">Mom & Baby Smart Care</h3>
-                        <p id="txt_chat_subheader" class="text-[9px] text-slate-400 font-semibold mt-0.5">Automated Support Agent</p>
+            <!-- Section header -->
+            <div class="text-center mb-10">
+                <span id="txt_optB_badge" class="text-[10px] font-bold tracking-widest uppercase rounded-full px-3 py-1"
+                    style="background: var(--gold-light); color: var(--gold)">Option B</span>
+                <h2 id="txt_optB_title" class="font-display text-3xl md:text-4xl mt-3" style="color: var(--ink)">
+                    Build Your Own Kit
+                </h2>
+                <p id="txt_optB_desc" class="mt-2 text-sm" style="color: var(--stone)">
+                    Pick exactly what you need. Choose boy or girl color theme.
+                </p>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden border" style="border-color: rgba(232,73,106,0.15); background: white">
+                
+                <!-- Theme selector -->
+                <div class="p-5 flex items-center justify-between flex-wrap gap-4" style="background: var(--rose-light); border-bottom: 1px solid var(--rose-mid)">
+                    <span id="txt_theme_select" class="text-xs font-semibold" style="color: var(--ink-mid)">🎨 Choose color theme:</span>
+                    <div class="flex gap-5">
+                        <label class="flex items-center gap-2 cursor-pointer text-xs font-bold" style="color: #3b82f6">
+                            <input type="radio" name="baby_theme" value="Boy" checked onchange="updateThemeSelection(this.value)" class="accent-blue-500 w-4 h-4">
+                            <span id="txt_theme_boy">💙 Boy</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer text-xs font-bold" style="color: var(--rose)">
+                            <input type="radio" name="baby_theme" value="Girl" onchange="updateThemeSelection(this.value)" class="w-4 h-4" style="accent-color: var(--rose)">
+                            <span id="txt_theme_girl">💗 Girl</span>
+                        </label>
                     </div>
                 </div>
-                <button onclick="toggleChatWindow()" class="text-slate-400 hover:text-white text-xs bg-slate-800 h-7 w-7 rounded-full flex items-center justify-center cursor-pointer">✕</button>
+
+                <!-- Item grid -->
+                <div class="p-6 grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 id="txt_baby_heading" class="text-[10px] font-bold tracking-widest uppercase pb-3 mb-4"
+                            style="color: var(--rose); border-bottom: 1px solid var(--rose-mid)">👶 Baby Items</h3>
+                        <div class="space-y-2.5" id="babyItemsContainer"></div>
+                    </div>
+                    <div>
+                        <h3 id="txt_mom_heading" class="text-[10px] font-bold tracking-widest uppercase pb-3 mb-4"
+                            style="color: var(--gold); border-bottom: 1px solid rgba(201,150,42,0.2)">🤰 Mother Items</h3>
+                        <div class="space-y-2.5" id="motherItemsContainer"></div>
+                    </div>
+                </div>
+
+                <!-- Total + checkout -->
+                <div class="p-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+                    style="background: var(--petal); border-top: 1px solid rgba(232,73,106,0.1)">
+                    <div>
+                        <p id="txt_matrix_total" class="text-[10px] font-bold tracking-wider uppercase" style="color: var(--stone)">Your Total</p>
+                        <p id="liveTotalDisplay" class="font-display text-3xl mt-0.5" style="color: var(--ink)">LKR 0</p>
+                    </div>
+                    <button type="button" id="btn_checkout_custom" onclick="transferCustomItemsToForm()"
+                        class="w-full sm:w-auto font-bold px-8 py-4 rounded-2xl text-sm tracking-wide cursor-pointer transition"
+                        style="background: var(--ink); color: white">
+                        👉 Checkout Custom Selection
+                    </button>
+                </div>
             </div>
-            
-            <!-- Context Control Intention Filters Tab Row -->
-            <div class="bg-slate-50 p-2 border-b border-slate-200/60 flex gap-1.5 overflow-x-auto text-[10px] font-bold">
-                <button onclick="setIntentMode('qna')" id="btn_qna" class="bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-xl shrink-0 cursor-pointer">💡 Dynamic QnA</button>
-                <button onclick="setIntentMode('status')" id="btn_status" class="bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-xl shrink-0 cursor-pointer">📦 Track Order</button>
-                <button onclick="setIntentMode('cancel')" id="btn_cancel" class="bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-xl shrink-0 cursor-pointer">❌ Cancel Delivery</button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TRUST / FAQ SECTION
+    ═══════════════════════════════════════ -->
+    <section class="py-16" style="background: white">
+        <div class="max-w-4xl mx-auto px-5">
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="rounded-2xl p-6 text-center border" style="border-color: rgba(232,73,106,0.1); background: var(--petal)">
+                    <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🧼</div>
+                    <h4 id="faq_t1" class="font-bold text-sm" style="color: var(--ink)">Pre-Washed & Sanitized</h4>
+                    <p id="faq_d1" class="text-xs mt-2 leading-relaxed" style="color: var(--stone)">Hypoallergenic garments, pre-washed and vacuum sealed — safe for newborn skin.</p>
+                </div>
+                
+                <div class="rounded-2xl p-6 text-center border" style="border-color: rgba(232,73,106,0.1); background: var(--petal)">
+                    <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🚚</div>
+                    <h4 id="faq_t2" class="font-bold text-sm" style="color: var(--ink)">Islandwide COD</h4>
+                    <p id="faq_d2" class="text-xs mt-2 leading-relaxed" style="color: var(--stone)">Pay cash when your order arrives. Delivered in 2–4 working days, anywhere in Sri Lanka.</p>
+                </div>
+                
+                <div class="rounded-2xl p-6 text-center border" style="border-color: rgba(232,73,106,0.1); background: var(--petal)">
+                    <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🔄</div>
+                    <h4 id="faq_t3" class="font-bold text-sm" style="color: var(--ink)">7-Day Free Exchange</h4>
+                    <p id="faq_d3" class="text-xs mt-2 leading-relaxed" style="color: var(--stone)">If anything isn't right, we'll exchange it — no questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FLOATING CHAT
+    ═══════════════════════════════════════ -->
+    <div class="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-4">
+
+        <!-- Chat window -->
+        <div id="chatBubbleWindow" class="hidden w-[340px] md:w-[380px] rounded-3xl overflow-hidden flex flex-col shadow-2xl chat-popup"
+            style="height: 520px; background: white; border: 1px solid rgba(232,73,106,0.15)">
+
+            <!-- Header -->
+            <div class="p-4 flex items-center justify-between" style="background: var(--ink)">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="w-9 h-9 premium-stripe rounded-full flex items-center justify-center text-white text-sm">👑</div>
+                        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full border-2" style="border-color: var(--ink)"></span>
+                    </div>
+                    <div>
+                        <h3 id="txt_chat_header" class="text-white font-bold text-xs">Mom & Baby Smart Care</h3>
+                        <p id="txt_chat_subheader" class="text-[9px] font-medium mt-0.5" style="color: rgba(255,255,255,0.45)">Online now</p>
+                    </div>
+                </div>
+                <button onclick="toggleChatWindow()" class="w-8 h-8 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition cursor-pointer text-xs">✕</button>
             </div>
 
-            <!-- Terminal Conversation Area -->
-            <div id="chatMessageArea" class="flex-1 overflow-y-auto p-4 space-y-3.5 text-xs font-medium text-slate-800 bg-slate-50/40"></div>
+            <!-- Tab row -->
+            <div class="p-2 flex gap-1.5 border-b" style="background: var(--petal); border-color: rgba(232,73,106,0.1)">
+                <button onclick="setIntentMode('qna')" id="btn_qna"
+                    class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border"
+                    style="background: white; border-color: rgba(232,73,106,0.2); color: var(--stone)">💡 Q&A</button>
+                <button onclick="setIntentMode('status')" id="btn_status"
+                    class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border"
+                    style="background: white; border-color: rgba(232,73,106,0.2); color: var(--stone)">📦 Track Order</button>
+                <button onclick="setIntentMode('cancel')" id="btn_cancel"
+                    class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border"
+                    style="background: white; border-color: rgba(232,73,106,0.2); color: var(--stone)">❌ Cancel</button>
+            </div>
 
-            <!-- Action Input Core Panel Group -->
-            <div class="border-t border-slate-100 p-3 bg-white flex items-center gap-2" id="chatInputSection">
-                <input type="text" id="chatInputField" placeholder="Type message parameters..." class="w-full border border-slate-200 rounded-xl px-4 py-3 text-xs font-semibold focus:border-pink-500 focus:outline-none bg-slate-50/50">
-                <button type="button" id="btn_chat_send" onclick="handleChatInputSubmit()" class="bg-pink-600 hover:bg-pink-700 text-white font-bold h-9 px-4 rounded-xl text-xs transition-colors cursor-pointer">Send</button>
+            <!-- Chat area -->
+            <div id="chatMessageArea" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs chat-bg"></div>
+
+            <!-- Input -->
+            <div id="chatInputSection" class="p-3 flex items-center gap-2 border-t" style="background: white; border-color: rgba(232,73,106,0.1)">
+                <input type="text" id="chatInputField" placeholder="Type a message..."
+                    class="flex-1 rounded-2xl px-4 py-2.5 text-xs font-medium focus:outline-none border"
+                    style="background: var(--petal); border-color: rgba(232,73,106,0.15); color: var(--ink); font-family: inherit">
+                <button type="button" id="btn_chat_send" onclick="handleChatInputSubmit()"
+                    class="h-9 px-4 rounded-2xl text-[10px] font-bold text-white cursor-pointer transition hover:opacity-90"
+                    style="background: var(--rose)">Send</button>
             </div>
         </div>
 
-        <!-- Trigger Button -->
-        <button onclick="toggleChatWindow()" class="bg-slate-900 hover:bg-slate-800 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform cursor-pointer relative border border-slate-800">
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <!-- Trigger button -->
+        <button onclick="toggleChatWindow()" class="chat-trigger w-14 h-14 rounded-full flex items-center justify-center cursor-pointer relative">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
             </svg>
+            <!-- Notification dot -->
+            <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full chat-badge text-white text-[8px] font-bold flex items-center justify-center">1</span>
         </button>
     </div>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-white rounded-3xl p-6 max-w-xs w-full text-center shadow-2xl border border-slate-100 chat-popup">
-            <span class="text-5xl block mb-2">🎉</span>
-            <h3 id="txt_modal_title" class="text-base font-extrabold text-slate-900">Request Confirmed</h3>
-            <p id="txt_modal_desc" class="text-xs text-slate-500 mt-2 font-medium leading-relaxed">Our checkout automation pipeline successfully parsed and logged your order tracking metric structures.</p>
-            <button id="btn_modal_close" onclick="closeModal()" class="mt-5 w-full bg-slate-900 text-white font-bold py-3 rounded-xl text-xs cursor-pointer hover:bg-slate-800">Dismiss</button>
+    <!-- ═══════════════════════════════════════
+         SUCCESS MODAL
+    ═══════════════════════════════════════ -->
+    <div id="successModal" class="hidden fixed inset-0 modal-backdrop flex items-center justify-center p-4 z-50">
+        <div class="chat-popup rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl" style="background: white">
+            <div class="w-16 h-16 rounded-full premium-stripe flex items-center justify-center text-3xl mx-auto mb-4">🎉</div>
+            <h3 id="txt_modal_title" class="font-display text-xl" style="color: var(--ink)">Order Confirmed!</h3>
+            <p id="txt_modal_desc" class="text-xs mt-2 leading-relaxed" style="color: var(--stone)">
+                We've received your order. Our team will contact you to confirm delivery.
+            </p>
+            <button id="btn_modal_close" onclick="closeModal()"
+                class="mt-6 w-full font-bold py-3.5 rounded-2xl text-sm cursor-pointer transition hover:opacity-90"
+                style="background: var(--ink); color: white">
+                Done
+            </button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs font-semibold">
-        <div class="max-w-6xl mx-auto px-4 space-y-2">
-            <p class="text-slate-300">👑 Mom & Baby Care Store Sri Lanka</p>
-            <p id="txt_footer_copy">© 2026 Mom & Baby Care. All engineering system components operational. Islandwide Delivery.</p>
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer class="py-10">
+        <div class="max-w-6xl mx-auto px-5 text-center space-y-3">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-8 h-8 rounded-full premium-stripe flex items-center justify-center">
+                    <span class="text-white text-sm">👑</span>
+                </div>
+                <span class="font-display text-lg text-white">Mom & Baby Care</span>
+            </div>
+            <p id="txt_footer_copy" class="text-xs" style="color: rgba(255,255,255,0.4)">
+                © 2026 Mom & Baby Care Sri Lanka. Islandwide Delivery. All rights reserved.
+            </p>
         </div>
     </footer>
 
+    <!-- ═══════════════════════════════════════
+         JAVASCRIPT
+    ═══════════════════════════════════════ -->
     <script>
         const CLOUDFLARE_WORKER_URL = 'https://babycare-backend-api.tbmsaranga.workers.dev';
         let currentLang = 'si';
 
-        // Real-world Sri Lankan District Courier Delivery Fee Mapping (LKR Matrix)
         const deliveryFeeMatrix = {
             "Colombo": 350, "Gampaha": 400, "Kalutara": 450,
             "Kandy": 500, "Matale": 500, "Galle": 500, "Matara": 500
         };
 
-        // Multi-Language System Translation Dictionary Matrix
         const dictionary = {
             si: {
-                badge: "🌸 වාරික මාතෘ සාප්පුව - ශ්‍රී ලංකාව",
-                hero_title: 'රෝහලට යන්න සූදානම් කළ <span class="bg-gradient-to-r bg-clip-text text-transparent from-pink-600 to-pink-500">සම්පූර්ණ පැකේජය</span> නිවසටම ගෙන්වා ගන්න.',
-                hero_desc: "උසස්ම තත්ත්වයේ කපු රෙදිපිළි (100% Cotton) මඟින් සකසා සෝදා පිරිසිදු කර විෂබීජහරණය කළ ඇසුරුම්. දිවයින පුරා භාණ්ඩ ලැබුණු පසු මුදල් ගෙවීමේ හැකියාව (Cash on Delivery).",
-                explore: "පැකේජ බලන්න 🔽",
+                badge: "🌸 වාරික මාතෘ සාප්පුව · ශ්‍රී ලංකාව",
+                hero_title: 'රෝහලට යන්න සූදානම් කළ <em style="color: var(--rose); font-style: normal;">සම්පූර්ණ පැකේජය</em> නිවසටම ගෙන්වා ගන්න.',
+                hero_desc: "උසස්ම තත්ත්වයේ කපු රෙදිපිළි (100% Cotton) — සෝදා, විෂබීජහරණය කර, vacuum-sealed ඇසුරුම්. දිවයිනේ ඕනෑම තැනකට Cash on Delivery.",
+                explore: "පැකේජ බලන්න ↓",
                 optA_badge: "ක්‍රමය A",
-                optA_title: "අපගේ සූදානම් කළ වාරික පැකේජ",
-                optA_desc: "රෝහල් ඇතුළත් වීමට අවශ්‍ය සියලුම දෑ අඩංගු සම්පූර්ණ පැකේජ.",
+                optA_title: "සූදානම් කළ වාරික පැකේජ",
+                optA_desc: "රෝහල් ඇතුළත් වීමට අවශ්‍ය සියලු දෑ, සූදානම් කළ ආකාරයෙන්.",
                 eco_badge: "මූලික පැකේජය",
-                eco_inc: "📦 ඇතුළත් දෑ:",
-                order_eco: "Economy පැකේජය ඇණවුම් කරන්න",
-                prem_tag: "පූර්ණ සුඛෝපභෝගී",
+                eco_inc: "📦 ඇතුළත් දෑ",
+                order_eco: "✦ Essential Kit ඇණවුම් කරන්න",
+                prem_tag: "සම්පූර්ණ ඉහළ",
                 prem_badge: "වාරික පැකේජය",
-                prem_inc: "👑 ඇතුළත් දෑ:",
-                order_prem: "Premium පැකේජය ඇණවුම් කරන්න",
+                prem_inc: "👑 ඇතුළත් දෑ",
+                order_prem: "👑 Premium Kit ඇණවුම් කරන්න",
                 optB_badge: "ක්‍රමය B",
-                optB_title: "ඔබට අවශ්‍ය දේ තෝරා ඔබේම පැකේජයක් සාදාගන්න",
-                optB_desc: "අයිතමයන් වෙන වෙනම එක් කරන්න. ඇඳුම් වල වර්ණය පිරිමි හෝ ගැහැණු දරුවා අනුව වෙනස් කරන්න.",
-                theme_select: "🎨 දරුවාගේ වර්ණ තේමාව තෝරන්න:",
-                theme_boy: "💙 පිරිමි දරුවා (නිල් තේමාව)",
-                theme_girl: "💗 ගැහැණු දරුවා (රෝස තේමාව)",
-                baby_heading: "👶 බබාට අවශ්‍ය දෑ",
-                mom_heading: "🤰 අම්මාට අවශ්‍ය දෑ",
-                matrix_total: "එකතුව:",
-                checkout_custom: "👉 තෝරාගත් දෑ ඇණවුම් කරන්න",
-                faq_t1: "🧼 සෝදා පිරිසිදු කරන ලද",
-                faq_d1: "විෂබීජහරණය කර වැකියුම් සීල් (Vacuum Sealed) කරන ලද ඇසුරුම්.",
-                faq_t2: "🚚 දිවයින පුරා COD",
-                faq_d2: "භාණ්ඩ ලැබුණු පසු මුදල් ගෙවන්න. දින 2-4 අතර නිවසටම.",
-                faq_t3: "🔄 දින 7ක හුවමාරුව",
-                faq_d3: "නිෂ්පාදන දෝෂයක් ඇත්නම් කිසිදු බාධාවකින් තොරව වෙනස් කර දීම.",
-                chat_header: "Mom & Baby සහායකයා",
-                chat_subheader: "ස්වයංක්‍රීය පාරිභෝගික සේවය",
+                optB_title: "ඔබේම Kit එක සාදාගන්න",
+                optB_desc: "ඔබට අවශ්‍ය දේ ඉහළ සිට ගත හැකිය. ආකෘතිය ළමයාගේ ලිංගය අනුව වෙනස් කරන්න.",
+                theme_select: "🎨 වර්ණ තේමාව:",
+                theme_boy: "💙 පිරිමි",
+                theme_girl: "💗 ගැහැණු",
+                baby_heading: "👶 බබාගේ දෑ",
+                mom_heading: "🤰 අම්මාගේ දෑ",
+                matrix_total: "ඔබගේ එකතුව",
+                checkout_custom: "👉 ඇණවුම් කරන්න",
+                faq_t1: "🧼 සෝදා විෂබීජහරණය",
+                faq_d1: "Hypoallergenic, vacuum-sealed — අලුත උපන් දරුවාගේ සිරුරට ආරක්ෂිතයි.",
+                faq_t2: "🚚 දිවයිනේ COD",
+                faq_d2: "භාණ්ඩ ලැබුණු පසු මුදල් ගෙවන්න. දින 2–4 ඇතුළත නිවසටම.",
+                faq_t3: "🔄 දින 7 හුවමාරුව",
+                faq_d3: "නිෂ්පාදන දෝෂයක් ඇත්නම්, ප්‍රශ්නයක් නොමැතිව වෙනස් කරදෙනු ලැබේ.",
+                chat_header: "Mom & Baby සහාය",
+                chat_subheader: "Online දැන්",
                 chat_send: "යවන්න",
-                chat_placeholder: "පණිවිඩය ඇතුළත් කරන්න...",
-                chat_welcome: "👋 ආයුබෝවන්! ඔබට අවශ්‍ය පැකේජය තෝරාගන්න. පසුව මම ඔබට ඇණවුම තහවුරු කරගැනීමට උදවු කරන්නම්.",
-                qna_init: "💡 **ප්‍රශ්නෝත්තර සහායක සක්‍රීයයි**:<br>ඇඳුම් වල ගුණාත්මකභාවය, බෙදා හැරීමේ ගාස්තු හෝ ඇසුරුම්කරණය පිළිබඳ ඕනෑම ප්‍රශ්නයක් අසන්න:",
-                status_init: "📦 **ඇණවුම් ලුහුබැඳීම**:<br>කරුණාකර ඔබගේ දුරකථන අංකය හෝ ඇණවුම් කේතය ඇතුළත් කරන්න:",
-                cancel_init: "❌ **ඇණවුම් අවලංගු කිරීම**:<br>අවලංගු කිරීමට අවශ්‍ය ඇණවුම් අංකය ඇතුළත් කරන්න:",
-                ask_name: "🙋‍♀️ ඔබගේ **සම්පූර්ණ නම** කුමක්ද?",
-                ask_phone: "📱 ඔබගේ **දුරකථන අංකය** ඇතුළත් කරන්න (ඉලක්කම් 10)",
-                ask_phone_err: "⚠️ කරුණාකර 0න් ආරම්භ වන නිවැරදි ඉලක්කම් 10ක දුරකථන අංකයක් ඇතුළත් කරන්න (උදා: 0771234567).",
-                ask_district: "📍 ඇණවුම එවිය යුතු **දිස්ත්‍රික්කය** තෝරන්න:",
-                ask_address: "🏠 ඔබගේ **නිවසේ ලිපිනය** ඇතුළත් කරන්න:",
-                confirm_title: "📝 **ඇණවුමේ විස්තර තහවුරු කරන්න:**",
-                place_order_btn: "ඇණවුම තහවුරු කරන්න (COD) 🚚",
-                delivery_txt: "බෙදාහැරීමේ ගාස්තුව",
-                grand_txt: "මුළු එකතුව",
-                modal_title: "🎉 ඇණවුම සාර්ථකයි",
-                modal_desc: "ඔබගේ ඇණවුම පද්ධතියට සාර්ථකව ඇතුළත් කර ගන්නා ලදී. නියෝජිතයෙකු ඔබව සම්බන්ධ කර ගනු ඇත.",
-                modal_close: "Close",
-                footer_copy: "© 2026 Mom & Baby Care. සියලුම පද්ධති ක්‍රියාත්මකයි. දිවයින පුරා බෙදාහැරීම.",
+                chat_placeholder: "පණිවිඩය ඇතුළු කරන්න...",
+                chat_welcome: "👋 ආයුබෝවන්! Option A හෝ Option B මඟින් Package එකක් තෝරා ගන්නා විට ස්වයංක්‍රීයව Checkout ආරම්භ වේ.",
+                qna_init: "💡 <strong>Q&A සහාය ක්‍රියාත්මකයි</strong>:<br>ඇඳුම් ගුණාත්මකභාවය, delivery ගාස්තු, packaging ගැන ඕනෑම දෙයක් අසන්න:",
+                status_init: "📦 <strong>Order Tracking</strong>:<br>ඔබගේ දුරකථන අංකය හෝ Order Reference ඇතුළත් කරන්න:",
+                cancel_init: "❌ <strong>Order Cancel</strong>:<br>Cancel කිරීමට Order Code ඇතුළත් කරන්න:",
+                ask_name: "🙋‍♀️ ඔබගේ <strong>සම්පූර්ණ නම</strong> කුමක්ද?",
+                ask_phone: "📱 ඔබගේ <strong>දුරකථන අංකය</strong> (ඉලක්කම් 10)?",
+                ask_phone_err: "⚠️ 0ෙන් ආරම්භ වන ඉලක්කම් 10ක් ඇතුළු කරන්න (උදා: 0771234567).",
+                ask_district: "📍 Delivery දිස්ත්‍රික්කය:",
+                ask_address: "🏠 ඔබගේ <strong>නිවසේ ලිපිනය</strong>:",
+                confirm_title: "📝 <strong>ඇණවුම තහවුරු කරන්න:</strong>",
+                place_order_btn: "ඇණවුම් කරන්න (COD) 🚚",
+                delivery_txt: "Delivery",
+                grand_txt: "මුළු",
+                modal_title: "ඇණවුම සාර්ථකයි!",
+                modal_desc: "ඔබගේ ඇණවුම ලැබුණා. නියෝජිතයෙකු ඔබව ඉක්මනින් සම්බන්ධ කරගනු ඇත.",
+                modal_close: "හරි",
+                footer_copy: "© 2026 Mom & Baby Care Sri Lanka. දිවයිනේ සෑමතැනකටම. සියලු හිමිකම් ඇවිරිණි.",
                 eco_items: [
-                    "✔️ 06x පිරිසිදු කපු බබාගේ කමිස",
-                    "✔️ 12x දෙපට කපු නැපි (Nappies)",
-                    "✔️ 03x බබාගේ තොප්පි, අත්මේස් සහ පාමේස් යුගල",
-                    "✔️ 02x බබා එතීමට ගන්නා මෘදු රෙදි (Swaddle)"
+                    "✔ 06x සියයට සියයක් කපු Baby Shirts",
+                    "✔ 12x Double-Layer කපු Nappies",
+                    "✔ 03x Baby Caps, Mittens සහ Booties",
+                    "✔ 02x Swaddle Wraps"
                 ],
                 prem_items: [
-                    "✔️ 12x වාරික පිරිසිදු කපු බබාගේ කමිස",
-                    "✔️ 24x privil ඉහළ අවශෝෂණ කපු නැපි (Nappies)",
-                    "✔️ 06x තොප්පි, අත්මේස් සහ පාමේස් කට්ටල",
-                    "✔️ 04x බබා එතීමට ගන්නා රෙදි සහ තුවා",
-                    "✔️ 02x කපු මාතෘ ගවුම් (Maternity Frocks)"
+                    "✔ 12x Premium කපු Baby Shirts",
+                    "✔ 24x Ultra-Absorbent කපු Nappies",
+                    "✔ 06x Caps, Mittens සහ Booties Sets",
+                    "✔ 04x Swaddle Wraps + Hooded Towels",
+                    "✔ 02x Maternity Frocks"
                 ],
                 products: {
-                    b_shirt: 'පිරිසිදු කපු බේබි කමිස',
-                    b_nappy: 'කපු නැපි (Nappies)',
-                    b_swaddle: 'මෘදු බේබි ස්වැඩ්ල් රෙදි',
-                    m_frock: 'මාතෘ ඇතුළත් වීමේ ගවුම',
-                    m_pads: 'ලූප් මාතෘ සුවපහසු පෑඩ්'
+                    b_shirt: 'Baby Cotton Shirts',
+                    b_nappy: 'Cotton Nappies',
+                    b_swaddle: 'Swaddle Wrap',
+                    m_frock: 'Maternity Frock',
+                    m_pads: 'Maternity Pads'
                 }
             },
             en: {
-                badge: "🌸 Premium Maternity Store - Sri Lanka",
-                hero_title: 'Get Your <span class="bg-gradient-to-r bg-clip-text text-transparent from-pink-600 to-pink-500">Complete Delivery Hospital Bag</span> to Your Doorstep.',
-                hero_desc: "High-quality 100% pure cotton garments pre-washed, ironed, and vacuum-sealed safely for your newborn. Islandwide Cash on Delivery available.",
-                explore: "Explore Kits Catalog 🔽",
+                badge: "🌸 Premium Maternity Store · Sri Lanka",
+                hero_title: 'Your <em style="color: var(--rose); font-style: normal;">Complete Hospital Bag</em>, delivered to your door.',
+                hero_desc: "100% pure cotton garments — pre-washed, ironed, and vacuum-sealed for your newborn. Islandwide Cash on Delivery.",
+                explore: "Shop Kits ↓",
                 optA_badge: "Option A",
-                optA_title: "Our Pre-Packed Premium Bundles",
-                optA_desc: "Complete hassle-free essential kits ready for hospital admission.",
+                optA_title: "Pre-Packed Premium Bundles",
+                optA_desc: "Everything you need, ready to go. No shopping list, no stress.",
                 eco_badge: "Essential Kit",
-                eco_inc: "📦 What's Included inside:",
-                order_eco: "Order Economy Bundle",
+                eco_inc: "📦 What's included",
+                order_eco: "✦ Order Essential Kit",
                 prem_tag: "Full Luxury",
                 prem_badge: "Premium Package",
-                prem_inc: "👑 What's Included inside:",
-                order_prem: "Order Premium Bundle",
+                prem_inc: "👑 What's included",
+                order_prem: "👑 Order Premium Kit",
                 optB_badge: "Option B",
-                optB_title: "Or, Build Your Own Custom Kit",
-                optB_desc: "Add individual pieces freely. Change the theme style dynamically to tailor fabric trims coloring.",
-                theme_select: "🎨 Select Fabric Color Theme Profile:",
-                theme_boy: "💙 Boy Profile Pack",
-                theme_girl: "💗 Girl Profile Pack",
-                baby_heading: "👶 Individual Baby Items",
-                mom_heading: "🤰 Individual Mother Items",
-                matrix_total: "Custom Layout Total Matrix:",
-                checkout_custom: "👉 Checkout Custom Selection",
-                faq_t1: "🧼 Pre-Washed & Cleaned",
-                faq_d1: "Hypoallergenic items fully pre-washed and vacuum sealed safely.",
+                optB_title: "Build Your Own Kit",
+                optB_desc: "Pick exactly what you need. Choose a boy or girl color theme.",
+                theme_select: "🎨 Choose color theme:",
+                theme_boy: "💙 Boy",
+                theme_girl: "💗 Girl",
+                baby_heading: "👶 Baby Items",
+                mom_heading: "🤰 Mother Items",
+                matrix_total: "Your Total",
+                checkout_custom: "👉 Checkout",
+                faq_t1: "🧼 Pre-Washed & Sanitized",
+                faq_d1: "Hypoallergenic, vacuum-sealed — safe for newborn skin from day one.",
                 faq_t2: "🚚 Islandwide COD",
-                faq_d2: "Cash on delivery straight to your doorstep across 2-4 working days.",
+                faq_d2: "Pay when your parcel arrives. Delivered in 2–4 working days anywhere in Sri Lanka.",
                 faq_t3: "🔄 7-Day Exchange",
-                faq_d3: "Zero argument guarantee policy for any material structural defects.",
-                chat_header: "Mom & Baby Smart Care",
-                chat_subheader: "Automated Support Agent",
+                faq_d3: "If anything isn't right, we'll exchange it — no questions asked.",
+                chat_header: "Mom & Baby Support",
+                chat_subheader: "Online now",
                 chat_send: "Send",
-                chat_placeholder: "Type message parameters...",
-                chat_welcome: "👋 Hello there! Select a package from Option A or assemble items inside the Option B Builder to instantly trigger automated assistant step-by-step checking out.",
-                qna_init: "💡 **General System QnA Assistant Ready**:<br>Drop a question regarding fabric items standard compliance, shipping fees or packaging layers:",
-                status_init: "📦 **Order Tracking Module Enabled**:<br>Please supply your verification system Phone Number or Order Reference sequence token ID below:",
-                cancel_init: "❌ **Order Cancellation Engine Active**:<br>Please write down your target Order Code sequence token below to flag processing cancellation steps:",
-                ask_name: "🙋‍♀️ What is your **Full Name**?",
-                ask_phone: "📱 What is your **Mobile Phone Number**? (10 digits)",
-                ask_phone_err: "⚠️ Please enter a valid 10-digit phone number starting with 0 (Ex: 0771234567).",
-                ask_district: "📍 Choose your destination **District** below:",
-                ask_address: "🏠 What is your **Full Home Address**?",
-                confirm_title: "📝 **Confirm System Checkout Order Information Details:**",
+                chat_placeholder: "Type a message...",
+                chat_welcome: "👋 Hi there! Select a package from Option A, or build your own in Option B. Checkout starts automatically.",
+                qna_init: "💡 <strong>Q&A Assistant ready</strong>:<br>Ask anything about fabric quality, delivery fees, or packaging:",
+                status_init: "📦 <strong>Order Tracking</strong>:<br>Enter your phone number or order reference:",
+                cancel_init: "❌ <strong>Cancel Order</strong>:<br>Enter your order code below:",
+                ask_name: "🙋‍♀️ What is your <strong>full name</strong>?",
+                ask_phone: "📱 Your <strong>mobile number</strong>? (10 digits)",
+                ask_phone_err: "⚠️ Please enter a valid 10-digit number starting with 0 (e.g. 0771234567).",
+                ask_district: "📍 Choose your delivery district:",
+                ask_address: "🏠 Your <strong>full home address</strong>?",
+                confirm_title: "📝 <strong>Confirm your order:</strong>",
                 place_order_btn: "Place Order (COD) 🚚",
-                delivery_txt: "Delivery Fee",
-                grand_txt: "Grand Total",
-                modal_title: "🎉 Request Confirmed",
-                modal_desc: "Our checkout automation pipeline successfully parsed and logged your order tracking metric structures.",
-                modal_close: "Dismiss",
-                footer_copy: "© 2026 Mom & Baby Care. All engineering system components operational. Islandwide Delivery.",
+                delivery_txt: "Delivery",
+                grand_txt: "Total",
+                modal_title: "Order Confirmed!",
+                modal_desc: "We've received your order. Our team will contact you to confirm delivery.",
+                modal_close: "Done",
+                footer_copy: "© 2026 Mom & Baby Care Sri Lanka. Islandwide Delivery. All rights reserved.",
                 eco_items: [
-                    "✔️ 06x Pure Cotton Baby Shirts",
-                    "✔️ 12x Double-Layer Cotton Nappies",
-                    "✔️ 03x Baby Caps, Mittens & Booties Pairs",
-                    "✔️ 02x Soft Receiving Swaddle Wraps"
+                    "✔ 06x Pure Cotton Baby Shirts",
+                    "✔ 12x Double-Layer Cotton Nappies",
+                    "✔ 03x Baby Caps, Mittens & Booties",
+                    "✔ 02x Soft Swaddle Wraps"
                 ],
                 prem_items: [
-                    "✔️ 12x Premium Cotton Luxury Baby Shirts",
-                    "✔️ 24x Ultra-Absorbent Cotton Nappies",
-                    "✔️ 06x Caps, Mittens & Booties Sets",
-                    "✔️ 04x Swaddle Cloth Wraps + Hooded Towels",
-                    "✔️ 02x Cotton Mother Maternity Frocks"
+                    "✔ 12x Premium Cotton Baby Shirts",
+                    "✔ 24x Ultra-Absorbent Cotton Nappies",
+                    "✔ 06x Caps, Mittens & Booties Sets",
+                    "✔ 04x Swaddle Wraps + Hooded Towels",
+                    "✔ 02x Cotton Maternity Frocks"
                 ],
                 products: {
-                    b_shirt: 'Premium Cotton Baby Shirts',
-                    b_nappy: 'Absorbent Cotton Nappies',
-                    b_swaddle: 'Soft Receiving Swaddle Wrap',
-                    m_frock: 'Maternity Opening Frock',
-                    m_pads: 'Loop Maternity Comfort Pads'
+                    b_shirt: 'Cotton Baby Shirts',
+                    b_nappy: 'Cotton Nappies',
+                    b_swaddle: 'Swaddle Wrap',
+                    m_frock: 'Maternity Frock',
+                    m_pads: 'Maternity Pads'
                 }
             },
             ta: {
-                badge: "🌸 பிரீமியம் மகப்பேறு ஸ்டோர் - இலங்கை",
-                hero_title: 'பிரசவத்திற்காக தயார் செய்யப்பட்ட <span class="bg-gradient-to-r bg-clip-text text-transparent from-pink-600 to-pink-500">முழுமையான பேக்கேஜை</span> வீட்டிற்கே பெற்றுக்கொள்ளுங்கள்.',
-                hero_desc: "உயர்தர 100% பருத்தி துணிகள் துவைக்கப்பட்டு, இஸ்திரி செய்யப்பட்டு, உங்கள் குழந்தைக்கு பாதுகாப்பாக பேக் செய்யப்பட்டுள்ளது. நாடு முழுவதும் கேஷ் ஆன் டெலிவரி வசதி உள்ளது.",
-                explore: "பேக்கேஜ்களைப் பார்க்க 🔽",
+                badge: "🌸 பிரீமியம் மகப்பேறு ஸ்டோர் · இலங்கை",
+                hero_title: 'பிரசவத்திற்கு தயார் செய்யப்பட்ட <em style="color: var(--rose); font-style: normal;">முழுமையான பேக்கேஜ்</em> உங்கள் வீட்டிற்கே.',
+                hero_desc: "100% பருத்தி ஆடைகள் — துவைக்கப்பட்டு, இஸ்திரி செய்யப்பட்டு, vacuum-sealed செய்யப்பட்டவை. நாடு முழுவதும் Cash on Delivery.",
+                explore: "பேக்கேஜ்கள் பார்க்க ↓",
                 optA_badge: "முறை A",
-                optA_title: "எங்கள் முன்பே பேக் செய்யப்பட்ட பிரீமியம் பேக்கேஜ்கள்",
-                optA_desc: "மருத்துவமனையில் அனுமதிக்கப்படுவதற்கு தேவையான அனைத்து அத்தியாவசிய பொருட்களும் அடங்கிய முழுமையான பேக்.",
+                optA_title: "முன்பே தயார் செய்யப்பட்ட பேக்கேஜ்கள்",
+                optA_desc: "மருத்துவமனை அனுமதிக்கு தேவையான அனைத்தும் ஒரே இடத்தில்.",
                 eco_badge: "அடிப்படை பேக்கேஜ்",
-                eco_inc: "📦 சேர்க்கப்பட்டுள்ள பொருட்கள்:",
-                order_eco: "Economy பேக்கேஜை ஆர்டர் செய்யவும்",
+                eco_inc: "📦 சேர்க்கப்பட்டவை",
+                order_eco: "✦ Essential Kit ஆர்டர்",
                 prem_tag: "முழு ஆடம்பரம்",
                 prem_badge: "பிரீமியம் பேக்கேஜ்",
-                prem_inc: "👑 சேர்க்கப்பட்டுள்ள பொருட்கள்:",
-                order_prem: "Premium பேக்கேஜை ஆர்டர் செய்யவும்",
+                prem_inc: "👑 சேர்க்கப்பட்டவை",
+                order_prem: "👑 Premium Kit ஆர்டர்",
                 optB_badge: "முறை B",
-                optB_title: "அல்லது உங்கள் சொந்த பேக்கேஜை உருவாக்குங்கள்",
-                optB_desc: "தேவையான பொருட்களை தனித்தனியாக சேர்க்கவும். துணிகளின் நிறத்தை ஆண் அல்லது பெண் குழந்தைக்கு ஏற்ப மாற்றவும்.",
-                theme_select: "🎨 குழந்தையின் வண்ணத் கருப்பொருளைத் தேர்ந்தெடுக்கவும்:",
-                theme_boy: "💙 ஆண் குழந்தை (நீல தீம்)",
-                theme_girl: "💗 பெண் குழந்தை (இளஞ்சிவப்பு தீம்)",
-                baby_heading: "👶 குழந்தைகளுக்கான பொருட்கள்",
-                mom_heading: "🤰 தாய்களுக்கான பொருட்கள்",
-                matrix_total: "மொத்தத் தொகை:",
-                checkout_custom: "👉 தேர்ந்தெடுக்கப்பட்டவற்றை ஆர்டர் செய்யவும்",
-                faq_t1: "🧼 துவைக்கப்பட்டு சுத்தம் செய்யப்பட்டது",
-                faq_d1: "விஷබீஜஹরণ செய்யப்பட்டு வேக்யூம் சீல் செய்யப்பட்ட பாதுகாப்பான பேக்கிங்.",
+                optB_title: "உங்கள் சொந்த Kit உருவாக்குங்கள்",
+                optB_desc: "தேவையான பொருட்களை தனித்தனியாக சேர்க்கவும். வண்ணத்தை மாற்றவும்.",
+                theme_select: "🎨 வண்ண தீம்:",
+                theme_boy: "💙 ஆண்",
+                theme_girl: "💗 பெண்",
+                baby_heading: "👶 குழந்தை பொருட்கள்",
+                mom_heading: "🤰 தாய் பொருட்கள்",
+                matrix_total: "மொத்தம்",
+                checkout_custom: "👉 ஆர்டர் செய்யுங்கள்",
+                faq_t1: "🧼 துவைக்கப்பட்டு சுத்தம்",
+                faq_d1: "Hypoallergenic, vacuum-sealed — புதிய குழந்தைக்கு பாதுகாப்பானது.",
                 faq_t2: "🚚 நாடு முழுவதும் COD",
-                faq_d2: "பொருட்களைப் பெற்றுக் கொள்ளும்போது பணம் செலுத்துங்கள். 2-4 நாட்களில் வீடு தேடி வரும்.",
-                faq_t3: "🔄 7 நாட்கள் பரிமாற்றம்",
-                faq_d3: "தயாரிப்புக் குறைபாடுகள் ஏதேனும் இருப்பின் எவ்வித நிபந்தனையுமின்றி மாற்றித்தரப்படும்.",
-                chat_header: "Mom & Baby உதவியாளர்",
-                chat_subheader: "தானியங்கி வாடிக்கையாளர் சேவை",
-                chat_send: "அனுப்புக",
-                chat_placeholder: "செய்தியை உள்ளிடவும்...",
-                chat_welcome: "👋 வணக்கம்! உங்களுக்கு தேவையான பேக்கேஜை தேர்வு செய்யவும். ஆர்டரை உறுதிப்படுத்த நான் உங்களுக்கு உதவுகிறேன்.",
-                qna_init: "💡 **கேள்வி பதில் உதவியாளர் தயார்**:<br>துணிகளின் தரம், விநியோக கட்டணங்கள் அல்லது பேக்கிங் பற்றிய கேள்விகளைக் கேளுங்கள்:",
-                status_init: "📦 **ஆர்டர் டிராக்கிங்**:<br>உங்கள் தொலைபேசி எண் அல்லது ஆர்டர் குறியீட்டை உள்ளிடவும்:",
-                cancel_init: "❌ **ஆர்டர் ரத்து செய்தல்**:<br>ரத்து செய்ய வேண்டிய ஆர்டர் குறியீட்டை உள்ளிடவும்:",
-                ask_name: "🙋‍♀️ உங்கள் **முழு பெயர்** என்ன?",
-                ask_phone: "📱 உங்கள் **தொலைபேசி எண்** என்ன? (10 இலக்கங்கள்)",
-                ask_phone_err: "⚠️ தயவுசெய்து 0 இல் தொடங்கும் சரியான 10 இலக்க தொலைபேசி எண்ணை உள்ளிடவும் (எ.கா: 0771234567).",
-                ask_district: "📍 டெலிவரி செய்ய வேண்டிய **மாவட்டத்தை** தேர்வு செய்யவும்:",
-                ask_address: "🏠 உங்கள் **முழு வீட்டு முகவரியை** உள்ளிடவும்:",
-                confirm_title: "📝 **ஆர்டர் விபரங்களை உறுதிப்படுத்தவும்:**",
-                place_order_btn: "ஆர்டரை உறுதிப்படுத்துக (COD) 🚚",
-                delivery_txt: "டெலிவரி கட்டணம்",
+                faq_d2: "பொருட்கள் வந்த பிறகு பணம் செலுத்துங்கள். 2–4 நாட்களில் வீடு தேடி வரும்.",
+                faq_t3: "🔄 7 நாள் பரிமாற்றம்",
+                faq_d3: "ஏதேனும் குறை இருந்தால் கேள்விகளின்றி மாற்றித் தருவோம்.",
+                chat_header: "Mom & Baby உதவி",
+                chat_subheader: "இப்போது Online",
+                chat_send: "அனுப்பு",
+                chat_placeholder: "செய்தி தட்டச்சு செய்யவும்...",
+                chat_welcome: "👋 வணக்கம்! Option A அல்லது Option B இல் பேக்கேஜ் தேர்வு செய்யுங்கள். Checkout தானாக தொடங்கும்.",
+                qna_init: "💡 <strong>Q&A உதவியாளர் தயார்</strong>:<br>தரம், டெலிவரி கட்டணம், பேக்கிங் பற்றி கேளுங்கள்:",
+                status_init: "📦 <strong>Order Tracking</strong>:<br>உங்கள் தொலைபேசி எண் அல்லது ஆர்டர் குறியீட்டை உள்ளிடவும்:",
+                cancel_init: "❌ <strong>ஆர்டர் ரத்து</strong>:<br>ஆர்டர் குறியீட்டை உள்ளிடவும்:",
+                ask_name: "🙋‍♀️ உங்கள் <strong>முழு பெயர்</strong>?",
+                ask_phone: "📱 உங்கள் <strong>தொலைபேசி எண்</strong>? (10 இலக்கங்கள்)",
+                ask_phone_err: "⚠️ 0 இல் தொடங்கும் 10 இலக்க எண்ணை உள்ளிடவும் (எ.கா: 0771234567).",
+                ask_district: "📍 டெலிவரி மாவட்டத்தை தேர்வு செய்யவும்:",
+                ask_address: "🏠 உங்கள் <strong>வீட்டு முகவரி</strong>?",
+                confirm_title: "📝 <strong>ஆர்டர் உறுதிப்படுத்தல்:</strong>",
+                place_order_btn: "ஆர்டர் செய்யுங்கள் (COD) 🚚",
+                delivery_txt: "டெலிவரி",
                 grand_txt: "மொத்தம்",
-                modal_title: "🎉 ஆர்டர் வெற்றிகரமாக பதிவு செய்யப்பட்டது",
-                modal_desc: "உங்கள் ஆர்டர் கணினியில் வெற்றிகரமாக பதிவு செய்யப்பட்டுள்ளது. எங்கள் முகவர் விரைவில் உங்களைத் தொடர்புகொள்வார்.",
+                modal_title: "ஆர்டர் உறுதியானது!",
+                modal_desc: "உங்கள் ஆர்டர் கிடைத்தது. எங்கள் குழு விரைவில் தொடர்பு கொள்வார்கள்.",
                 modal_close: "சரி",
-                footer_copy: "© 2026 Mom & Baby Care. அனைத்து அமைப்புகளும் இயங்குகின்றன. நாடு முழுவதும் விநியோகம்.",
+                footer_copy: "© 2026 Mom & Baby Care Sri Lanka. நாடு முழுவதும் டெலிவரி. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
                 eco_items: [
-                    "✔️ 06x பிரீமியம் பருத்தி குழந்தை சட்டைகள்",
-                    "✔️ 12x இரட்டை அடுக்கு பருத்தி துணி நேப்பிகள்",
-                    "✔️ 03x குழந்தை தொப்பிகள், கையுறைகள் மற்றும் கால் காலுறைகள்",
-                    "✔️ 02x மென்மையான குழந்தையை சுற்றும் துணிகள்"
+                    "✔ 06x பருத்தி Baby Shirts",
+                    "✔ 12x Double-Layer பருத்தி Nappies",
+                    "✔ 03x Baby Caps, Mittens & Booties",
+                    "✔ 02x Swaddle Wraps"
                 ],
                 prem_items: [
-                    "✔️ 12x பிரீமியம் பருத்தி சொகுசு குழந்தை சட்டைகள்",
-                    "✔️ 24x அதிக உறிஞ்சக்கூடிய பருத்தி நேப்பிகள்",
-                    "✔️ 06x தொப்பிகள், கையுறைகள் மற்றும் காலுறை செட்கள்",
-                    "✔️ 04x குழந்தையை சுற்றும் துணிகள் + குல்லா துண்டுகள்",
-                    "✔️ 02x பருத்தி மகப்பேறு கவுன்கள்"
+                    "✔ 12x Premium பருத்தி Baby Shirts",
+                    "✔ 24x Ultra-Absorbent பருத்தி Nappies",
+                    "✔ 06x Caps, Mittens & Booties Sets",
+                    "✔ 04x Swaddle Wraps + Hooded Towels",
+                    "✔ 02x Maternity Frocks"
                 ],
                 products: {
-                    b_shirt: 'குழந்தை பருத்தி சட்டைகள்',
-                    b_nappy: 'துணி நேப்பிகள் (Nappies)',
-                    b_swaddle: 'குழந்தை சுற்றும் துணி (Swaddle)',
-                    m_frock: 'மகப்பேறு பிரசவ கவுன்',
-                    m_pads: 'மகப்பேறு கம்ஃபோர்ட் பேட்கள்'
+                    b_shirt: 'Baby Cotton Shirts',
+                    b_nappy: 'Cotton Nappies',
+                    b_swaddle: 'Swaddle Wrap',
+                    m_frock: 'Maternity Frock',
+                    m_pads: 'Maternity Pads'
                 }
             }
         };
@@ -498,13 +836,22 @@
         const selectedQuantities = {};
         products.forEach(p => selectedQuantities[p.id] = 0);
 
-        function toggleChatWindow() { document.getElementById('chatBubbleWindow').classList.toggle('hidden'); }
-        function closeModal() { document.getElementById('successModal').classList.add('hidden'); toggleChatWindow(); }
+        function toggleChatWindow() {
+            const w = document.getElementById('chatBubbleWindow');
+            w.classList.toggle('hidden');
+            // Remove notification badge when opened
+            const badge = document.querySelector('.chat-badge');
+            if (badge && !w.classList.contains('hidden')) badge.style.display = 'none';
+        }
+        
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            toggleChatWindow();
+        }
 
         function switchGlobalLanguage(langCode) {
             currentLang = langCode;
             const t = dictionary[langCode];
-
             document.getElementById('txt_badge').innerHTML = t.badge;
             document.getElementById('txt_hero_title').innerHTML = t.hero_title;
             document.getElementById('txt_hero_desc').innerHTML = t.hero_desc;
@@ -537,14 +884,12 @@
             document.getElementById('txt_modal_desc').innerHTML = t.modal_desc;
             document.getElementById('btn_modal_close').innerHTML = t.modal_close;
             document.getElementById('txt_footer_copy').innerHTML = t.footer_copy;
-            
             document.getElementById('faq_t1').innerHTML = t.faq_t1;
             document.getElementById('faq_d1').innerHTML = t.faq_d1;
             document.getElementById('faq_t2').innerHTML = t.faq_t2;
             document.getElementById('faq_d2').innerHTML = t.faq_d2;
             document.getElementById('faq_t3').innerHTML = t.faq_t3;
             document.getElementById('faq_d3').innerHTML = t.faq_d3;
-
             renderBundleLists();
             loadItems();
             resetChat();
@@ -552,69 +897,78 @@
 
         function renderBundleLists() {
             const t = dictionary[currentLang];
-            document.getElementById('list_eco_items').innerHTML = t.eco_items.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('list_prem_items').innerHTML = t.prem_items.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('list_eco_items').innerHTML = t.eco_items.map(i => `<li class="flex items-start gap-2">${i}</li>`).join('');
+            document.getElementById('list_prem_items').innerHTML = t.prem_items.map(i => `<li class="flex items-start gap-2 text-white/80">${i}</li>`).join('');
         }
 
         function loadItems() {
-            const babyContainer = document.getElementById('babyItemsContainer');
-            const motherContainer = document.getElementById('motherItemsContainer');
-            if(!babyContainer || !motherContainer) return;
-            
-            babyContainer.innerHTML = ''; motherContainer.innerHTML = '';
+            const babyC = document.getElementById('babyItemsContainer');
+            const momC = document.getElementById('motherItemsContainer');
+            if (!babyC || !momC) return;
+            babyC.innerHTML = ''; momC.innerHTML = '';
             const t = dictionary[currentLang];
-            
             products.forEach(prod => {
-                const qtyValue = selectedQuantities[prod.id] || 0;
-                const html = `<div class="flex items-center justify-between p-3 border border-slate-100 rounded-xl bg-slate-50/50 hover:bg-slate-100/40 transition-colors">
-                    <div><h4 class="font-bold text-slate-800 text-xs">${t.products[prod.id]}</h4><p class="text-[11px] text-pink-600 font-bold">LKR ${prod.price}</p></div>
-                    <div class="flex items-center space-x-2.5">
-                        <button type="button" onclick="changeQty('${prod.id}', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-bold text-xs shadow-2xs cursor-pointer select-none hover:bg-slate-50">-</button>
-                        <span id="qty_${prod.id}" class="w-4 text-center font-extrabold text-xs">${qtyValue}</span>
-                        <button type="button" onclick="changeQty('${prod.id}', 1)" class="w-7 h-7 rounded-lg bg-pink-600 text-white font-bold text-xs shadow-2xs cursor-pointer select-none hover:bg-pink-700">+</button>
-                    </div></div>`;
-                if(prod.category === 'baby') { babyContainer.innerHTML += html; } else { motherContainer.innerHTML += html; }
+                const qty = selectedQuantities[prod.id] || 0;
+                const html = `<div class="item-row flex items-center justify-between px-4 py-3 rounded-2xl border" style="border-color: rgba(232,73,106,0.1); background: var(--petal)">
+                    <div>
+                        <h4 class="font-semibold text-xs" style="color: var(--ink)">${t.products[prod.id]}</h4>
+                        <p class="text-[10px] font-bold mt-0.5" style="color: var(--rose)">LKR ${prod.price.toLocaleString()}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="changeQty('${prod.id}', -1)" class="stepper-btn w-7 h-7 rounded-xl border font-bold text-sm flex items-center justify-center cursor-pointer" style="border-color: rgba(232,73,106,0.2); background: white; color: var(--stone)">−</button>
+                        <span id="qty_${prod.id}" class="w-5 text-center font-bold text-xs" style="color: var(--ink)">${qty}</span>
+                        <button type="button" onclick="changeQty('${prod.id}', 1)" class="stepper-btn w-7 h-7 rounded-xl font-bold text-sm flex items-center justify-center cursor-pointer text-white" style="background: var(--rose)">+</button>
+                    </div>
+                </div>`;
+                if (prod.category === 'baby') babyC.innerHTML += html;
+                else momC.innerHTML += html;
             });
         }
 
         function changeQty(id, change) {
             selectedQuantities[id] = Math.max(0, (selectedQuantities[id] || 0) + change);
-            const labelNode = document.getElementById(`qty_${id}`);
-            if(labelNode) labelNode.innerText = selectedQuantities[id];
+            const el = document.getElementById(`qty_${id}`);
+            if (el) el.innerText = selectedQuantities[id];
             calculateCustomTotal();
         }
 
         function calculateCustomTotal() {
-            let total = 0; products.forEach(p => { total += (selectedQuantities[p.id] || 0) * p.price; });
-            const node = document.getElementById('liveTotalDisplay');
-            if(node) node.innerText = `LKR ${total.toLocaleString()}`;
+            let total = 0;
+            products.forEach(p => { total += (selectedQuantities[p.id] || 0) * p.price; });
+            const el = document.getElementById('liveTotalDisplay');
+            if (el) el.innerText = `LKR ${total.toLocaleString()}`;
             return total;
         }
 
-        function updateThemeSelection(themeValue) { selectedTheme = themeValue; }
+        function updateThemeSelection(v) { selectedTheme = v; }
 
         function updateTabHighlight(activeMode) {
             ['qna', 'status', 'cancel'].forEach(m => {
                 const el = document.getElementById(`btn_${m}`);
-                if(!el) return;
-                if(m === activeMode) {
-                    el.className = "bg-pink-600 text-white px-3 py-1.5 rounded-xl shrink-0 font-bold border border-pink-600 shadow-xs";
+                if (!el) return;
+                if (m === activeMode) {
+                    el.style.background = 'var(--rose)';
+                    el.style.color = 'white';
+                    el.style.borderColor = 'var(--rose)';
                 } else {
-                    el.className = "bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-xl shrink-0 font-semibold hover:border-pink-300 transition-colors";
+                    el.style.background = 'white';
+                    el.style.color = 'var(--stone)';
+                    el.style.borderColor = 'rgba(232,73,106,0.2)';
                 }
             });
         }
 
         function setIntentMode(mode) {
             currentIntentMode = mode; chatStep = 0; updateTabHighlight(mode);
-            const field = document.getElementById('chatInputField'); if(!field) return;
-            field.disabled = false;
+            const f = document.getElementById('chatInputField');
+            if (f) { f.disabled = false; }
             const t = dictionary[currentLang];
-            
-            if (mode === 'status') { addBotMessage(t.status_init); } 
-            else if (mode === 'cancel') { addBotMessage(t.cancel_init); } 
-            else { addBotMessage(t.qna_init); }
-            field.focus();
+            const area = document.getElementById('chatMessageArea');
+            if (area) area.innerHTML = '';
+            if (mode === 'status') addBotMessage(t.status_init);
+            else if (mode === 'cancel') addBotMessage(t.cancel_init);
+            else addBotMessage(t.qna_init);
+            if (f) f.focus();
         }
 
         function selectFullPackage(packageName, price) {
@@ -626,134 +980,155 @@
 
         function transferCustomItemsToForm() {
             let total = calculateCustomTotal();
-            if (total === 0) return alert(currentLang === 'si' ? "කරුණාකර අයිතම තෝරන්න!" : "Please select items first!");
+            if (total === 0) return alert(currentLang === 'si' ? 'කරුණාකර අයිතම තෝරන්න!' : currentLang === 'ta' ? 'பொருட்களை தேர்வு செய்யவும்!' : 'Please select items first!');
             basePriceInt = total;
-            let itemSummary = [];
+            let summary = [];
             const t = dictionary[currentLang];
-            products.forEach(p => { if(selectedQuantities[p.id] > 0) itemSummary.push(`${t.products[p.id]} (x${selectedQuantities[p.id]})`); });
+            products.forEach(p => { if (selectedQuantities[p.id] > 0) summary.push(`${t.products[p.id]} ×${selectedQuantities[p.id]}`); });
             const themeLabel = selectedTheme === 'Boy' ? t.theme_boy : t.theme_girl;
-            orderPayload = `Custom Kit (${themeLabel}): ${itemSummary.join(', ')}`;
+            orderPayload = `Custom Kit (${themeLabel}): ${summary.join(', ')}`;
             initiateCheckoutFlow();
         }
 
         function initiateCheckoutFlow() {
-            chatStep = 1; 
-            const chatArea = document.getElementById('chatMessageArea');
-            if(chatArea) chatArea.innerHTML = ""; 
+            chatStep = 1;
+            const area = document.getElementById('chatMessageArea');
+            if (area) area.innerHTML = '';
             updateTabHighlight('');
             const t = dictionary[currentLang];
-            
             addBotMessage(t.ask_name);
-            
-            const windowNode = document.getElementById('chatBubbleWindow');
-            if(windowNode) windowNode.classList.remove('hidden');
-            const field = document.getElementById('chatInputField');
-            if(field) { field.disabled = false; field.value = ""; field.focus(); }
+            const win = document.getElementById('chatBubbleWindow');
+            if (win) win.classList.remove('hidden');
+            const f = document.getElementById('chatInputField');
+            if (f) { f.disabled = false; f.value = ''; f.focus(); }
         }
 
         function addBotMessage(text) {
-            const area = document.getElementById('chatMessageArea'); if(!area) return;
-            area.innerHTML += `<div class="flex items-start space-x-2 bubble-msg max-w-[88%]"><div class="bg-white border border-slate-200/80 text-slate-800 p-3 rounded-2xl rounded-tl-xs shadow-2xs font-semibold leading-relaxed">${text}</div></div>`;
+            const area = document.getElementById('chatMessageArea');
+            if (!area) return;
+            area.innerHTML += `<div class="flex items-end gap-2 bubble-msg">
+                <div class="w-6 h-6 rounded-full premium-stripe flex items-center justify-center text-white text-[10px] shrink-0 mb-0.5">👑</div>
+                <div class="rounded-2xl rounded-bl-sm px-3.5 py-2.5 shadow-sm text-[11px] leading-relaxed" style="background: white; border: 1px solid rgba(232,73,106,0.1); color: var(--ink); max-width: 85%">${text}</div>
+            </div>`;
             area.scrollTop = area.scrollHeight;
         }
 
         function addUserMessage(text) {
-            const area = document.getElementById('chatMessageArea'); if(!area) return;
-            area.innerHTML += `<div class="flex items-start justify-end bubble-msg w-full"><div class="bg-pink-600 text-white p-3 rounded-2xl rounded-tr-xs text-left max-w-[88%] shadow-xs font-semibold">${text}</div></div>`;
+            const area = document.getElementById('chatMessageArea');
+            if (!area) return;
+            area.innerHTML += `<div class="flex justify-end bubble-msg w-full">
+                <div class="rounded-2xl rounded-br-sm px-3.5 py-2.5 text-[11px] leading-relaxed text-white" style="background: var(--rose); max-width: 85%">${text}</div>
+            </div>`;
             area.scrollTop = area.scrollHeight;
         }
 
         async function handleChatInputSubmit() {
-            const field = document.getElementById('chatInputField'); if(!field) return;
-            const userVal = field.value.trim(); if(!userVal) return; 
-            addUserMessage(userVal); field.value = "";
+            const f = document.getElementById('chatInputField');
+            if (!f) return;
+            const val = f.value.trim();
+            if (!val) return;
+            addUserMessage(val); f.value = '';
             const t = dictionary[currentLang];
 
             if (chatStep > 0) {
-                if(chatStep === 1) {
-                    customerName = userVal; chatStep = 2;
-                    setTimeout(() => { addBotMessage(t.ask_phone); }, 300);
-                } else if(chatStep === 2) {
-                    if(!/^0[0-9]{9}$/.test(userVal)) { setTimeout(() => addBotMessage(t.ask_phone_err), 300); return; }
-                    customerPhone = userVal; chatStep = 3;
+                if (chatStep === 1) {
+                    customerName = val; chatStep = 2;
+                    setTimeout(() => addBotMessage(t.ask_phone), 300);
+                } else if (chatStep === 2) {
+                    if (!/^0[0-9]{9}$/.test(val)) { setTimeout(() => addBotMessage(t.ask_phone_err), 300); return; }
+                    customerPhone = val; chatStep = 3;
                     setTimeout(() => { addBotMessage(t.ask_district); renderDistricts(); }, 300);
-                } else if(chatStep === 4) {
-                    customerAddress = userVal; chatStep = 5;
+                } else if (chatStep === 4) {
+                    customerAddress = val; chatStep = 5;
                     setTimeout(() => {
-                        const courierFee = deliveryFeeMatrix[customerDistrict] || 500;
-                        const finalTotal = basePriceInt + courierFee;
+                        const fee = deliveryFeeMatrix[customerDistrict] || 500;
+                        const finalTotal = basePriceInt + fee;
                         orderTotalStr = `LKR ${finalTotal.toLocaleString()}`;
-
                         addBotMessage(t.confirm_title);
-                        addBotMessage(`📦 **Items:** ${orderPayload}<br>💵 **Subtotal:** LKR ${basePriceInt.toLocaleString()}<br>🚚 **${t.delivery_txt}:** LKR ${courierFee}<br>💰 **${t.grand_txt}:** ${orderTotalStr}<br><br>👤 **Name:** ${customerName}<br>📞 **Phone:** ${customerPhone}<br>🏠 **Address:** ${customerAddress}, ${customerDistrict}`);
+                        addBotMessage(`📦 <strong>${currentLang === 'si' ? 'අයිතමය' : currentLang === 'ta' ? 'பொருள்' : 'Items'}:</strong> ${orderPayload}<br>💵 <strong>Subtotal:</strong> LKR ${basePriceInt.toLocaleString()}<br>🚚 <strong>${t.delivery_txt}:</strong> LKR ${fee}<br>💰 <strong>${t.grand_txt}:</strong> ${orderTotalStr}<br><br>👤 ${customerName}<br>📞 ${customerPhone}<br>🏠 ${customerAddress}, ${customerDistrict}`);
                         renderConfirmation();
                     }, 300);
                 }
                 return;
             }
 
-            addBotMessage("<span class='text-slate-400 animate-pulse font-medium'>🤖 AI Processing...</span>");
+            addBotMessage(`<span style="color: var(--stone)" class="animate-pulse">🤖 Thinking…</span>`);
             try {
-                const response = await fetch(`${CLOUDFLARE_WORKER_URL}/api/chat`, {
+                const res = await fetch(`${CLOUDFLARE_WORKER_URL}/api/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ intent: currentIntentMode, text: userVal, lang: currentLang })
+                    body: JSON.stringify({ intent: currentIntentMode, text: val, lang: currentLang })
                 });
-                const resData = await response.json();
-                const chatArea = document.getElementById('chatMessageArea');
-                if (chatArea && chatArea.lastChild) chatArea.removeChild(chatArea.lastChild);
-                addBotMessage(resData.reply);
-            } catch { 
-                const chatArea = document.getElementById('chatMessageArea');
-                if (chatArea && chatArea.lastChild) chatArea.removeChild(chatArea.lastChild);
-                addBotMessage("⚠️ Error reaching backend service pipeline."); 
+                const data = await res.json();
+                const area = document.getElementById('chatMessageArea');
+                if (area && area.lastChild) area.removeChild(area.lastChild);
+                addBotMessage(data.reply);
+            } catch {
+                const area = document.getElementById('chatMessageArea');
+                if (area && area.lastChild) area.removeChild(area.lastChild);
+                addBotMessage("⚠️ Could not reach our servers. Please try again.");
             }
         }
 
         function renderDistricts() {
             const dists = Object.keys(deliveryFeeMatrix);
             let html = `<div class="flex flex-wrap gap-1.5 pt-1 bubble-msg">`;
-            dists.forEach(d => { html += `<button type="button" onclick="selectDistrict('${d}')" class="bg-white text-slate-700 border border-slate-200 px-2.5 py-1.5 rounded-xl text-[10px] font-bold cursor-pointer hover:border-pink-500 hover:bg-slate-50 shadow-2xs">${d}</button>`; });
-            const area = document.getElementById('chatMessageArea'); if(area) { area.innerHTML += html + `</div>`; area.scrollTop = area.scrollHeight; }
+            dists.forEach(d => {
+                html += `<button type="button" onclick="selectDistrict('${d}')" class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer border transition hover:opacity-80" style="background: white; border-color: rgba(232,73,106,0.2); color: var(--ink)">${d}</button>`;
+            });
+            const area = document.getElementById('chatMessageArea');
+            if (area) { area.innerHTML += html + `</div>`; area.scrollTop = area.scrollHeight; }
         }
 
         function selectDistrict(d) {
             customerDistrict = d; addUserMessage(d); chatStep = 4;
-            setTimeout(() => { addBotMessage(dictionary[currentLang].ask_address); }, 300);
+            setTimeout(() => addBotMessage(dictionary[currentLang].ask_address), 300);
         }
 
         function renderConfirmation() {
-            const inputsNode = document.getElementById('chatInputSection'); if(inputsNode) inputsNode.classList.add('hidden');
-            const area = document.getElementById('chatMessageArea'); if(!area) return;
-            area.innerHTML += `<div class="flex gap-2 pt-2 bubble-msg w-full" id="finalChatActions">
-                <button type="button" onclick="submitOrder()" class="flex-1 bg-pink-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer hover:bg-pink-700 shadow-sm">${dictionary[currentLang].place_order_btn}</button>
+            const inp = document.getElementById('chatInputSection');
+            if (inp) inp.classList.add('hidden');
+            const area = document.getElementById('chatMessageArea');
+            if (!area) return;
+            area.innerHTML += `<div class="pt-2 bubble-msg" id="finalChatActions">
+                <button type="button" onclick="submitOrder()" class="w-full font-bold py-3 rounded-2xl text-xs text-white cursor-pointer transition hover:opacity-90" style="background: var(--rose)">${dictionary[currentLang].place_order_btn}</button>
             </div>`;
             area.scrollTop = area.scrollHeight;
         }
 
         async function submitOrder() {
-            const nodeBtn = document.getElementById('finalChatActions'); if(nodeBtn) nodeBtn.remove();
+            const node = document.getElementById('finalChatActions');
+            if (node) node.remove();
             try {
-                const response = await fetch(`${CLOUDFLARE_WORKER_URL}/api/order`, {
+                const res = await fetch(`${CLOUDFLARE_WORKER_URL}/api/order`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ source: "Web Custom App", package: orderPayload, totalPrice: orderTotalStr, name: customerName, phone: customerPhone, district: customerDistrict, address: customerAddress })
+                    body: JSON.stringify({
+                        source: "Web Custom App",
+                        package: orderPayload,
+                        totalPrice: orderTotalStr,
+                        name: customerName,
+                        phone: customerPhone,
+                        district: customerDistrict,
+                        address: customerAddress
+                    })
                 });
-                if(response.ok) { document.getElementById('successModal').classList.remove('hidden'); resetChat(); } 
-                else { addBotMessage("⚠️ System rejection parameter error."); }
-            } catch { addBotMessage("⚠️ Finalization log failed."); }
+                if (res.ok) { document.getElementById('successModal').classList.remove('hidden'); resetChat(); }
+                else { addBotMessage("⚠️ Something went wrong. Please try again."); }
+            } catch { addBotMessage("⚠️ Could not submit order. Please try again."); }
         }
 
         function resetChat() {
-            chatStep = 0; 
-            const inputsNode = document.getElementById('chatInputSection'); if(inputsNode) inputsNode.classList.remove('hidden');
+            chatStep = 0;
+            const inp = document.getElementById('chatInputSection');
+            if (inp) inp.classList.remove('hidden');
             const area = document.getElementById('chatMessageArea');
-            if(area) { area.innerHTML = ""; addBotMessage(dictionary[currentLang].chat_welcome); }
+            if (area) { area.innerHTML = ''; addBotMessage(dictionary[currentLang].chat_welcome); }
             updateTabHighlight('qna');
         }
 
         window.onload = () => { switchGlobalLanguage('si'); };
-        document.getElementById('chatInputField').addEventListener('keydown', (e) => { if(e.key === 'Enter') handleChatInputSubmit(); });
+        document.getElementById('chatInputField').addEventListener('keydown', e => { if (e.key === 'Enter') handleChatInputSubmit(); });
     </script>
 </body>
 </html>
