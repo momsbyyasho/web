@@ -3,1179 +3,2018 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mom & Baby Care | Hospital Bag Kits Sri Lanka</title>
-<meta name="description" content="Premium All-in-One Hospital Bag Kits for Sri Lanka. 100% Cotton, pre-washed, vacuum-sealed. Cash on Delivery islandwide.">
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+Sinhala:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Moms by Yasho | Premium Maternity Kits · Sri Lanka</title>
+<meta name="description" content="Premium hospital bag kits for Sri Lankan moms. 100% Cotton, pre-washed, delivered to your door. COD islandwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══ THEME SYSTEM ═══ */
+/* ════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════ */
 :root {
-  --accent: #E8496A;
-  --accent2: #c73557;
-  --accent-light: #FDF0F3;
-  --accent-mid: #F9D6DE;
-  --accent-text: #E8496A;
-  --gold: #C9962A;
-  --gold-light: #FBF4E3;
-  --ink: #1A1018;
-  --ink-mid: #3D2B38;
-  --stone: #7A6672;
-  --petal: #FFF8FA;
-  --page-bg: #FFF8FA;
-  --card-bg: #FFFFFF;
-  --header-logo-from: #E8496A;
-  --header-logo-to: #c73557;
-  --trust-bg: #1A1018;
-  --theme-transition: background 0.5s ease, color 0.4s ease, border-color 0.4s ease;
+  /* Neutral / Mom palette — dusty rose, ivory, deep plum */
+  --bg:        #FBF6F2;
+  --surface:   #FFFFFF;
+  --rose:      #C8566A;
+  --rose-2:    #A8394F;
+  --rose-pale: #F5E4E8;
+  --rose-mid:  #EAC5CC;
+  --gold:      #B8872C;
+  --gold-pale: #F7EDD8;
+  --ink:       #1C1118;
+  --ink-2:     #4A3040;
+  --muted:     #8C7080;
+  --border:    rgba(200,86,106,0.18);
+  --shadow:    0 2px 24px rgba(28,17,24,0.08);
+  --shadow-lg: 0 12px 60px rgba(28,17,24,0.13);
+  --radius:    20px;
+  --tr:        all 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 [data-theme="boy"] {
-  --accent: #2563eb; --accent2: #1d4ed8; --accent-light: #EFF6FF; --accent-mid: #BFDBFE;
-  --accent-text: #1d4ed8; --gold: #0891b2; --gold-light: #ECFEFF; --ink: #0f172a;
-  --ink-mid: #1e3a5f; --stone: #4a6080; --petal: #F0F7FF; --page-bg: #F0F7FF;
-  --card-bg: #FFFFFF; --header-logo-from: #2563eb; --header-logo-to: #1d4ed8; --trust-bg: #0f172a;
+  --bg:        #F0F5FF;
+  --surface:   #FFFFFF;
+  --rose:      #2C6FBF;
+  --rose-2:    #1A4E9A;
+  --rose-pale: #DBEAFE;
+  --rose-mid:  #BFDBFE;
+  --gold:      #0891b2;
+  --gold-pale: #ECFEFF;
+  --ink:       #0D1B2E;
+  --ink-2:     #1E3A5F;
+  --muted:     #4A6080;
+  --border:    rgba(44,111,191,0.18);
 }
 [data-theme="girl"] {
-  --accent: #db2777; --accent2: #be185d; --accent-light: #FDF2F8; --accent-mid: #FBCFE8;
-  --accent-text: #be185d; --gold: #a855f7; --gold-light: #FAF5FF; --ink: #1a0d19;
-  --ink-mid: #4a1042; --stone: #7c3f70; --petal: #FFF5FB; --page-bg: #FFF5FB;
-  --card-bg: #FFFFFF; --header-logo-from: #db2777; --header-logo-to: #a855f7; --trust-bg: #1a0d19;
+  --bg:        #FFF0F8;
+  --surface:   #FFFFFF;
+  --rose:      #C026A0;
+  --rose-2:    #9C1A82;
+  --rose-pale: #FCE7F8;
+  --rose-mid:  #F9C8F0;
+  --gold:      #9333ea;
+  --gold-pale: #F5F0FF;
+  --ink:       #1A0A1C;
+  --ink-2:     #4A1060;
+  --muted:     #7C4A80;
+  --border:    rgba(192,38,160,0.18);
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
-  background: var(--page-bg);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  transition: var(--theme-transition);
-  min-height: 100vh;
-}
-.font-display { font-family: 'DM Serif Display', serif; }
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
 
-/* ── BACKGROUND IMAGE SYSTEM ── */
-#bg-canvas {
+/* ════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.6s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+.serif { font-family: 'Cormorant Garamond', serif; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 9px; }
+
+/* ════════════════════════════════════
+   BACKGROUND PHOTO WALL
+════════════════════════════════════ */
+#photobg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
-.bg-img {
+.pbg-col {
   position: absolute;
-  border-radius: 20px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 0;
+  animation: scrollCol linear infinite;
+  will-change: transform;
+}
+.pbg-col:nth-child(1) { left: 0; width: 160px; animation-duration: 38s; }
+.pbg-col:nth-child(2) { left: 174px; width: 150px; animation-duration: 44s; animation-delay: -14s; animation-direction: reverse; }
+.pbg-col:nth-child(3) { right: 0; width: 160px; animation-duration: 36s; animation-delay: -8s; }
+.pbg-col:nth-child(4) { right: 174px; width: 150px; animation-duration: 42s; animation-delay: -20s; animation-direction: reverse; }
+
+@keyframes scrollCol {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.pbg-img {
+  width: 100%;
+  border-radius: 14px;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1.2s ease;
-  image-rendering: crisp-edges;
-  will-change: opacity;
+  transition: opacity 0.8s ease;
+  aspect-ratio: 3/4;
+  image-rendering: -webkit-optimize-contrast;
 }
-.bg-img.visible { opacity: 1; }
+.pbg-img.in { opacity: 1; }
 
-/* Scattered layout positions */
-.bg-img:nth-child(1)  { width: 220px; height: 290px; top: 8%;  left: -30px;   }
-.bg-img:nth-child(2)  { width: 180px; height: 240px; top: 40%; left: 20px;    }
-.bg-img:nth-child(3)  { width: 200px; height: 270px; top: 68%; left: -20px;   }
-.bg-img:nth-child(4)  { width: 220px; height: 300px; top: 5%;  right: -20px;  }
-.bg-img:nth-child(5)  { width: 190px; height: 250px; top: 38%; right: 10px;   }
-.bg-img:nth-child(6)  { width: 210px; height: 280px; top: 70%; right: -15px;  }
-.bg-img:nth-child(7)  { width: 160px; height: 210px; top: 20%; left: 50%;     transform: translateX(-50%); }
-.bg-img:nth-child(8)  { width: 150px; height: 200px; top: 55%; left: 48%;     transform: translateX(-50%); }
+/* Fade edges top & bottom */
+#photobg::before, #photobg::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+#photobg::before { top: 0; background: linear-gradient(to bottom, var(--bg) 0%, transparent 100%); }
+#photobg::after  { bottom: 0; background: linear-gradient(to top, var(--bg) 0%, transparent 100%); }
 
-@media(max-width:768px) {
-  .bg-img { display: none; }
-  .bg-img:nth-child(1),
-  .bg-img:nth-child(4) { display: block; opacity: 0; }
+/* Center vignette so content area stays clear */
+.pbg-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 55% 70% at 50% 50%, var(--bg) 40%, transparent 100%);
+  transition: background 0.6s ease;
 }
 
-/* NAV */
-.nav-glass {
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  transition: var(--theme-transition);
-  position: relative; z-index: 40;
+@media (max-width: 1100px) {
+  .pbg-col:nth-child(2), .pbg-col:nth-child(4) { display: none; }
+  .pbg-col:nth-child(1) { width: 130px; }
+  .pbg-col:nth-child(3) { width: 130px; }
 }
-.blob { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:1; transition: background 0.8s ease; }
-.accent-grad { background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); transition: background 0.5s; }
-.kit-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.kit-card:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.10); }
-.trust-strip { background: var(--trust-bg); transition: background 0.5s; }
-.item-row { transition: background 0.15s; border: 1px solid rgba(0,0,0,0.06); background: var(--card-bg); }
-.item-row:hover { background: var(--accent-light); }
-.stepper-btn { transition: all 0.15s; }
-.stepper-btn:active { transform: scale(0.88); }
-.chat-popup { animation: chatSlideUp 0.28s cubic-bezier(0.175,0.885,0.32,1.1) both; }
-@keyframes chatSlideUp { from{opacity:0;transform:translateY(18px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)} }
-.bubble-msg { animation: bIn 0.18s ease both; }
-@keyframes bIn { from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)} }
-.chat-trigger { background: linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%); transition: transform 0.2s, box-shadow 0.2s, background 0.5s; box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
-.chat-trigger:hover { transform: scale(1.06); }
-.chat-bg { background-color: var(--accent-light); background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M20 0L0 20h40L20 0zm0 40L0 20h40L20 40z'/%3E%3C/g%3E%3C/svg%3E"); }
-.fade-up { animation: fadeUp 0.55s ease both; }
-.fade-up.d1 { animation-delay:0.08s; } .fade-up.d2 { animation-delay:0.16s; }
-.fade-up.d3 { animation-delay:0.24s; } .fade-up.d4 { animation-delay:0.32s; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)} }
-.page { display:none; position: relative; z-index: 1; }
-.page.active { display:block; }
-.divider { height:1px; background: linear-gradient(90deg,transparent,var(--accent-mid),transparent); }
-select { -webkit-appearance:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position: right 10px center; padding-right:28px!important; }
-.cat-tab { transition: all 0.2s; }
-.cat-tab.active { background: var(--accent)!important; color: white!important; border-color: var(--accent)!important; }
-.qty-positive { color: var(--accent)!important; font-weight:800; }
-.theme-pill { cursor: pointer; transition: all 0.3s; user-select: none; }
-.pulse-dot { animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
-.modal-bg { background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); }
-.items-grid { display: grid; gap: 10px; }
-@media(min-width:640px){ .items-grid { grid-template-columns: 1fr 1fr; } }
-@media(min-width:1024px){ .items-grid { grid-template-columns: 1fr 1fr 1fr; } }
-.icon-box { background: var(--accent-light); color: var(--accent); transition: background 0.4s, color 0.4s; }
-.builder-bottom { position: sticky; bottom:0; z-index:20; background: var(--card-bg); border-top: 1px solid rgba(0,0,0,0.08); }
-.cat-section { margin-bottom: 2rem; }
-.cat-section-header { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-.cat-line { flex:1; height:1px; background: var(--accent-mid); }
-.search-input:focus { outline:none; border-color:var(--accent)!important; box-shadow:0 0 0 3px var(--accent-light); }
+@media (max-width: 700px) {
+  #photobg { display: none; }
+}
 
-/* Logo button */
-.logo-btn { cursor: pointer; border: 0; background: transparent; padding: 0; display: flex; align-items: center; gap: 10px; }
-.logo-btn:hover { opacity: 0.85; }
+/* ════════════════════════════════════
+   LAYOUT LAYER
+════════════════════════════════════ */
+#root {
+  position: relative;
+  z-index: 2;
+}
+.page { display: none; }
+.page.active { display: block; }
+
+/* ════════════════════════════════════
+   NAV
+════════════════════════════════════ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  background: rgba(251,246,242,0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.5s ease, border-color 0.4s ease;
+}
+[data-theme="boy"] nav { background: rgba(240,245,255,0.82); }
+[data-theme="girl"] nav { background: rgba(255,240,248,0.82); }
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+.logo-btn:hover { opacity: 0.78; }
+.logo-mark {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(200,86,106,0.35);
+  transition: background 0.5s, box-shadow 0.5s;
+  flex-shrink: 0;
+}
+.logo-text-top {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.logo-text-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-switcher {
+  display: flex;
+  gap: 4px;
+  background: var(--rose-pale);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 4px;
+  transition: background 0.5s, border-color 0.4s;
+}
+.tpill {
+  padding: 6px 13px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  transition: var(--tr);
+  white-space: nowrap;
+}
+.tpill.on {
+  background: var(--rose);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(200,86,106,0.4);
+}
+.cod-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cod-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dotPulse 2.2s infinite;
+}
+@keyframes dotPulse { 0%,100%{opacity:1}50%{opacity:0.35} }
+.lang-sel {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--rose);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23C8566A' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 26px;
+  transition: border-color 0.3s;
+}
+
+/* ════════════════════════════════════
+   HOME PAGE
+════════════════════════════════════ */
+.hero {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 28px;
+  text-align: center;
+  position: relative;
+}
+.hero-inner { max-width: 700px; margin: 0 auto; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.7s ease both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--rose);
+  position: relative;
+}
+.hero-sub {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  animation: fadeUp 0.7s 0.18s ease both;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.26s ease both;
+  margin-bottom: 56px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--rose);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 28px rgba(200,86,106,0.38);
+  transition: var(--tr);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,86,106,0.45); background: var(--rose-2); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  background: transparent;
+  color: var(--rose);
+  border: 2px solid var(--rose);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  transition: var(--tr);
+  cursor: pointer;
+}
+.btn-secondary:hover { background: var(--rose-pale); transform: translateY(-2px); }
+
+/* Stats bar */
+.stats-bar {
+  display: inline-flex;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.7s 0.34s ease both;
+}
+.stat {
+  padding: 18px 30px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.stat:last-child { border-right: none; }
+.stat:hover { background: var(--rose-pale); }
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.stat-l {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Trust ticker */
+.ticker-wrap {
+  overflow: hidden;
+  background: var(--ink);
+  padding: 11px 0;
+  position: relative;
+  z-index: 2;
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  animation: ticker 24s linear infinite;
+  width: max-content;
+}
+@keyframes ticker { from{transform:translateX(0)}to{transform:translateX(-50%)} }
+.ticker-item {
+  padding: 0 28px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ticker-item::after {
+  content: '·';
+  opacity: 0.3;
+  font-size: 18px;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+/* ════════════════════════════════════
+   SECTION WRAPPERS
+════════════════════════════════════ */
+.section { padding: 90px 28px; position: relative; z-index: 2; }
+.section-alt { background: var(--surface); }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--rose);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 460px;
+}
+
+/* ════════════════════════════════════
+   KIT CARDS (Packages Section)
+════════════════════════════════════ */
+.kits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 48px;
+}
+@media(max-width:700px) { .kits-grid { grid-template-columns: 1fr; } }
+
+.kit-card {
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.kit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+/* Essential card — light */
+.kit-light {
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+/* Premium card — dark ink */
+.kit-dark {
+  background: var(--ink);
+  border: 2px solid var(--rose);
+}
+.kit-dark-inner { padding: 36px; }
+.kit-light-inner { padding: 36px; }
+
+.kit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.kit-badge-light { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(184,135,44,0.2); }
+.kit-badge-dark  { background: rgba(255,255,255,0.08); color: var(--rose); border: 1px solid rgba(255,255,255,0.12); }
+.kit-best {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: var(--rose);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+}
+.kit-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.kit-price-light { color: var(--ink); }
+.kit-price-dark  { color: #fff; }
+.kit-currency {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: super;
+  margin-right: 3px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.kit-divider { height: 1px; margin: 24px 0; }
+.kit-divider-light { background: var(--border); }
+.kit-divider-dark  { background: rgba(255,255,255,0.1); }
+
+.kit-inc-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.kit-inc-light { color: var(--muted); }
+.kit-inc-dark  { color: var(--rose); }
+
+.kit-items { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 30px; }
+.kit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.kit-item-light { color: var(--ink-2); }
+.kit-item-dark  { color: rgba(255,255,255,0.7); }
+.kit-check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.kit-check-light { background: var(--rose-pale); color: var(--rose); }
+.kit-check-dark  { background: rgba(200,86,106,0.25); color: var(--rose); }
+/* wait for text */
+.kit-wait {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Order button inside kit */
+.kit-btn-light {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: var(--tr);
+  cursor: pointer;
+  border: none;
+}
+.kit-btn-light:hover { background: var(--rose); }
+.kit-btn-dark {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--rose);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: var(--tr);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 6px 24px rgba(200,86,106,0.4);
+}
+.kit-btn-dark:hover { background: var(--rose-2); transform: translateY(-1px); box-shadow: 0 10px 32px rgba(200,86,106,0.5); }
+
+/* Custom kit row */
+.custom-cta {
+  margin-top: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.custom-cta-text { font-size: 14px; color: var(--muted); }
+.custom-cta-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 4px; }
+
+/* ════════════════════════════════════
+   TRUST PILLARS
+════════════════════════════════════ */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+@media(max-width:700px) { .pillars { grid-template-columns: 1fr; } }
+
+.pillar {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  transition: var(--tr);
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.pillar-icon {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  background: var(--rose-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  transition: background 0.5s;
+}
+.pillar-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.pillar-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ════════════════════════════════════
+   BUILDER PAGE
+════════════════════════════════════ */
+.builder-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+  z-index: 10;
+}
+.builder-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rose);
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-bottom: 18px;
+  transition: gap 0.2s;
+  padding: 0;
+}
+.back-btn:hover { gap: 10px; }
+
+.builder-top-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.builder-theme-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.builder-theme-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.gender-btn {
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: var(--tr);
+}
+.gender-btn:hover { border-color: var(--rose); color: var(--rose); }
+.gender-btn.active { background: var(--rose); color: #fff; border-color: var(--rose); box-shadow: 0 4px 16px rgba(200,86,106,0.3); }
+
+/* Category tabs */
+.cat-scroll {
+  overflow-x: auto;
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.cat-scroll::-webkit-scrollbar { display: none; }
+.cat-btn {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: var(--tr);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cat-btn:hover { border-color: var(--rose); color: var(--rose); }
+.cat-btn.on { background: var(--rose); color: #fff; border-color: var(--rose); }
+
+/* Builder search */
+.builder-search-wrap {
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 68px;
+  z-index: 9;
+}
+.builder-search-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.search-field {
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 11px 20px 11px 44px;
+  font-family: inherit;
+  font-size: 13px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238C7080' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 16px center;
+}
+.search-field:focus { border-color: var(--rose); box-shadow: 0 0 0 3px var(--rose-pale); }
+
+/* Item catalog */
+.catalog-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 28px 160px;
+}
+.cat-group { margin-bottom: 44px; }
+.cat-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cat-group-icon { font-size: 20px; }
+.cat-group-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.cat-group-line { flex: 1; height: 1px; background: var(--border); }
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.item-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: var(--tr);
+}
+.item-card:hover { border-color: var(--rose-mid); box-shadow: var(--shadow); transform: translateY(-1px); }
+.item-card.has-qty { border-color: var(--rose); background: var(--rose-pale); }
+.item-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--rose-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: background 0.4s;
+}
+.item-info { flex: 1; min-width: 0; }
+.item-name { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+.item-price { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.stepper { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.step-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--tr);
+}
+.step-minus {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.step-minus:hover { background: var(--rose-pale); color: var(--rose); border-color: var(--rose); }
+.step-plus {
+  background: var(--rose);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(200,86,106,0.35);
+}
+.step-plus:hover { background: var(--rose-2); }
+.step-val {
+  min-width: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.step-val.pos { color: var(--rose); }
+
+/* Floating checkout bar */
+.checkout-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 30;
+  background: var(--ink);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.5s;
+}
+.co-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+.co-total { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1; }
+.co-count {
+  padding: 5px 14px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+.co-btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: var(--rose);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,86,106,0.45);
+  transition: var(--tr);
+  white-space: nowrap;
+}
+.co-btn:hover { background: #fff; color: var(--rose); }
+
+/* ════════════════════════════════════
+   CHAT WIDGET
+════════════════════════════════════ */
+#cw { position: fixed; bottom: 24px; right: 20px; z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+
+/* FAB */
+#cw-fab {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-2) 100%);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(200,86,106,0.45);
+  transition: var(--tr);
+  position: relative;
+}
+#cw-fab:hover { transform: scale(1.07); box-shadow: 0 14px 40px rgba(200,86,106,0.55); }
+#cw-fab svg { transition: transform 0.3s; }
+#cw-fab.open svg { transform: rotate(45deg); }
+.fab-badge {
+  position: absolute; top: -4px; right: -4px;
+  width: 20px; height: 20px;
+  background: var(--gold);
+  color: #fff; font-size: 9px; font-weight: 800;
+  border-radius: 50%; border: 2px solid var(--bg);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Mini pill */
+#cw-mini {
+  display: none;
+  align-items: center; gap: 10px;
+  background: var(--ink); color: #fff;
+  border-radius: 50px; padding: 10px 14px 10px 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(28,17,24,0.28);
+  border: 1px solid rgba(255,255,255,0.06);
+  animation: slideUp 0.3s ease both;
+  max-width: 280px;
+}
+@keyframes slideUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+#cw-mini:hover { background: var(--ink-2); }
+.mini-av { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg,var(--rose),var(--rose-2)); display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0; }
+.mini-name { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); line-height: 1; }
+.mini-msg { font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+.mini-dot { width: 8px; height: 8px; background: var(--rose); border-radius: 50%; flex-shrink: 0; animation: dotPulse 2s infinite; }
+.mini-x { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.07); border: none; cursor: pointer; color: rgba(255,255,255,0.4); font-size: 12px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.mini-x:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+/* Panel */
+#cw-panel {
+  display: none;
+  flex-direction: column;
+  width: 350px; height: 520px;
+  border-radius: 28px; overflow: hidden;
+  box-shadow: 0 24px 70px rgba(28,17,24,0.2), 0 0 0 1px var(--border);
+  animation: panelIn 0.32s cubic-bezier(0.175,0.885,0.32,1.05) both;
+  transform-origin: bottom right;
+}
+@media(max-width:600px) { #cw-panel { width: calc(100vw - 32px); height: 480px; } }
+@keyframes panelIn { from{opacity:0;transform:scale(0.88) translateY(18px)} to{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes panelOut { from{opacity:1;transform:scale(1)} to{opacity:0;transform:scale(0.92) translateY(12px)} }
+#cw-panel.out { animation: panelOut 0.22s ease both; }
+
+.cp-head {
+  background: var(--ink);
+  padding: 16px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.cp-head-l { display: flex; align-items: center; gap: 10px; }
+.cp-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg,var(--rose),var(--rose-2)); display:flex;align-items:center;justify-content:center;font-size:16px;position:relative; }
+.cp-av::after { content: ''; position: absolute; bottom: 0; right: 0; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; border: 2px solid var(--ink); }
+.cp-name { font-size: 12px; font-weight: 700; color: #fff; line-height: 1.2; }
+.cp-status { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.cp-acts { display: flex; gap: 4px; }
+.cp-btn { width: 28px; height: 28px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.45); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.cp-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
+
+.cp-tabs { display: flex; gap: 6px; padding: 8px 10px; background: var(--rose-pale); border-bottom: 1px solid var(--rose-mid); flex-shrink: 0; transition: background 0.5s; }
+.cp-tab { padding: 6px 14px; border-radius: 50px; font-size: 10px; font-weight: 700; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; transition: var(--tr); }
+.cp-tab.on { background: var(--rose); color: #fff; border-color: var(--rose); }
+
+.cp-msgs { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: var(--bg); }
+.cp-msg-bot { display: flex; gap: 8px; align-items: flex-start; }
+.bot-av { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,var(--rose),var(--rose-2)); display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:2px; }
+.bot-bubble { background: var(--surface); color: var(--ink); border-radius: 18px 18px 18px 4px; padding: 10px 14px; font-size: 12px; line-height: 1.55; max-width: 78%; box-shadow: 0 1px 6px rgba(28,17,24,0.06); }
+.cp-msg-user { display: flex; justify-content: flex-end; }
+.user-bubble { background: var(--rose); color: #fff; border-radius: 18px 18px 4px 18px; padding: 10px 14px; font-size: 12px; line-height: 1.55; max-width: 78%; }
+
+.chips-row { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 34px; }
+.chip { padding: 6px 13px; border-radius: 50px; border: 1px solid var(--rose-mid); background: var(--surface); color: var(--ink); font-size: 11px; font-weight: 600; cursor: pointer; transition: var(--tr); }
+.chip:hover { background: var(--rose); color: #fff; border-color: var(--rose); }
+
+.cp-input-row { display: flex; gap: 8px; padding: 10px; background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0; }
+.cp-input {
+  flex: 1; border-radius: 50px; border: 1px solid var(--border);
+  padding: 9px 16px; font-size: 12px; font-family: inherit;
+  background: var(--bg); color: var(--ink); outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cp-input:focus { border-color: var(--rose); box-shadow: 0 0 0 3px var(--rose-pale); }
+.cp-send { padding: 0 16px; height: 38px; border-radius: 50px; background: var(--rose); color: #fff; font-size: 11px; font-weight: 800; border: none; cursor: pointer; transition: var(--tr); white-space: nowrap; }
+.cp-send:hover { background: var(--rose-2); }
+
+/* bubble animation */
+.msg-in { animation: bIn 0.2s ease both; }
+@keyframes bIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* ════════════════════════════════════
+   SUCCESS MODAL
+════════════════════════════════════ */
+#success-modal { display: none; position: fixed; inset: 0; z-index: 80; background: rgba(28,17,24,0.6); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 24px; }
+#success-modal.show { display: flex; }
+.modal-box {
+  background: var(--surface);
+  border-radius: 32px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(28,17,24,0.3);
+  animation: slideUp 0.36s ease both;
+}
+.modal-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg,var(--rose),var(--rose-2)); display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 24px; }
+.modal-title { font-family: 'Cormorant Garamond',serif; font-size: 2rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.modal-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
+.modal-btn { width: 100%; padding: 16px; border-radius: 16px; background: var(--rose); color: #fff; font-size: 14px; font-weight: 800; border: none; cursor: pointer; transition: var(--tr); }
+.modal-btn:hover { background: var(--rose-2); }
+
+/* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.foot-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+.foot-copy { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+
+/* ════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════ */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Scrollbar in builder */
+.cat-scroll::-webkit-scrollbar { display: none; }
+
+/* Typing dots */
+.dots span { display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--muted);margin:0 2px;animation:dot 1.3s infinite; }
+.dots span:nth-child(2){animation-delay:.2s} .dots span:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+
+/* Responsive nav */
+@media(max-width:680px){
+  .cod-badge { display: none; }
+  .theme-switcher .tpill span { display: none; }
+  .hero { padding: 60px 20px; }
+  .stats-bar { flex-direction: column; border-radius: 20px; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── BACKGROUND CANVAS (images layer) ── -->
-<div id="bg-canvas" aria-hidden="true"></div>
+<!-- ════════ PHOTO BACKGROUND ════════ -->
+<div id="photobg">
+  <div class="pbg-vignette" id="pbg-vignette"></div>
+  <div class="pbg-col" id="col-L1"></div>
+  <div class="pbg-col" id="col-L2"></div>
+  <div class="pbg-col" id="col-R1"></div>
+  <div class="pbg-col" id="col-R2"></div>
+</div>
 
-<!-- ══════════════════════════════
-     SHARED NAV
-══════════════════════════════ -->
-<header class="sticky top-0 z-40 nav-glass">
-  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-    <!-- Logo → always goes home -->
+<div id="root">
+<!-- ════════ NAV ════════ -->
+<nav>
+  <div class="nav-inner">
     <button class="logo-btn" onclick="goHome()" aria-label="Go to homepage">
-      <div class="w-9 h-9 rounded-full accent-grad flex items-center justify-center shadow">
-        <span class="text-white text-base">👑</span>
-      </div>
-      <div class="text-left">
-        <div class="font-display text-lg leading-none" style="color:var(--ink)">Mom & Baby</div>
-        <div class="text-[10px] font-medium" style="color:var(--stone)">Sri Lanka</div>
+      <div class="logo-mark">👑</div>
+      <div>
+        <div class="logo-text-top">Moms by Yasho</div>
+        <div class="logo-text-sub">Sri Lanka · COD</div>
       </div>
     </button>
-
-    <!-- Right controls -->
-    <div class="flex items-center gap-2">
-      <!-- Theme switcher -->
-      <div class="hidden sm:flex items-center gap-1 rounded-2xl border p-1" style="border-color:rgba(0,0,0,0.1); background:var(--accent-light)">
-        <button onclick="setTheme('neutral')" id="pill-neutral" class="theme-pill text-[9px] font-bold px-2.5 py-1.5 rounded-xl border border-transparent" style="color:var(--stone)" title="Default">✨</button>
-        <button onclick="setTheme('boy')" id="pill-boy" class="theme-pill text-[9px] font-bold px-2.5 py-1.5 rounded-xl border border-transparent" style="color:#2563eb" title="Boy">💙</button>
-        <button onclick="setTheme('girl')" id="pill-girl" class="theme-pill text-[9px] font-bold px-2.5 py-1.5 rounded-xl border border-transparent" style="color:#db2777" title="Girl">💗</button>
+    <div class="nav-right">
+      <div class="theme-switcher" id="theme-switcher">
+        <button class="tpill on" id="tp-neutral" onclick="setTheme('neutral')">
+          <span>✨ </span>Mom
+        </button>
+        <button class="tpill" id="tp-boy" onclick="setTheme('boy')">
+          <span>💙 </span>Boy
+        </button>
+        <button class="tpill" id="tp-girl" onclick="setTheme('girl')">
+          <span>💗 </span>Girl
+        </button>
       </div>
-      <!-- COD pill -->
-      <div class="hidden md:flex items-center gap-1.5 bg-white border rounded-full px-3 py-1.5 text-[10px] font-semibold" style="border-color:rgba(0,0,0,0.08); color:var(--stone)">
-        <span class="w-1.5 h-1.5 rounded-full pulse-dot" style="background:#22c55e;display:inline-block"></span>
-        COD Available
-      </div>
-      <!-- Lang selector -->
-      <select id="langSelector" onchange="switchLang(this.value)"
-        class="border rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none cursor-pointer"
-        style="border-color:rgba(0,0,0,0.12); background:white; color:var(--accent); font-family:inherit">
+      <div class="cod-badge"><div class="cod-dot"></div>COD Active</div>
+      <select class="lang-sel" id="lang-sel" onchange="switchLang(this.value)">
         <option value="si">සිංහල</option>
         <option value="en">English</option>
         <option value="ta">தமிழ்</option>
       </select>
     </div>
   </div>
-</header>
+</nav>
 
-<!-- ══════════════════════════════
-     PAGE: HOME
-══════════════════════════════ -->
+<!-- ════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════ -->
 <div id="page-home" class="page active">
-  <!-- Hero -->
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="blob w-[500px] h-[500px] top-0 -right-40 opacity-25" style="background:var(--accent-mid)"></div>
-    <div class="blob w-64 h-64 bottom-10 -left-20 opacity-15" style="background:var(--gold-light)"></div>
-    <div class="max-w-6xl mx-auto px-4 relative" style="z-index:2">
-      <div class="max-w-2xl mx-auto text-center space-y-5">
-        <div class="fade-up">
-          <span id="txt_badge" class="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold tracking-wider uppercase"
-            style="background:var(--accent-light); border-color:var(--accent-mid); color:var(--accent)">
-            🌸 Premium Maternity Store · Sri Lanka
-          </span>
-        </div>
-        <h1 id="txt_hero_title" class="fade-up d1 font-display text-4xl md:text-[3.5rem] leading-tight" style="color:var(--ink)">
-          රෝහලට යන්න සූදානම් කළ <em style="color:var(--accent); font-style:normal">සම්පූර්ණ පැකේජය</em> නිවසටම.
-        </h1>
-        <p id="txt_hero_desc" class="fade-up d2 text-base leading-relaxed mx-auto" style="color:var(--stone); max-width:480px">
-          100% Cotton, pre-washed, vacuum-sealed. දිවයිනේ ඕනෑම තැනකට Cash on Delivery.
-        </p>
-        <div class="fade-up d3 flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <a href="#packages" id="btn_explore"
-            class="w-full sm:w-auto accent-grad text-white font-bold px-8 py-4 rounded-2xl text-sm tracking-wide shadow-lg hover:opacity-90 transition">
-            පැකේජ බලන්න ↓
-          </a>
-          <button onclick="showPage('builder')"
-            class="w-full sm:w-auto font-bold px-8 py-4 rounded-2xl text-sm tracking-wide transition hover:opacity-80 border-2"
-            style="border-color:var(--accent); color:var(--accent); background:transparent">
-            🧩 Build Your Own Kit
-          </button>
-        </div>
-        <!-- Stats -->
-        <div class="fade-up d4 flex items-center justify-center gap-6 pt-4">
-          <div class="text-center"><div class="font-display text-2xl" style="color:var(--ink)">500+</div><div class="text-[10px] uppercase tracking-wide" style="color:var(--stone)">Orders</div></div>
-          <div style="width:1px;height:32px;background:var(--accent-mid)"></div>
-          <div class="text-center"><div class="font-display text-2xl" style="color:var(--ink)">100%</div><div class="text-[10px] uppercase tracking-wide" style="color:var(--stone)">Cotton</div></div>
-          <div style="width:1px;height:32px;background:var(--accent-mid)"></div>
-          <div class="text-center"><div class="font-display text-2xl" style="color:var(--ink)">2–4</div><div class="text-[10px] uppercase tracking-wide" style="color:var(--stone)">Days</div></div>
-        </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow" id="h-eyebrow">🌸 Premium Maternity Store · Sri Lanka</div>
+      <h1 class="hero-title" id="h-title">
+        Every item your newborn<br>needs, <em id="h-em">packed with love</em>
+      </h1>
+      <p class="hero-sub" id="h-sub">100% cotton, pre-washed, vacuum-sealed hospital kits — delivered Cash on Delivery anywhere in Sri Lanka.</p>
+      <div class="hero-ctas">
+        <a href="#packages" class="btn-primary" id="h-cta1">View packages ↓</a>
+        <button class="btn-secondary" onclick="showPage('builder')" id="h-cta2">🧩 Build your own kit</button>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-n">500+</div><div class="stat-l" id="st1">Happy moms</div></div>
+        <div class="stat"><div class="stat-n">100%</div><div class="stat-l" id="st2">Pure cotton</div></div>
+        <div class="stat"><div class="stat-n">2–4</div><div class="stat-l" id="st3">Days delivery</div></div>
+        <div class="stat"><div class="stat-n">25</div><div class="stat-l" id="st4">Districts</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Trust strip -->
-  <div class="trust-strip py-3" style="position:relative;z-index:2">
-    <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-1 px-4 text-[11px] font-medium tracking-wide text-white/70">
-      <span>🧼 Pre-Washed</span><span class="opacity-30">·</span>
-      <span>📦 Vacuum Sealed</span><span class="opacity-30">·</span>
-      <span>🚚 Islandwide COD</span><span class="opacity-30">·</span>
-      <span>🔄 7-Day Exchange</span><span class="opacity-30">·</span>
-      <span>💯 Pure Cotton</span>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <div class="ticker-item">🧼 Pre-Washed</div>
+      <div class="ticker-item">📦 Vacuum Sealed</div>
+      <div class="ticker-item">🚚 Islandwide COD</div>
+      <div class="ticker-item">🔄 7-Day Exchange</div>
+      <div class="ticker-item">💯 100% Cotton</div>
+      <div class="ticker-item">🏥 Hospital Ready</div>
+      <div class="ticker-item">👶 Newborn Safe</div>
+      <div class="ticker-item">🧼 Pre-Washed</div>
+      <div class="ticker-item">📦 Vacuum Sealed</div>
+      <div class="ticker-item">🚚 Islandwide COD</div>
+      <div class="ticker-item">🔄 7-Day Exchange</div>
+      <div class="ticker-item">💯 100% Cotton</div>
+      <div class="ticker-item">🏥 Hospital Ready</div>
+      <div class="ticker-item">👶 Newborn Safe</div>
     </div>
   </div>
 
-  <!-- Pre-packed bundles -->
-  <section id="packages" class="py-16" style="background:var(--card-bg); position:relative; z-index:2">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <span id="txt_optA_badge" class="text-[10px] font-bold tracking-widest uppercase rounded-full px-3 py-1" style="background:var(--accent-light); color:var(--accent)">Option A</span>
-        <h2 id="txt_optA_title" class="font-display text-3xl md:text-4xl mt-3" style="color:var(--ink)">Pre-Packed Premium Bundles</h2>
-        <p id="txt_optA_desc" class="mt-2 text-sm" style="color:var(--stone)">Everything ready. No shopping list, no stress.</p>
+  <!-- PACKAGES -->
+  <section class="section section-alt" id="packages">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow" id="pkg-eye">Option A — Pre-Packed</div>
+        <div class="section-title" id="pkg-title">Ready when you are.</div>
+        <p class="section-sub" id="pkg-sub">No lists. No stress. Everything packed, labelled, and delivered to your door.</p>
       </div>
-      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <!-- Essential Kit -->
-        <div class="kit-card rounded-3xl border p-7 flex flex-col" style="border-color:var(--accent-mid); background:var(--page-bg)">
-          <div>
-            <span id="txt_eco_badge" class="text-[10px] font-bold tracking-wider uppercase rounded-full px-3 py-1" style="background:var(--gold-light); color:var(--gold); border:1px solid rgba(0,0,0,0.07)">Essential Kit</span>
-            <div class="mt-4 flex items-baseline gap-2">
-              <span class="font-display text-4xl" style="color:var(--ink)">15,000</span>
-              <span class="text-sm font-semibold" style="color:var(--stone)">LKR</span>
+      <div class="kits-grid reveal">
+        <!-- Essential -->
+        <div class="kit-card kit-light">
+          <div class="kit-light-inner">
+            <div class="kit-badge kit-badge-light">⭐ Essential Kit</div>
+            <div class="kit-price kit-price-light">
+              <span class="kit-currency">LKR</span>15,000
             </div>
-            <div class="mt-5 pt-5" style="border-top:1px solid var(--accent-mid)">
-              <p id="txt_eco_inc" class="text-[10px] font-bold tracking-wider uppercase mb-3" style="color:var(--stone)">📦 What's included</p>
-              <ul id="list_eco_items" class="space-y-2 text-sm" style="color:var(--ink-mid)"></ul>
-            </div>
+            <div class="kit-divider kit-divider-light"></div>
+            <div class="kit-inc-label kit-inc-light" id="eco-inc-lbl">What's included</div>
+            <ul class="kit-items" id="list-eco"></ul>
+            <button class="kit-btn-light" onclick="selectPkg('Essential Kit',15000)" id="btn-eco">Order Essential Kit →</button>
           </div>
-          <button type="button" id="btn_order_eco" onclick="selectFullPackage('Economy Kit',15000)"
-            class="mt-8 w-full font-bold py-4 rounded-2xl text-sm tracking-wide transition cursor-pointer hover:opacity-80"
-            style="background:var(--ink); color:white">✦ Order Essential Kit</button>
         </div>
-        <!-- Premium Kit -->
-        <div class="kit-card rounded-3xl p-7 flex flex-col relative overflow-hidden" style="background:var(--ink); border:2px solid var(--accent)">
-          <div id="txt_prem_tag" class="absolute top-0 right-0 text-[9px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-bl-2xl" style="background:var(--accent); color:white">Full Luxury</div>
-          <div>
-            <span id="txt_prem_badge" class="text-[10px] font-bold tracking-wider uppercase rounded-full px-3 py-1" style="background:rgba(255,255,255,0.1); color:var(--accent); border:1px solid rgba(255,255,255,0.15)">Premium Package</span>
-            <div class="mt-4 flex items-baseline gap-2">
-              <span class="font-display text-4xl text-white">22,000</span>
-              <span class="text-sm font-semibold" style="color:rgba(255,255,255,0.4)">LKR</span>
+        <!-- Premium -->
+        <div class="kit-card kit-dark">
+          <div class="kit-best" id="prem-best">Most Popular</div>
+          <div class="kit-dark-inner">
+            <div class="kit-badge kit-badge-dark">👑 Premium Package</div>
+            <div class="kit-price kit-price-dark">
+              <span class="kit-currency" style="color:rgba(255,255,255,0.5)">LKR</span>22,000
             </div>
-            <div class="mt-5 pt-5" style="border-top:1px solid rgba(255,255,255,0.1)">
-              <p id="txt_prem_inc" class="text-[10px] font-bold tracking-wider uppercase mb-3" style="color:var(--accent)">👑 What's included</p>
-              <ul id="list_prem_items" class="space-y-2 text-sm text-white/80"></ul>
-            </div>
+            <div class="kit-divider kit-divider-dark"></div>
+            <div class="kit-inc-label kit-inc-dark" id="prem-inc-lbl">Everything included</div>
+            <ul class="kit-items" id="list-prem"></ul>
+            <button class="kit-btn-dark" onclick="selectPkg('Premium Package',22000)" id="btn-prem">Order Premium Package →</button>
           </div>
-          <button type="button" id="btn_order_prem" onclick="selectFullPackage('Premium Kit',22000)"
-            class="mt-8 w-full font-bold py-4 rounded-2xl text-sm tracking-wide transition cursor-pointer hover:opacity-90 accent-grad text-white">👑 Order Premium Kit</button>
         </div>
       </div>
-      <!-- CTA to builder -->
-      <div class="mt-12 text-center">
-        <div class="divider max-w-sm mx-auto mb-8"></div>
-        <p class="text-sm font-medium mb-4" style="color:var(--stone)">Want to choose exactly what you need?</p>
-        <button onclick="showPage('builder')"
-          class="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-2xl text-sm border-2 transition hover:opacity-80 accent-grad text-white shadow-lg">
-          🧩 Build Your Own Custom Kit →
-        </button>
+      <div class="custom-cta reveal">
+        <div>
+          <div class="custom-cta-title" id="cta-custom-t">Build your own kit</div>
+          <p class="custom-cta-text" id="cta-custom-d">Choose exactly what you need — item by item, quantity by quantity.</p>
+        </div>
+        <button class="btn-primary" onclick="showPage('builder')">🧩 Start Building →</button>
       </div>
     </div>
   </section>
 
-  <!-- Trust cards -->
-  <section class="py-14" style="background:var(--page-bg); position:relative; z-index:2">
-    <div class="max-w-4xl mx-auto px-4 grid md:grid-cols-3 gap-5">
-      <div class="rounded-2xl p-6 text-center" style="background:var(--card-bg); border:1px solid var(--accent-mid)">
-        <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🧼</div>
-        <h4 id="faq_t1" class="font-bold text-sm" style="color:var(--ink)">Pre-Washed & Sanitized</h4>
-        <p id="faq_d1" class="text-xs mt-2 leading-relaxed" style="color:var(--stone)">Hypoallergenic, vacuum-sealed — safe for newborn skin from day one.</p>
+  <!-- TRUST PILLARS -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow" id="trust-eye">Why moms choose us</div>
+        <div class="section-title" id="trust-title">Made for Sri Lankan moms.</div>
       </div>
-      <div class="rounded-2xl p-6 text-center" style="background:var(--card-bg); border:1px solid var(--accent-mid)">
-        <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🚚</div>
-        <h4 id="faq_t2" class="font-bold text-sm" style="color:var(--ink)">Islandwide COD</h4>
-        <p id="faq_d2" class="text-xs mt-2 leading-relaxed" style="color:var(--stone)">Pay cash when your order arrives. 2–4 working days anywhere in Sri Lanka.</p>
-      </div>
-      <div class="rounded-2xl p-6 text-center" style="background:var(--card-bg); border:1px solid var(--accent-mid)">
-        <div class="w-12 h-12 rounded-2xl icon-box flex items-center justify-center text-xl mx-auto mb-4">🔄</div>
-        <h4 id="faq_t3" class="font-bold text-sm" style="color:var(--ink)">7-Day Free Exchange</h4>
-        <p id="faq_d3" class="text-xs mt-2 leading-relaxed" style="color:var(--stone)">If anything isn't right, we'll exchange it — no questions asked.</p>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <div class="pillar-icon">🧼</div>
+          <div class="pillar-title" id="p1t">Pre-Washed & Safe</div>
+          <p class="pillar-body" id="p1d">Every item is washed with baby-safe detergent, then vacuum-sealed fresh. Zero chemicals, zero worry.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🚚</div>
+          <div class="pillar-title" id="p2t">Cash on Delivery</div>
+          <p class="pillar-body" id="p2d">Pay only when it arrives. We deliver to all 25 districts — 2 to 4 working days, islandwide.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🔄</div>
+          <div class="pillar-title" id="p3t">7-Day Exchange</div>
+          <p class="pillar-body" id="p3d">Something not right? We'll exchange it — no paperwork, no questions. Your peace of mind matters.</p>
+        </div>
       </div>
     </div>
   </section>
+
 </div><!-- /page-home -->
 
-<!-- ══════════════════════════════
-     PAGE: BUILDER
-══════════════════════════════ -->
+<!-- ════════════════════════════════════
+     BUILDER PAGE
+════════════════════════════════════ -->
 <div id="page-builder" class="page">
-  <div class="py-8 px-4" style="background:var(--card-bg); border-bottom:1px solid var(--accent-mid)">
-    <div class="max-w-7xl mx-auto">
-      <button onclick="goHome()" id="builder_back_btn" class="flex items-center gap-2 text-xs font-semibold mb-4 hover:opacity-70 transition cursor-pointer border-0 bg-transparent p-0" style="color:var(--accent)">
-        ← Back to Home
-      </button>
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+  <div class="builder-header">
+    <div class="builder-header-inner">
+      <button class="back-btn" onclick="goHome()">← Back to home</button>
+      <div class="builder-top-row">
         <div>
-          <span id="builder_badge_el" class="text-[10px] font-bold tracking-widest uppercase rounded-full px-3 py-1 mb-2 inline-block" style="background:var(--accent-light); color:var(--accent)">Build Your Kit</span>
-          <h1 id="builder_title_el" class="font-display text-3xl md:text-4xl mt-2" style="color:var(--ink)">Choose Every Item You Need</h1>
-          <p id="builder_desc_el" class="text-sm mt-1" style="color:var(--stone)">All categories · Pick quantities · Checkout when ready</p>
+          <div class="section-eyebrow" id="b-eye">Option B — Custom</div>
+          <div class="section-title" id="b-title" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:0">Pick every item yourself</div>
         </div>
-        <div class="flex items-center gap-3">
-          <span id="builder_theme_label_el" class="text-xs font-semibold" style="color:var(--stone)">Baby theme:</span>
-          <div class="flex gap-2">
-            <button onclick="setTheme('boy')" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border-2 transition cursor-pointer" id="builder-btn-boy" style="border-color:#2563eb; color:#2563eb; background:white">
-              <span id="builder_theme_boy_el">💙 Boy</span>
-            </button>
-            <button onclick="setTheme('girl')" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border-2 transition cursor-pointer" id="builder-btn-girl" style="border-color:#db2777; color:#db2777; background:white">
-              <span id="builder_theme_girl_el">💗 Girl</span>
-            </button>
-          </div>
+        <div class="builder-theme-row">
+          <span class="builder-theme-label" id="b-theme-lbl">Baby is a</span>
+          <button class="gender-btn" id="gb-boy" onclick="setTheme('boy')">💙 Boy</button>
+          <button class="gender-btn" id="gb-girl" onclick="setTheme('girl')">💗 Girl</button>
         </div>
       </div>
-      <div class="mt-6 flex flex-wrap gap-2" id="cat-tabs"></div>
+      <div class="cat-scroll" id="cat-tabs"></div>
     </div>
   </div>
-  <div style="background:var(--page-bg); padding:16px">
-    <div class="max-w-7xl mx-auto">
-      <input type="text" id="item-search" placeholder="🔍 Search items..." oninput="filterItems()"
-        class="search-input w-full max-w-sm rounded-2xl border px-4 py-2.5 text-sm font-medium"
-        style="border-color:var(--accent-mid); background:var(--card-bg); color:var(--ink); font-family:inherit">
+  <div class="builder-search-wrap">
+    <div class="builder-search-inner">
+      <input type="text" class="search-field" id="srch" placeholder="Search items…" oninput="renderItems()">
     </div>
   </div>
-  <div class="max-w-7xl mx-auto px-4 pb-36" id="builder-content"></div>
-  <div class="builder-bottom shadow-2xl">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-      <div>
-        <p id="builder_total_label_el" class="text-[10px] font-bold uppercase tracking-wider" style="color:var(--stone)">Your Total</p>
-        <p id="builder-total" class="font-display text-2xl" style="color:var(--ink)">LKR 0</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span id="builder-item-count" class="text-xs font-bold px-3 py-1 rounded-full" style="background:var(--accent-light); color:var(--accent)">0 items</span>
-        <button type="button" onclick="checkoutBuilder()"
-          class="font-bold px-6 py-3.5 rounded-2xl text-sm cursor-pointer transition hover:opacity-90 accent-grad text-white shadow-lg">
-          <span id="builder_checkout_el">Checkout →</span>
-        </button>
-      </div>
+  <div class="catalog-body" id="catalog"></div>
+  <div class="checkout-bar">
+    <div>
+      <div class="co-label" id="co-lbl">Your total</div>
+      <div class="co-total" id="co-total">LKR 0</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="co-count" id="co-count">0 items</div>
+      <button class="co-btn" onclick="doCheckout()" id="co-btn">Checkout →</button>
     </div>
   </div>
 </div><!-- /page-builder -->
 
-<!-- ══════════════════════════════
-     CHAT WIDGET
-══════════════════════════════ -->
-<style>
-#chat-widget{position:fixed;bottom:24px;right:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-#chat-fab{width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);box-shadow:0 8px 28px rgba(0,0,0,0.22);transition:transform 0.2s ease,box-shadow 0.2s ease,background 0.5s;position:relative;flex-shrink:0}
-#chat-fab:hover{transform:scale(1.07);box-shadow:0 12px 36px rgba(0,0,0,0.28)}
-#chat-fab-icon{transition:transform 0.3s ease,opacity 0.2s}
-#chat-fab.open #chat-fab-icon{transform:rotate(90deg)}
-#chat-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:var(--gold);color:white;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid white;animation:badgePop 0.4s cubic-bezier(0.175,0.885,0.32,1.3) both}
-@keyframes badgePop{from{transform:scale(0)}to{transform:scale(1)}}
-#chat-minimized{display:none;align-items:center;gap:10px;background:var(--ink);color:white;border-radius:2rem;padding:10px 16px 10px 12px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.08);max-width:280px;animation:pillIn 0.28s cubic-bezier(0.175,0.885,0.32,1.1) both;transition:background 0.5s}
-@keyframes pillIn{from{opacity:0;transform:translateY(10px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-#chat-minimized:hover{background:var(--ink-mid)}
-#mini-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));transition:background 0.5s}
-#mini-content{flex:1;min-width:0}
-#mini-name{font-size:10px;font-weight:700;color:rgba(255,255,255,0.55);line-height:1;margin-bottom:3px}
-#mini-preview{font-size:11px;font-weight:500;color:white;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
-#mini-expand{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s}
-#mini-expand:hover{background:rgba(255,255,255,0.2)}
-#mini-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s;color:rgba(255,255,255,0.5);font-size:11px}
-#mini-close:hover{background:rgba(255,255,255,0.18);color:white}
-#mini-unread{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:pulse 2s infinite}
-#chat-panel{display:none;width:340px;height:500px;border-radius:24px;overflow:hidden;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,0.18),0 0 0 1px var(--accent-mid);background:var(--card-bg);animation:panelIn 0.3s cubic-bezier(0.175,0.885,0.32,1.08) both;transform-origin:bottom right}
-@media(min-width:640px){#chat-panel{width:375px}}
-@keyframes panelIn{from{opacity:0;transform:scale(0.9) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
-@keyframes panelOut{from{opacity:1;transform:scale(1) translateY(0)}to{opacity:0;transform:scale(0.93) translateY(12px)}}
-#chat-panel.closing{animation:panelOut 0.2s ease both}
-#chat-panel-header{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;background:var(--ink);flex-shrink:0;transition:background 0.5s}
-.chat-header-left{display:flex;align-items:center;gap:10px}
-.chat-avatar-wrap{position:relative}
-.chat-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:14px;transition:background 0.5s}
-.online-dot{position:absolute;bottom:0;right:0;width:10px;height:10px;background:#22c55e;border-radius:50%;border:2px solid var(--ink)}
-.chat-header-title{font-weight:700;font-size:11px;color:white;line-height:1.2}
-.chat-header-sub{font-size:9px;color:rgba(255,255,255,0.4);font-weight:500;margin-top:2px}
-.chat-header-actions{display:flex;align-items:center;gap:4px}
-.chat-hbtn{width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);transition:all 0.15s;font-size:11px}
-.chat-hbtn:hover{background:rgba(255,255,255,0.15);color:white}
-#chat-tabs{padding:8px;display:flex;gap:6px;border-bottom:1px solid var(--accent-mid);background:var(--accent-light);flex-shrink:0;transition:background 0.4s}
-#chatMessageArea{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
-#chatInputSection{padding:10px;display:flex;align-items:center;gap:8px;border-top:1px solid var(--accent-mid);background:var(--card-bg);flex-shrink:0}
-#chatInputField{flex:1;border-radius:20px;border:1px solid var(--accent-mid);padding:9px 14px;font-size:12px;font-weight:500;background:var(--page-bg);color:var(--ink);font-family:inherit;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
-#chatInputField:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
-#btn_chat_send{height:36px;padding:0 14px;border-radius:18px;border:none;font-size:11px;font-weight:700;color:white;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));transition:opacity 0.15s,transform 0.15s}
-#btn_chat_send:hover{opacity:0.88}
-#btn_chat_send:active{transform:scale(0.94)}
-.typing-dots span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--stone);margin:0 1.5px;animation:typingBounce 1.2s infinite}
-.typing-dots span:nth-child(2){animation-delay:0.2s}
-.typing-dots span:nth-child(3){animation-delay:0.4s}
-@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-.qr-chip{display:inline-flex;align-items:center;padding:5px 12px;border-radius:14px;border:1px solid var(--accent-mid);background:var(--card-bg);color:var(--ink);font-size:10px;font-weight:600;cursor:pointer;transition:all 0.15s;white-space:nowrap}
-.qr-chip:hover{background:var(--accent);color:white;border-color:var(--accent)}
-</style>
+</div><!-- /root -->
 
-<div id="chat-widget">
-  <div id="chat-minimized" onclick="expandChat()">
-    <div id="mini-avatar">👑</div>
-    <div id="mini-content">
-      <div id="mini-name">Mom & Baby Support</div>
-      <div id="mini-preview">👋 Hi! How can we help?</div>
-    </div>
-    <div id="mini-unread"></div>
-    <button id="mini-expand" onclick="event.stopPropagation(); expandChat()" title="Expand">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
-    </button>
-    <button id="mini-close" onclick="event.stopPropagation(); closeChat()" title="Close">✕</button>
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="foot-logo">
+    <div class="logo-mark" style="width:34px;height:34px;font-size:14px">👑</div>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff">Moms by Yasho</span>
   </div>
-  <div id="chat-panel" class="chat-bg" style="display:none; flex-direction:column">
-    <div id="chat-panel-header">
-      <div class="chat-header-left">
-        <div class="chat-avatar-wrap">
-          <div class="chat-avatar">👑</div>
-          <div class="online-dot"></div>
-        </div>
+  <p class="foot-copy" id="footer-copy">© 2026 Moms by Yasho · Sri Lanka. Islandwide Cash on Delivery. All rights reserved.</p>
+</footer>
+
+<!-- ════════ CHAT WIDGET ════════ -->
+<div id="cw">
+  <!-- Pill -->
+  <div id="cw-mini" onclick="openChat()">
+    <div class="mini-av">👑</div>
+    <div style="flex:1;min-width:0">
+      <div class="mini-name">Moms by Yasho</div>
+      <div class="mini-msg" id="mini-preview">👋 Hi! We're here to help.</div>
+    </div>
+    <div class="mini-dot"></div>
+    <button class="mini-x" onclick="event.stopPropagation();closeChat()" title="Close">✕</button>
+  </div>
+
+  <!-- Panel -->
+  <div id="cw-panel" style="display:none;flex-direction:column">
+    <div class="cp-head">
+      <div class="cp-head-l">
+        <div class="cp-av">👑</div>
         <div>
-          <div id="txt_chat_header" class="chat-header-title">Mom & Baby Support</div>
-          <div id="txt_chat_subheader" class="chat-header-sub">Online now · replies instantly</div>
+          <div class="cp-name" id="cp-name">Moms by Yasho</div>
+          <div class="cp-status" id="cp-status">Online · responds instantly</div>
         </div>
       </div>
-      <div class="chat-header-actions">
-        <button class="chat-hbtn" onclick="minimizeChat()" title="Minimise">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg>
+      <div class="cp-acts">
+        <button class="cp-btn" onclick="miniChat()" title="Minimise">
+          <svg width="12" height="2" viewBox="0 0 12 2"><rect width="12" height="2" fill="currentColor"/></svg>
         </button>
-        <button class="chat-hbtn" onclick="closeChat()" title="Close">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <button class="cp-btn" onclick="closeChat()" title="Close">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 1l9 9M10 1l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
     </div>
-    <div id="chat-tabs">
-      <button onclick="setIntent('qna')" id="btn_qna" class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border" style="background:var(--card-bg); border-color:var(--accent-mid); color:var(--stone); font-family:inherit">💡 Q&A</button>
-      <button onclick="setIntent('status')" id="btn_status" class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border" style="background:var(--card-bg); border-color:var(--accent-mid); color:var(--stone); font-family:inherit">📦 Track</button>
-      <button onclick="setIntent('cancel')" id="btn_cancel" class="text-[10px] font-bold px-3 py-1.5 rounded-xl cursor-pointer transition border" style="background:var(--card-bg); border-color:var(--accent-mid); color:var(--stone); font-family:inherit">❌ Cancel</button>
+    <div class="cp-tabs" id="cp-tabs">
+      <button class="cp-tab on" id="ct-qna" onclick="setIntent('qna')">💬 Help</button>
+      <button class="cp-tab" id="ct-track" onclick="setIntent('track')">📦 Track</button>
+      <button class="cp-tab" id="ct-cancel" onclick="setIntent('cancel')">❌ Cancel</button>
     </div>
-    <div id="chatMessageArea" class="chat-bg" style="flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px;"></div>
-    <div id="chatInputSection">
-      <input type="text" id="chatInputField" placeholder="Type a message...">
-      <button type="button" id="btn_chat_send" onclick="handleChat()">Send</button>
+    <div class="cp-msgs" id="cp-msgs"></div>
+    <div class="cp-input-row">
+      <input type="text" class="cp-input" id="cp-input" placeholder="Type a message…">
+      <button class="cp-send" id="cp-send" onclick="chatSend()">Send</button>
     </div>
   </div>
-  <button id="chat-fab" onclick="openChat()">
-    <span id="chat-fab-icon">
-      <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" width="24" height="24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-    </span>
-    <span id="chat-badge">1</span>
+
+  <!-- FAB -->
+  <button id="cw-fab" onclick="openChat()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <div class="fab-badge" id="fab-badge">1</div>
   </button>
 </div>
 
 <!-- SUCCESS MODAL -->
-<div id="successModal" class="hidden fixed inset-0 modal-bg flex items-center justify-center p-4 z-50">
-  <div class="chat-popup rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl" style="background:var(--card-bg)">
-    <div class="w-16 h-16 rounded-full accent-grad flex items-center justify-center text-3xl mx-auto mb-4">🎉</div>
-    <h3 id="txt_modal_title" class="font-display text-xl" style="color:var(--ink)">Order Confirmed!</h3>
-    <p id="txt_modal_desc" class="text-xs mt-2 leading-relaxed" style="color:var(--stone)">We've received your order. Our team will contact you shortly.</p>
-    <button id="btn_modal_close" onclick="closeModal()"
-      class="mt-6 w-full font-bold py-3.5 rounded-2xl text-sm cursor-pointer transition hover:opacity-80 accent-grad text-white">Done</button>
+<div id="success-modal">
+  <div class="modal-box">
+    <div class="modal-icon">🎉</div>
+    <div class="modal-title" id="m-title">Order Placed!</div>
+    <p class="modal-sub" id="m-sub">Your kit is confirmed. Our team will call you within 2 hours to arrange delivery.</p>
+    <button class="modal-btn" onclick="closeModal()" id="m-btn">Done, thank you!</button>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="py-10 trust-strip" style="position:relative;z-index:2">
-  <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
-    <div class="flex items-center justify-center gap-2 mb-3">
-      <div class="w-8 h-8 rounded-full accent-grad flex items-center justify-center"><span class="text-white text-sm">👑</span></div>
-      <span class="font-display text-lg text-white">Mom & Baby Care</span>
-    </div>
-    <p id="txt_footer_copy" class="text-xs" style="color:rgba(255,255,255,0.35)">© 2026 Mom & Baby Care Sri Lanka. Islandwide Delivery. All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- ══════════════════════════════
+<!-- ════════════════════════════════════
      JAVASCRIPT
-══════════════════════════════ -->
+════════════════════════════════════ -->
 <script>
+/* ── CONFIG ──────────────────────── */
 const WORKER = 'https://babycare-backend-api.tbmsaranga.workers.dev';
-let currentLang = 'si';
-let currentTheme = 'neutral';
-let chatStep = 0, currentIntent = 'qna';
-let basePriceInt = 0, orderPayload = '', orderTotalStr = '';
-let customerName = '', customerPhone = '', customerDistrict = '', customerAddress = '';
-let activeCat = 'all';
 
-/* ─── BACKGROUND IMAGE SYSTEM ─── */
-const bgImages = {
+/* ── STATE ───────────────────────── */
+let lang  = 'si';
+let theme = 'neutral';
+let activeCat = 'all';
+let chatStep = 0;
+let chatIntent = 'qna';
+let chatOpen = false;
+let orderName = '', orderPhone = '', orderDistrict = '', orderAddress = '';
+let orderPayload = '', orderBase = 0;
+
+/* ── BACKGROUND IMAGES ───────────── */
+const PHOTOS = {
   neutral: [
-    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=85&auto=format&fit=crop', // pregnant mom
-    'https://images.unsplash.com/photo-1609220136736-443140cffec6?w=400&q=85&auto=format&fit=crop', // pregnant belly
-    'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=400&q=85&auto=format&fit=crop', // mom baby
-    'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=400&q=85&auto=format&fit=crop', // hospital baby
-    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&q=85&auto=format&fit=crop', // newborn wrap
-    'https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=400&q=85&auto=format&fit=crop', // maternity
-    'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=85&auto=format&fit=crop', // pregnant
-    'https://images.unsplash.com/photo-1562684611-ef4e0d19f07b?w=400&q=85&auto=format&fit=crop', // baby clothing
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1609220136736-443140cffec6?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1562684611-ef4e0d19f07b?w=340&q=80&fit=crop',
   ],
   boy: [
-    'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=85&auto=format&fit=crop', // baby boy
-    'https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=400&q=85&auto=format&fit=crop', // baby boy blue
-    'https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=400&q=85&auto=format&fit=crop', // newborn boy
-    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=85&auto=format&fit=crop', // pregnancy
-    'https://images.unsplash.com/photo-1579635836891-f88b8e7a2e1e?w=400&q=85&auto=format&fit=crop', // baby boy sleeping
-    'https://images.unsplash.com/photo-1519689373023-dd07c7988603?w=400&q=85&auto=format&fit=crop', // baby boy
-    'https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=400&q=85&auto=format&fit=crop', // newborn
-    'https://images.unsplash.com/photo-1560720925-4eb6013dbaa7?w=400&q=85&auto=format&fit=crop', // baby blue
+    'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1519689373023-dd07c7988603?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1560720925-4eb6013dbaa7?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=340&q=80&fit=crop',
   ],
   girl: [
-    'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?w=400&q=85&auto=format&fit=crop', // baby girl pink
-    'https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=400&q=85&auto=format&fit=crop', // baby girl
-    'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=85&auto=format&fit=crop', // baby girl sleeping
-    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=85&auto=format&fit=crop', // pregnant mom
-    'https://images.unsplash.com/photo-1565019011521-b0575cbb57c2?w=400&q=85&auto=format&fit=crop', // baby girl pink outfit
-    'https://images.unsplash.com/photo-1571210862729-78a52d3779a2?w=400&q=85&auto=format&fit=crop', // baby girl
-    'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=85&auto=format&fit=crop', // pregnancy
-    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=85&auto=format&fit=crop', // mom baby girl
+    'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1571210862729-78a52d3779a2?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1565019011521-b0575cbb57c2?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=340&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=340&q=80&fit=crop',
   ]
 };
 
-let bgLoaded = {};
-let bgCurrentSet = [];
-let bgAnimFrame = null;
-
-function buildBgCanvas(theme) {
-  const canvas = document.getElementById('bg-canvas');
-  const imgs = bgImages[theme] || bgImages.neutral;
-
-  // Fade out all existing images
-  canvas.querySelectorAll('.bg-img').forEach(img => img.classList.remove('visible'));
-
-  // Rebuild if theme changed
-  if (bgCurrentSet.join() !== imgs.join()) {
-    bgCurrentSet = imgs;
-
-    // Clear after fade out
+function buildPhotoBg(t) {
+  const photos = PHOTOS[t] || PHOTOS.neutral;
+  const cols = ['col-L1','col-L2','col-R1','col-R2'];
+  cols.forEach((id, ci) => {
+    const col = document.getElementById(id);
+    if (!col) return;
+    // fade out current
+    col.querySelectorAll('.pbg-img').forEach(i => i.classList.remove('in'));
     setTimeout(() => {
-      canvas.innerHTML = '';
-      imgs.forEach((src, i) => {
+      col.innerHTML = '';
+      // each col gets a subset (2 cols share photos, doubled for seamless scroll)
+      const subset = photos.filter((_, i) => i % 2 === (ci % 2));
+      const doubled = [...subset, ...subset];
+      doubled.forEach((src, idx) => {
         const img = document.createElement('img');
-        img.className = 'bg-img';
+        img.className = 'pbg-img';
         img.alt = '';
-        img.loading = i < 4 ? 'eager' : 'lazy';
+        img.loading = idx < 4 ? 'eager' : 'lazy';
         img.decoding = 'async';
-        img.style.cssText = `filter: grayscale(15%) brightness(1.05); box-shadow: 0 8px 40px rgba(0,0,0,0.15);`;
-
-        // preload & fade in
-        const src2 = src;
-        img.onload = () => {
-          setTimeout(() => img.classList.add('visible'), i * 120);
-        };
+        img.src = src;
+        img.onload = () => { setTimeout(() => img.classList.add('in'), idx * 60); };
         img.onerror = () => { img.style.display = 'none'; };
-        img.src = src2;
-        canvas.appendChild(img);
+        col.appendChild(img);
       });
-    }, 600);
-  } else {
-    // Same set, just re-show
-    setTimeout(() => {
-      canvas.querySelectorAll('.bg-img').forEach((img, i) => {
-        setTimeout(() => img.classList.add('visible'), i * 80);
-      });
-    }, 100);
-  }
+    }, 400);
+  });
 }
 
-/* ─── DELIVERY FEES ─── */
-const deliveryFees = {
-  "Colombo":350,"Gampaha":400,"Kalutara":450,"Kandy":500,"Matale":500,
-  "Nuwara Eliya":550,"Galle":500,"Matara":500,"Hambantota":550,"Jaffna":600,
-  "Kilinochchi":600,"Mannar":600,"Vavuniya":600,"Mullaitivu":600,"Batticaloa":580,
-  "Ampara":580,"Trincomalee":580,"Kurunegala":480,"Puttalam":480,"Anuradhapura":520,
-  "Polonnaruwa":520,"Badulla":540,"Monaragala":540,"Ratnapura":480,"Kegalle":480
+/* ── DELIVERY FEES ───────────────── */
+const FEES = {
+  Colombo:350,Gampaha:400,Kalutara:450,Kandy:500,Matale:500,
+  'Nuwara Eliya':550,Galle:500,Matara:500,Hambantota:550,Jaffna:600,
+  Kilinochchi:600,Mannar:600,Vavuniya:600,Mullaitivu:600,Batticaloa:580,
+  Ampara:580,Trincomalee:580,Kurunegala:480,Puttalam:480,Anuradhapura:520,
+  Polonnaruwa:520,Badulla:540,Monaragala:540,Ratnapura:480,Kegalle:480
 };
 
-/* ─── PRODUCT CATALOG ─── */
-const catalog = [
-  {id:'b_shirt_ss',cat:'baby_clothing',icon:'👕',name:{si:'Baby Shirts (කෙටි අත)',en:'Short-Sleeve Baby Shirts',ta:'Baby Shirts (குட்டை கை)'},price:350,unit:'per shirt',tag:'baby'},
-  {id:'b_shirt_ls',cat:'baby_clothing',icon:'👘',name:{si:'Baby Shirts (දිගු අත)',en:'Long-Sleeve Baby Shirts',ta:'Baby Shirts (நீண்ட கை)'},price:420,unit:'per shirt',tag:'baby'},
-  {id:'b_onesie',cat:'baby_clothing',icon:'🐣',name:{si:'Baby Onesies / Bodysuits',en:'Baby Onesies / Bodysuits',ta:'Baby Onesies'},price:480,unit:'per piece',tag:'baby'},
-  {id:'b_pants',cat:'baby_clothing',icon:'👖',name:{si:'Baby Trousers / Leggings',en:'Baby Trousers / Leggings',ta:'Baby Trousers'},price:320,unit:'per piece',tag:'baby'},
-  {id:'b_sleepsuit',cat:'baby_clothing',icon:'🌙',name:{si:'Sleepsuit / Romper',en:'Sleepsuit / Romper',ta:'Sleepsuit / Romper'},price:550,unit:'per piece',tag:'baby'},
-  {id:'b_vest',cat:'baby_clothing',icon:'🧤',name:{si:'Baby Vests / Singlets',en:'Baby Cotton Vests',ta:'Baby Vests'},price:280,unit:'per piece',tag:'baby'},
-  {id:'b_cap',cat:'baby_acc',icon:'🧢',name:{si:'Baby Caps / Hats',en:'Baby Caps / Hats',ta:'Baby Caps'},price:150,unit:'per piece',tag:'baby'},
-  {id:'b_mittens',cat:'baby_acc',icon:'🧤',name:{si:'Baby Mittens (Scratch Mitts)',en:'Baby Scratch Mittens',ta:'Baby Mittens'},price:120,unit:'per pair',tag:'baby'},
-  {id:'b_booties',cat:'baby_acc',icon:'🧦',name:{si:'Baby Booties / Socks',en:'Baby Booties / Socks',ta:'Baby Booties'},price:150,unit:'per pair',tag:'baby'},
-  {id:'b_bib',cat:'baby_acc',icon:'🍼',name:{si:'Baby Bibs',en:'Baby Cotton Bibs',ta:'Baby Bibs'},price:180,unit:'per piece',tag:'baby'},
-  {id:'b_headband',cat:'baby_acc',icon:'🎀',name:{si:'Baby Headband',en:'Baby Headband',ta:'Baby Headband'},price:120,unit:'per piece',tag:'baby',girlOnly:true},
-  {id:'b_nappy',cat:'nappies',icon:'🍼',name:{si:'Cotton Nappies (Reusable)',en:'Cotton Nappies (Reusable)',ta:'Cotton Nappies'},price:250,unit:'per piece',tag:'baby'},
-  {id:'b_nappy_pad',cat:'nappies',icon:'🩹',name:{si:'Nappy Pads / Liners',en:'Nappy Pads / Liners',ta:'Nappy Pads'},price:180,unit:'per pack 10',tag:'baby'},
-  {id:'b_disp',cat:'nappies',icon:'📦',name:{si:'Disposable Diapers (Newborn)',en:'Disposable Diapers Newborn Size',ta:'Disposable Diapers'},price:850,unit:'per pack 20',tag:'baby'},
-  {id:'b_wipes',cat:'nappies',icon:'🧻',name:{si:'Baby Wet Wipes (Fragrance-Free)',en:'Baby Wet Wipes Fragrance-Free',ta:'Baby Wipes'},price:320,unit:'per pack',tag:'baby'},
-  {id:'b_mat',cat:'nappies',icon:'🛏',name:{si:'Changing Mat / Waterproof Pad',en:'Waterproof Changing Mat',ta:'Changing Mat'},price:650,unit:'per piece',tag:'baby'},
-  {id:'b_swaddle',cat:'bedding',icon:'🌸',name:{si:'Swaddle Wraps / Muslin Cloths',en:'Swaddle Wraps / Muslin Cloths',ta:'Swaddle Wraps'},price:650,unit:'per piece',tag:'baby'},
-  {id:'b_blanket',cat:'bedding',icon:'🛏',name:{si:'Baby Blankets',en:'Baby Soft Blankets',ta:'Baby Blankets'},price:850,unit:'per piece',tag:'baby'},
-  {id:'b_sheet',cat:'bedding',icon:'🛌',name:{si:'Baby Bed Sheets / Receiving Blankets',en:'Baby Receiving Blankets',ta:'Baby Bed Sheets'},price:720,unit:'per piece',tag:'baby'},
-  {id:'b_towel',cat:'bedding',icon:'🏖',name:{si:'Hooded Baby Towels',en:'Hooded Baby Bath Towels',ta:'Hooded Towels'},price:780,unit:'per piece',tag:'baby'},
-  {id:'b_facecloth',cat:'bedding',icon:'🧽',name:{si:'Baby Face Cloths / Wash Cloths',en:'Baby Wash Cloths',ta:'Baby Face Cloths'},price:180,unit:'per piece',tag:'baby'},
-  {id:'b_cotton',cat:'baby_care',icon:'☁️',name:{si:'Cotton Balls / Buds',en:'Baby Cotton Balls & Buds',ta:'Cotton Balls'},price:150,unit:'per pack',tag:'baby'},
-  {id:'b_oil',cat:'baby_care',icon:'🧴',name:{si:'Baby Coconut / Body Oil',en:'Baby Coconut / Body Oil',ta:'Baby Oil'},price:280,unit:'per bottle',tag:'baby'},
-  {id:'b_cream',cat:'baby_care',icon:'🧴',name:{si:'Baby Nappy Rash Cream',en:'Baby Nappy Rash Cream',ta:'Nappy Cream'},price:350,unit:'per tube',tag:'baby'},
-  {id:'b_soap',cat:'baby_care',icon:'🧼',name:{si:'Baby Soap / Body Wash',en:'Baby Soap / Body Wash',ta:'Baby Soap'},price:280,unit:'per piece',tag:'baby'},
-  {id:'b_shampoo',cat:'baby_care',icon:'🚿',name:{si:'Baby Shampoo (Tear-Free)',en:'Baby Shampoo Tear-Free',ta:'Baby Shampoo'},price:320,unit:'per bottle',tag:'baby'},
-  {id:'b_thermom',cat:'baby_care',icon:'🌡',name:{si:'Baby Thermometer (Digital)',en:'Digital Baby Thermometer',ta:'Baby Thermometer'},price:950,unit:'per piece',tag:'baby'},
-  {id:'b_nasal',cat:'baby_care',icon:'💨',name:{si:'Nasal Aspirator',en:'Baby Nasal Aspirator',ta:'Nasal Aspirator'},price:450,unit:'per piece',tag:'baby'},
-  {id:'b_toepare',cat:'baby_care',icon:'✂️',name:{si:'Baby Nail Clipper / File Set',en:'Baby Nail Clipper & File',ta:'Nail Clipper Set'},price:280,unit:'per set',tag:'baby'},
-  {id:'b_bottle',cat:'feeding',icon:'🍼',name:{si:'Feeding Bottle (BPA-Free)',en:'Baby Feeding Bottle BPA-Free',ta:'Feeding Bottle'},price:580,unit:'per piece',tag:'baby'},
-  {id:'b_breast_p',cat:'feeding',icon:'🤱',name:{si:'Breast Pads (Disposable)',en:'Disposable Breast Pads',ta:'Breast Pads'},price:380,unit:'per pack 10',tag:'mom'},
-  {id:'b_nipple',cat:'feeding',icon:'🔵',name:{si:'Nipple Shields',en:'Silicone Nipple Shields',ta:'Nipple Shields'},price:580,unit:'per pair',tag:'mom'},
-  {id:'b_pacifier',cat:'feeding',icon:'😮',name:{si:'Baby Pacifier / Soother',en:'Baby Pacifier / Soother',ta:'Pacifier'},price:280,unit:'per piece',tag:'baby'},
-  {id:'m_frock',cat:'mom_clothing',icon:'👗',name:{si:'Maternity Hospital Frock / Gown',en:'Maternity Hospital Frock / Gown',ta:'Maternity Frock'},price:1850,unit:'per piece',tag:'mom'},
-  {id:'m_pjs',cat:'mom_clothing',icon:'🌙',name:{si:'Maternity Pyjamas Set',en:'Maternity Pyjamas Set',ta:'Maternity Pyjamas'},price:1650,unit:'per set',tag:'mom'},
-  {id:'m_bra',cat:'mom_clothing',icon:'👙',name:{si:'Nursing / Feeding Bra',en:'Nursing & Feeding Bra',ta:'Nursing Bra'},price:850,unit:'per piece',tag:'mom'},
-  {id:'m_underpant',cat:'mom_clothing',icon:'🩲',name:{si:'Maternity Underpants (Post-natal)',en:'Maternity Postpartum Underpants',ta:'Maternity Underpants'},price:450,unit:'per piece',tag:'mom'},
-  {id:'m_jacket',cat:'mom_clothing',icon:'🧥',name:{si:'Bed Jacket / Feeding Cover',en:'Bed Jacket / Feeding Coverup',ta:'Bed Jacket'},price:980,unit:'per piece',tag:'mom'},
-  {id:'m_slippers',cat:'mom_clothing',icon:'🥿',name:{si:'Rubber Slippers / Hospital Slippers',en:'Rubber Hospital Slippers',ta:'Hospital Slippers'},price:350,unit:'per pair',tag:'mom'},
-  {id:'m_pads',cat:'mom_care',icon:'🩹',name:{si:'Maternity Pads (Overnight Heavy)',en:'Overnight Maternity Pads Heavy',ta:'Maternity Pads'},price:450,unit:'per pack 10',tag:'mom'},
-  {id:'m_sitz',cat:'mom_care',icon:'🛁',name:{si:'Sitz Bath Salts / Herbal Pack',en:'Postpartum Sitz Bath Salts',ta:'Sitz Bath Salts'},price:380,unit:'per pack',tag:'mom'},
-  {id:'m_compress',cat:'mom_care',icon:'🌡',name:{si:'Hot / Cold Compress Pack',en:'Hot & Cold Compress Pack',ta:'Compress Pack'},price:480,unit:'per pack',tag:'mom'},
-  {id:'m_belly',cat:'mom_care',icon:'🩳',name:{si:'Postpartum Belly Band / Binder',en:'Postpartum Belly Band',ta:'Belly Binder'},price:850,unit:'per piece',tag:'mom'},
-  {id:'m_soap',cat:'mom_care',icon:'🧼',name:{si:'Mother Soap / Intimate Wash',en:'Postpartum Intimate Wash',ta:'Mom Intimate Wash'},price:380,unit:'per piece',tag:'mom'},
-  {id:'m_towel',cat:'mom_care',icon:'🏖',name:{si:'Mother Bath Towels',en:'Mother Large Bath Towels',ta:'Mother Towels'},price:950,unit:'per piece',tag:'mom'},
-  {id:'m_oil',cat:'mom_care',icon:'🧴',name:{si:'Stretch Mark Oil / Cream',en:'Stretch Mark Oil & Cream',ta:'Stretch Mark Cream'},price:780,unit:'per bottle',tag:'mom'},
-  {id:'doc_bag',cat:'essentials',icon:'👜',name:{si:'Hospital Bag (Main Zip Bag)',en:'Large Hospital Bag',ta:'Hospital Bag'},price:1250,unit:'per piece',tag:'bag'},
-  {id:'doc_pouch',cat:'essentials',icon:'📋',name:{si:'Document Folder / Pouch',en:'Document Folder & Pouch',ta:'Document Folder'},price:380,unit:'per piece',tag:'bag'},
-  {id:'doc_water',cat:'essentials',icon:'💧',name:{si:'Hot Water Bottle',en:'Hot Water Bottle',ta:'Hot Water Bottle'},price:480,unit:'per piece',tag:'bag'},
-  {id:'doc_cup',cat:'essentials',icon:'☕',name:{si:'Plate, Cup, Spoon Set',en:'Plate Cup & Spoon Set',ta:'Plate Cup Set'},price:380,unit:'per set',tag:'bag'},
+/* ── CATALOG ─────────────────────── */
+const CATALOG = [
+  {id:'bs1',cat:'baby_wear',icon:'👕',name:{si:'Baby Shirts (කෙටි අත)',en:'Short-Sleeve Baby Shirts',ta:'Baby Shirts (குட்டை கை)'},price:350,unit:'per shirt'},
+  {id:'bs2',cat:'baby_wear',icon:'👘',name:{si:'Baby Shirts (දිගු අත)',en:'Long-Sleeve Baby Shirts',ta:'Baby Shirts (நீண்ட கை)'},price:420,unit:'per shirt'},
+  {id:'bo1',cat:'baby_wear',icon:'🐣',name:{si:'Baby Onesies / Bodysuits',en:'Baby Onesies / Bodysuits',ta:'Baby Onesies'},price:480,unit:'per piece'},
+  {id:'bp1',cat:'baby_wear',icon:'👖',name:{si:'Baby Trousers / Leggings',en:'Baby Trousers / Leggings',ta:'Baby Trousers'},price:320,unit:'per piece'},
+  {id:'bss',cat:'baby_wear',icon:'🌙',name:{si:'Sleepsuit / Romper',en:'Sleepsuit / Romper',ta:'Sleepsuit / Romper'},price:550,unit:'per piece'},
+  {id:'bv1',cat:'baby_wear',icon:'👚',name:{si:'Baby Vests / Singlets',en:'Baby Cotton Vests',ta:'Baby Vests'},price:280,unit:'per piece'},
+  {id:'bc1',cat:'baby_acc',icon:'🧢',name:{si:'Baby Caps / Hats',en:'Baby Caps / Hats',ta:'Baby Caps'},price:150,unit:'per piece'},
+  {id:'bm1',cat:'baby_acc',icon:'🧤',name:{si:'Baby Mittens',en:'Baby Scratch Mittens',ta:'Baby Mittens'},price:120,unit:'per pair'},
+  {id:'bb1',cat:'baby_acc',icon:'🧦',name:{si:'Baby Booties / Socks',en:'Baby Booties / Socks',ta:'Baby Booties'},price:150,unit:'per pair'},
+  {id:'bbi',cat:'baby_acc',icon:'🍼',name:{si:'Baby Bibs',en:'Baby Cotton Bibs',ta:'Baby Bibs'},price:180,unit:'per piece'},
+  {id:'bhb',cat:'baby_acc',icon:'🎀',name:{si:'Baby Headband',en:'Baby Headband',ta:'Baby Headband'},price:120,unit:'per piece',girlOnly:true},
+  {id:'bn1',cat:'nappies',icon:'🌿',name:{si:'Cotton Nappies (Reusable)',en:'Reusable Cotton Nappies',ta:'Cotton Nappies'},price:250,unit:'per piece'},
+  {id:'bn2',cat:'nappies',icon:'🩹',name:{si:'Nappy Pads / Liners',en:'Nappy Pads / Liners',ta:'Nappy Pads'},price:180,unit:'pack of 10'},
+  {id:'bd1',cat:'nappies',icon:'📦',name:{si:'Disposable Diapers (Newborn)',en:'Disposable Newborn Diapers',ta:'Disposable Diapers'},price:850,unit:'pack of 20'},
+  {id:'bw1',cat:'nappies',icon:'🧻',name:{si:'Baby Wet Wipes',en:'Fragrance-Free Baby Wipes',ta:'Baby Wipes'},price:320,unit:'per pack'},
+  {id:'bch',cat:'nappies',icon:'🛏',name:{si:'Changing Mat',en:'Waterproof Changing Mat',ta:'Changing Mat'},price:650,unit:'per piece'},
+  {id:'bsw',cat:'bedding',icon:'🌸',name:{si:'Swaddle Wraps / Muslin',en:'Swaddle Wraps / Muslin Cloths',ta:'Swaddle Wraps'},price:650,unit:'per piece'},
+  {id:'bbl',cat:'bedding',icon:'🛏',name:{si:'Baby Blankets',en:'Soft Baby Blankets',ta:'Baby Blankets'},price:850,unit:'per piece'},
+  {id:'bbs',cat:'bedding',icon:'🛌',name:{si:'Baby Bed Sheets',en:'Baby Receiving Blankets',ta:'Baby Bed Sheets'},price:720,unit:'per piece'},
+  {id:'bht',cat:'bedding',icon:'🏖',name:{si:'Hooded Baby Towels',en:'Hooded Baby Bath Towels',ta:'Hooded Towels'},price:780,unit:'per piece'},
+  {id:'bfc',cat:'bedding',icon:'🧽',name:{si:'Baby Face Cloths',en:'Baby Wash Cloths',ta:'Baby Face Cloths'},price:180,unit:'per piece'},
+  {id:'bc2',cat:'baby_care',icon:'☁️',name:{si:'Cotton Balls / Buds',en:'Baby Cotton Balls & Buds',ta:'Cotton Balls'},price:150,unit:'per pack'},
+  {id:'bo2',cat:'baby_care',icon:'🧴',name:{si:'Baby Coconut Oil',en:'Baby Coconut / Body Oil',ta:'Baby Oil'},price:280,unit:'per bottle'},
+  {id:'bc3',cat:'baby_care',icon:'💊',name:{si:'Nappy Rash Cream',en:'Baby Nappy Rash Cream',ta:'Nappy Cream'},price:350,unit:'per tube'},
+  {id:'bsp',cat:'baby_care',icon:'🧼',name:{si:'Baby Soap / Body Wash',en:'Baby Soap / Body Wash',ta:'Baby Soap'},price:280,unit:'per piece'},
+  {id:'bsh',cat:'baby_care',icon:'🚿',name:{si:'Baby Shampoo (Tear-Free)',en:'Tear-Free Baby Shampoo',ta:'Baby Shampoo'},price:320,unit:'per bottle'},
+  {id:'bth',cat:'baby_care',icon:'🌡',name:{si:'Digital Thermometer',en:'Digital Baby Thermometer',ta:'Baby Thermometer'},price:950,unit:'per piece'},
+  {id:'bna',cat:'baby_care',icon:'💨',name:{si:'Nasal Aspirator',en:'Baby Nasal Aspirator',ta:'Nasal Aspirator'},price:450,unit:'per piece'},
+  {id:'bnc',cat:'baby_care',icon:'✂️',name:{si:'Nail Clipper Set',en:'Baby Nail Clipper & File Set',ta:'Nail Clipper Set'},price:280,unit:'per set'},
+  {id:'bf1',cat:'feeding',icon:'🍼',name:{si:'Feeding Bottle (BPA-Free)',en:'BPA-Free Feeding Bottle',ta:'Feeding Bottle'},price:580,unit:'per piece'},
+  {id:'bf2',cat:'feeding',icon:'🤱',name:{si:'Breast Pads (Disposable)',en:'Disposable Breast Pads',ta:'Breast Pads'},price:380,unit:'pack of 10'},
+  {id:'bf3',cat:'feeding',icon:'🔵',name:{si:'Nipple Shields',en:'Silicone Nipple Shields',ta:'Nipple Shields'},price:580,unit:'per pair'},
+  {id:'bpc',cat:'feeding',icon:'😮',name:{si:'Baby Pacifier',en:'Baby Pacifier / Soother',ta:'Pacifier'},price:280,unit:'per piece'},
+  {id:'mfr',cat:'mom_wear',icon:'👗',name:{si:'Maternity Hospital Frock',en:'Maternity Hospital Frock / Gown',ta:'Maternity Frock'},price:1850,unit:'per piece'},
+  {id:'mpj',cat:'mom_wear',icon:'🌙',name:{si:'Maternity Pyjamas',en:'Maternity Pyjamas Set',ta:'Maternity Pyjamas'},price:1650,unit:'per set'},
+  {id:'mbr',cat:'mom_wear',icon:'👙',name:{si:'Nursing / Feeding Bra',en:'Nursing & Feeding Bra',ta:'Nursing Bra'},price:850,unit:'per piece'},
+  {id:'mup',cat:'mom_wear',icon:'🩲',name:{si:'Maternity Underpants',en:'Postpartum Maternity Underpants',ta:'Maternity Underpants'},price:450,unit:'per piece'},
+  {id:'mbj',cat:'mom_wear',icon:'🧥',name:{si:'Bed Jacket / Feeding Cover',en:'Bed Jacket / Feeding Coverup',ta:'Bed Jacket'},price:980,unit:'per piece'},
+  {id:'msl',cat:'mom_wear',icon:'🥿',name:{si:'Hospital Slippers',en:'Rubber Hospital Slippers',ta:'Hospital Slippers'},price:350,unit:'per pair'},
+  {id:'mpa',cat:'mom_care',icon:'🩹',name:{si:'Maternity Pads (Heavy)',en:'Overnight Heavy Maternity Pads',ta:'Maternity Pads'},price:450,unit:'pack of 10'},
+  {id:'msz',cat:'mom_care',icon:'🛁',name:{si:'Sitz Bath Salts',en:'Postpartum Sitz Bath Salts',ta:'Sitz Bath Salts'},price:380,unit:'per pack'},
+  {id:'mcp',cat:'mom_care',icon:'🌡',name:{si:'Hot/Cold Compress',en:'Hot & Cold Compress Pack',ta:'Compress Pack'},price:480,unit:'per pack'},
+  {id:'mbb',cat:'mom_care',icon:'🩳',name:{si:'Belly Band / Binder',en:'Postpartum Belly Binder',ta:'Belly Binder'},price:850,unit:'per piece'},
+  {id:'msw',cat:'mom_care',icon:'🧼',name:{si:'Intimate Wash',en:'Postpartum Intimate Wash',ta:'Intimate Wash'},price:380,unit:'per piece'},
+  {id:'mtw',cat:'mom_care',icon:'🏖',name:{si:'Mother Bath Towels',en:'Large Mother Bath Towels',ta:'Mother Towels'},price:950,unit:'per piece'},
+  {id:'moi',cat:'mom_care',icon:'🧴',name:{si:'Stretch Mark Oil',en:'Stretch Mark Oil & Cream',ta:'Stretch Mark Cream'},price:780,unit:'per bottle'},
+  {id:'ebg',cat:'essentials',icon:'👜',name:{si:'Hospital Bag (Main)',en:'Large Hospital Zip Bag',ta:'Hospital Bag'},price:1250,unit:'per piece'},
+  {id:'epf',cat:'essentials',icon:'📋',name:{si:'Document Folder',en:'Document Folder & Pouch',ta:'Document Folder'},price:380,unit:'per piece'},
+  {id:'ehw',cat:'essentials',icon:'💧',name:{si:'Hot Water Bottle',en:'Hot Water Bottle',ta:'Hot Water Bottle'},price:480,unit:'per piece'},
+  {id:'ecs',cat:'essentials',icon:'☕',name:{si:'Plate, Cup, Spoon Set',en:'Plate, Cup & Spoon Set',ta:'Plate Cup Set'},price:380,unit:'per set'},
 ];
 
-const categories = [
-  {id:'all',label:'All Items',icon:'✨'},
-  {id:'baby_clothing',label:'Baby Clothing',icon:'👕'},
-  {id:'baby_acc',label:'Baby Accessories',icon:'🧢'},
-  {id:'nappies',label:'Nappies & Diapering',icon:'🍼'},
-  {id:'bedding',label:'Bedding & Wraps',icon:'🌸'},
-  {id:'baby_care',label:'Baby Care & Hygiene',icon:'🧴'},
-  {id:'feeding',label:'Feeding',icon:'🤱'},
-  {id:'mom_clothing',label:'Mother Clothing',icon:'👗'},
-  {id:'mom_care',label:'Mother Care',icon:'💊'},
-  {id:'essentials',label:'Bag Essentials',icon:'👜'},
+const CATS = [
+  {id:'all',icon:'✨',si:'සියල්ල',en:'All Items',ta:'அனைத்தும்'},
+  {id:'baby_wear',icon:'👕',si:'Baby ඇඳුම්',en:'Baby Clothing',ta:'Baby ஆடைகள்'},
+  {id:'baby_acc',icon:'🧢',si:'Baby Accessories',en:'Baby Accessories',ta:'Baby சாதனங்கள்'},
+  {id:'nappies',icon:'🍼',si:'Nappies',en:'Nappies & Diapering',ta:'Nappies'},
+  {id:'bedding',icon:'🌸',si:'Bedding',en:'Bedding & Wraps',ta:'Bedding'},
+  {id:'baby_care',icon:'🧴',si:'Baby Care',en:'Baby Hygiene & Care',ta:'Baby சுகாதாரம்'},
+  {id:'feeding',icon:'🤱',si:'Feeding',en:'Feeding',ta:'ஊட்டல்'},
+  {id:'mom_wear',icon:'👗',si:'Mom ඇඳුම්',en:'Mother Clothing',ta:'தாய் ஆடைகள்'},
+  {id:'mom_care',icon:'💊',si:'Mom Care',en:'Mother Care',ta:'தாய் சேவை'},
+  {id:'essentials',icon:'👜',si:'Essentials',en:'Bag Essentials',ta:'Bag பொருட்கள்'},
 ];
-
-const catIcons = {all:'✨',baby_clothing:'👕',baby_acc:'🧢',nappies:'🍼',bedding:'🌸',baby_care:'🧴',feeding:'🤱',mom_clothing:'👗',mom_care:'💊',essentials:'👜'};
-const catLabelKeys = {all:'cat_all',baby_clothing:'cat_baby_clothing',baby_acc:'cat_baby_acc',nappies:'cat_nappies',bedding:'cat_bedding',baby_care:'cat_baby_care',feeding:'cat_feeding',mom_clothing:'cat_mom_clothing',mom_care:'cat_mom_care',essentials:'cat_essentials'};
-
-function getCatLabel(catId) { return dict[currentLang][catLabelKeys[catId]] || catId; }
+const CAT_ICON = Object.fromEntries(CATS.map(c=>[c.id,c.icon]));
 
 const qty = {};
-catalog.forEach(p => qty[p.id] = 0);
+CATALOG.forEach(p => qty[p.id] = 0);
 
-/* ─── DICTIONARY ─── */
-const dict = {
+/* ── TRANSLATIONS ────────────────── */
+const T = {
   si: {
-    badge:'🌸 වාරික මාතෘ සාප්පුව · ශ්‍රී ලංකාව',
-    hero_title:'රෝහලට යන්න සූදානම් කළ <em style="color:var(--accent);font-style:normal">සම්පූර්ණ පැකේජය</em> නිවසටම.',
-    hero_desc:'100% Cotton, pre-washed, vacuum-sealed. දිවයිනේ ඕනෑම තැනකට Cash on Delivery.',
-    explore:'පැකේජ බලන්න ↓',
-    optA_badge:'ක්‍රමය A',optA_title:'සූදානම් කළ වාරික පැකේජ',optA_desc:'රෝහල් ඇතුළත් වීමට අවශ්‍ය සියලු දෑ, ඒකාබද්ධව.',
-    eco_badge:'මූලික',eco_inc:'📦 ඇතුළත් දෑ',order_eco:'✦ Essential Kit ඇණවුම් කරන්න',
-    prem_tag:'සම්පූර්ණ',prem_badge:'Premium',prem_inc:'👑 ඇතුළත් දෑ',order_prem:'👑 Premium Kit ඇණවුම් කරන්න',
-    faq_t1:'🧼 සෝදා, විෂබීජහරණය',faq_d1:'Vacuum-sealed — අලුත දරුවාගේ සිරුරට ආරක්ෂිතයි.',
-    faq_t2:'🚚 දිවයිනේ COD',faq_d2:'භාණ්ඩ ලැබුණු පසු ගෙවන්න. දින 2–4.',
-    faq_t3:'🔄 දින 7 හුවමාරුව',faq_d3:'නිෂ්පාදන දෝෂයක් ඇත්නම්, ගැටලුවක් නොමැතිව.',
-    chat_header:'Mom & Baby සහාය',chat_subheader:'Online දැන්',
-    chat_send:'යවන්න',chat_placeholder:'පණිවිඩය ඇතුළු කරන්න...',
-    chat_welcome:'👋 ආයුබෝවන්! Option A හෝ B මඟින් package එකක් තෝරන්න.',
-    qna_init:'💡 <strong>Q&A සහාය ක්‍රියාත්මකයි</strong>:<br>ඕනෑම ප්‍රශ්නයක් අසන්න:',
-    status_init:'📦 <strong>Order Tracking</strong>:<br>දුරකථන අංකය හෝ Order Reference:',
-    cancel_init:'❌ <strong>Order Cancel</strong>:<br>Order Code ඇතුළත් කරන්න:',
-    ask_name:'🙋‍♀️ ඔබගේ <strong>සම්පූර්ණ නම</strong>?',ask_phone:'📱 <strong>දුරකථන අංකය</strong> (ඉලක්කම් 10)?',
-    ask_phone_err:'⚠️ 0ෙන් ආරම්භ ඉලක්කම් 10 (0771234567)',
-    ask_district:'📍 Delivery <strong>දිස්ත්‍රික්කය</strong>:',ask_address:'🏠 <strong>නිවසේ ලිපිනය</strong>:',
-    confirm_title:'📝 <strong>ඇණවුම තහවුරු කරන්න:</strong>',place_order:'ඇණවුම් කරන්න (COD) 🚚',
-    delivery_txt:'Delivery',grand_txt:'මුළු',
-    modal_title:'ඇණවුම සාර්ථකයි! 🎉',modal_desc:'ඔබගේ ඇණවුම ලැබුණා. නියෝජිතයෙකු ශීඝ්‍රයෙන් සම්බන්ධ කරගනු ඇත.',modal_close:'හරි',
-    footer_copy:'© 2026 Mom & Baby Care Sri Lanka. දිවයිනේ සෑමතැනකට. සියලු හිමිකම් ඇවිරිණි.',
-    eco_items:['✔ 06x Pure Cotton Baby Shirts','✔ 12x Double-Layer Cotton Nappies','✔ 03x Caps, Mittens & Booties Sets','✔ 02x Swaddle Wraps'],
-    prem_items:['✔ 12x Premium Cotton Baby Shirts','✔ 24x Ultra-Absorbent Cotton Nappies','✔ 06x Caps, Mittens & Booties Sets','✔ 04x Swaddle Wraps + Hooded Towels','✔ 02x Maternity Frocks','✔ 01x Changing Mat'],
-    builder_back:'← නිවසට ආපසු',builder_badge:'ඔබේ Kit සාදන්න',builder_title:'ඔබට අවශ්‍ය සෑම දෙයක්ම තෝරන්න',builder_desc:'සියලු ප්‍රවර්ග · ප්‍රමාණ ඇතුළු කරන්න · සූදානම් වූ විට ඇණවුම් කරන්න',
-    builder_theme_label:'Baby theme:',builder_theme_boy:'💙 පිරිමි',builder_theme_girl:'💗 ගැහැණු',builder_search:'🔍 items සොයන්න...',builder_total_label:'ඔබගේ මුළු',builder_checkout:'ඇණවුම් කරන්න →',builder_empty:'ඔබ සොයන item හමු නොවිණ',
-    cat_all:'සියල්ල',cat_baby_clothing:'Baby ඇඳුම්',cat_baby_acc:'Baby උපාංග',cat_nappies:'Nappies & Diapering',cat_bedding:'Bedding & Wraps',cat_baby_care:'Baby සෞඛ්‍ය',cat_feeding:'ආහාර',cat_mom_clothing:'අම්මාගේ ඇඳුම්',cat_mom_care:'අම්මාගේ සෙත',cat_essentials:'Bag Essentials',
+    eyebrow:'🌸 වාරික මාතෘ සාප්පුව · ශ්‍රී ලංකාව',
+    hero_title:'ඔබේ නවදරුවාට අවශ්‍ය සෑම දෙයක්ම',
+    hero_em:'ආදරයෙන් ඇසිරූ',
+    hero_sub:'100% Cotton, pre-washed, vacuum-sealed රෝහල් kit — දිවයිනේ ඕනෑම තැනකට Cash on Delivery.',
+    cta1:'පැකේජ බලන්න ↓', cta2:'🧩 ඔබේ kit සාදන්න',
+    st1:'සතුටු අම්මාවරු', st2:'Pure Cotton', st3:'දින Delivery', st4:'දිස්ත්‍රික්ක',
+    pkg_eye:'Option A — Pre-Packed', pkg_title:'සූදානම් ඔබ ළඟ ළඟා වෙනකොට.',
+    pkg_sub:'List එකක් නෑ. Stress නෑ. සෑම දෙයක්ම pack කළා.',
+    eco_inc:'📦 ඇතුළත් දෑ', prem_inc:'👑 ඇතුළත් සෑමදෙයක්',
+    prem_best:'වඩාත් ජනප්‍රිය',
+    btn_eco:'Essential Kit ඇණවුම් →', btn_prem:'Premium Package ඇණවුම් →',
+    cta_t:'ඔබේ kit ඔබේ රුචිකත්වයෙන්', cta_d:'Item by item. Quantity by quantity.',
+    trust_eye:'ඇයි අම්මාවරු අපව තෝරා ගන්නේ',
+    trust_title:'ශ්‍රී ලංකාවේ අම්මාවරුන් වෙනුවෙන්.',
+    p1t:'Pre-Washed & ආරක්ෂිත', p1d:'Baby-safe detergent, vacuum-sealed. Zero chemicals.',
+    p2t:'Cash on Delivery', p2d:'ලැබෙනකොට ගෙවන්න. දිස්ත්‍රික්ක 25 ම. දින 2–4.',
+    p3t:'දින 7 හුවමාරුව', p3d:'ගැටලුවක් ඇත්නම් — Questions නෑ. Exchange කරනවා.',
+    b_eye:'Option B — Custom', b_title:'Item by item ඔබේ Kit සාදන්න',
+    b_lbl:'Baby', co_lbl:'ඔබේ මුළු',
+    co_btn:'ඇණවුම් කරන්න →',
+    cpname:'Moms by Yasho', cp_status:'Online · ශීඝ්‍රයෙන් ප්‍රතිචාර',
+    welcome:'👋 ආයුබෝවන්! Option A Package එකක් හෝ ඔබේ kit සාදා order කරන්න.',
+    ask_name:'🙋‍♀️ ඔබගේ <strong>සම්පූර්ණ නම</strong>?',
+    ask_phone:'📱 <strong>දුරකථන අංකය</strong> (ඉලක්කම් 10)?',
+    err_phone:'⚠️ 0ෙන් ආරම්භ ඉලක්කම් 10ක් ඇතුළු කරන්න.',
+    ask_dist:'📍 ඔබේ <strong>දිස්ත්‍රික්කය</strong> තෝරන්න:',
+    ask_addr:'🏠 <strong>නිවසේ ලිපිනය</strong>:',
+    confirm:'📝 <strong>ඇණවුම තහවුරු කරන්න:</strong>',
+    place_order:'ඇණවුම් කරන්න (COD) 🚚',
+    delivery_lbl:'Delivery', total_lbl:'මුළු',
+    qna_hi:'💡 <strong>Q&A Ready.</strong> ඕනෑ ප්‍රශ්නයක් අසන්න:',
+    track_hi:'📦 <strong>Order Track.</strong> දුරකථන / Reference:',
+    cancel_hi:'❌ <strong>Cancel Order.</strong> Order Code:',
+    footer:'© 2026 Moms by Yasho · Sri Lanka. Islandwide COD. සියලු හිමිකම් ඇවිරිණි.',
+    m_title:'ඇණවුම Confirmed! 🎉', m_sub:'ඔබේ kit confirmed. ටීම් 2 hrs ඇතුළත සම්බන්ධ කරගනු ඇත.', m_btn:'ස්තූතියි!',
+    eco_items:['06x Pure Cotton Baby Shirts','12x Double-Layer Cotton Nappies','03x Caps, Mittens & Booties Sets','02x Swaddle Wraps'],
+    prem_items:['12x Premium Cotton Baby Shirts','24x Ultra-Absorbent Cotton Nappies','06x Caps, Mittens & Booties Sets','04x Swaddle Wraps + Hooded Towels','02x Maternity Frocks','01x Waterproof Changing Mat'],
   },
   en: {
-    badge:'🌸 Premium Maternity Store · Sri Lanka',
-    hero_title:'Your <em style="color:var(--accent);font-style:normal">Complete Hospital Bag</em>, delivered to your door.',
-    hero_desc:'100% pure cotton, pre-washed, vacuum-sealed. Cash on Delivery islandwide.',
-    explore:'Shop Kits ↓',
-    optA_badge:'Option A',optA_title:'Pre-Packed Premium Bundles',optA_desc:'Everything ready. No shopping list, no stress.',
-    eco_badge:'Essential Kit',eco_inc:'📦 What\'s included',order_eco:'✦ Order Essential Kit',
-    prem_tag:'Full Luxury',prem_badge:'Premium Package',prem_inc:'👑 What\'s included',order_prem:'👑 Order Premium Kit',
-    faq_t1:'🧼 Pre-Washed & Sanitized',faq_d1:'Hypoallergenic, vacuum-sealed — safe for newborn skin.',
-    faq_t2:'🚚 Islandwide COD',faq_d2:'Pay when your order arrives. 2–4 working days anywhere.',
-    faq_t3:'🔄 7-Day Exchange',faq_d3:'If anything\'s not right, we\'ll exchange it — no questions asked.',
-    chat_header:'Mom & Baby Support',chat_subheader:'Online now',
-    chat_send:'Send',chat_placeholder:'Type a message...',
-    chat_welcome:'👋 Hi! Select a package from Option A or build your own kit.',
-    qna_init:'💡 <strong>Q&A Assistant ready</strong>:<br>Ask about fabric quality, delivery, or packaging:',
-    status_init:'📦 <strong>Order Tracking</strong>:<br>Enter your phone or order reference:',
-    cancel_init:'❌ <strong>Cancel Order</strong>:<br>Enter your order code:',
-    ask_name:'🙋‍♀️ Your <strong>full name</strong>?',ask_phone:'📱 Your <strong>mobile number</strong>? (10 digits)',
-    ask_phone_err:'⚠️ Please enter a valid 10-digit number starting with 0.',
-    ask_district:'📍 Choose your delivery <strong>district</strong>:',ask_address:'🏠 Your <strong>full home address</strong>?',
-    confirm_title:'📝 <strong>Confirm your order:</strong>',place_order:'Place Order (COD) 🚚',
-    delivery_txt:'Delivery',grand_txt:'Total',
-    modal_title:'Order Confirmed! 🎉',modal_desc:'We\'ve received your order. Our team will contact you shortly.',modal_close:'Done',
-    footer_copy:'© 2026 Mom & Baby Care Sri Lanka. Islandwide Delivery. All rights reserved.',
-    eco_items:['✔ 06x Pure Cotton Baby Shirts','✔ 12x Double-Layer Cotton Nappies','✔ 03x Caps, Mittens & Booties Sets','✔ 02x Swaddle Wraps'],
-    prem_items:['✔ 12x Premium Cotton Baby Shirts','✔ 24x Ultra-Absorbent Cotton Nappies','✔ 06x Caps, Mittens & Booties Sets','✔ 04x Swaddle Wraps + Hooded Towels','✔ 02x Cotton Maternity Frocks','✔ 01x Changing Mat'],
-    builder_back:'← Back to Home',builder_badge:'Build Your Kit',builder_title:'Choose Every Item You Need',builder_desc:'All categories · Pick quantities · Checkout when ready',
-    builder_theme_label:'Baby theme:',builder_theme_boy:'💙 Boy',builder_theme_girl:'💗 Girl',builder_search:'🔍 Search items...',builder_total_label:'Your Total',builder_checkout:'Checkout →',builder_empty:'No items found',
-    cat_all:'All Items',cat_baby_clothing:'Baby Clothing',cat_baby_acc:'Baby Accessories',cat_nappies:'Nappies & Diapering',cat_bedding:'Bedding & Wraps',cat_baby_care:'Baby Hygiene & Care',cat_feeding:'Feeding',cat_mom_clothing:'Mother Clothing',cat_mom_care:'Mother Care & Recovery',cat_essentials:'Bag Essentials',
+    eyebrow:'🌸 Premium Maternity Store · Sri Lanka',
+    hero_title:'Every item your newborn needs,',
+    hero_em:'packed with love',
+    hero_sub:'100% cotton, pre-washed, vacuum-sealed hospital kits — delivered Cash on Delivery anywhere in Sri Lanka.',
+    cta1:'View packages ↓', cta2:'🧩 Build your own kit',
+    st1:'Happy moms', st2:'Pure cotton', st3:'Days delivery', st4:'Districts',
+    pkg_eye:'Option A — Pre-Packed', pkg_title:'Ready when you are.',
+    pkg_sub:'No lists. No stress. Everything packed, labelled, and delivered to your door.',
+    eco_inc:'📦 What\'s included', prem_inc:'👑 Everything included',
+    prem_best:'Most Popular',
+    btn_eco:'Order Essential Kit →', btn_prem:'Order Premium Package →',
+    cta_t:'Build your own kit', cta_d:'Choose exactly what you need — item by item, quantity by quantity.',
+    trust_eye:'Why moms choose us', trust_title:'Made for Sri Lankan moms.',
+    p1t:'Pre-Washed & Safe', p1d:'Washed with baby-safe detergent, then vacuum-sealed fresh. Zero chemicals, zero worry.',
+    p2t:'Cash on Delivery', p2d:'Pay only when it arrives. All 25 districts — 2–4 working days, islandwide.',
+    p3t:'7-Day Exchange', p3d:'Something not right? We\'ll exchange it — no paperwork, no questions.',
+    b_eye:'Option B — Custom', b_title:'Pick every item yourself',
+    b_lbl:'Baby is a', co_lbl:'Your total', co_btn:'Checkout →',
+    cpname:'Moms by Yasho', cp_status:'Online · responds instantly',
+    welcome:'👋 Hi! Choose a package or build your own kit and place a COD order.',
+    ask_name:'🙋‍♀️ Your <strong>full name</strong>?',
+    ask_phone:'📱 Your <strong>mobile number</strong>? (10 digits)',
+    err_phone:'⚠️ Please enter a valid 10-digit number starting with 0.',
+    ask_dist:'📍 Choose your delivery <strong>district</strong>:',
+    ask_addr:'🏠 Your <strong>full home address</strong>?',
+    confirm:'📝 <strong>Confirm your order:</strong>',
+    place_order:'Place Order (COD) 🚚',
+    delivery_lbl:'Delivery', total_lbl:'Total',
+    qna_hi:'💡 <strong>Q&A Ready.</strong> Ask anything about quality, delivery, or packaging:',
+    track_hi:'📦 <strong>Track Order.</strong> Enter your phone or order reference:',
+    cancel_hi:'❌ <strong>Cancel Order.</strong> Enter your order code:',
+    footer:'© 2026 Moms by Yasho · Sri Lanka. Islandwide Cash on Delivery. All rights reserved.',
+    m_title:'Order Placed! 🎉', m_sub:'Your kit is confirmed. Our team will call you within 2 hours to arrange delivery.', m_btn:'Done, thank you!',
+    eco_items:['06x Pure Cotton Baby Shirts','12x Double-Layer Cotton Nappies','03x Caps, Mittens & Booties Sets','02x Swaddle Wraps'],
+    prem_items:['12x Premium Cotton Baby Shirts','24x Ultra-Absorbent Cotton Nappies','06x Caps, Mittens & Booties Sets','04x Swaddle Wraps + Hooded Towels','02x Maternity Frocks','01x Waterproof Changing Mat'],
   },
   ta: {
-    badge:'🌸 பிரீமியம் மகப்பேறு ஸ்டோர் · இலங்கை',
-    hero_title:'பிரசவத்திற்கு தயார் செய்யப்பட்ட <em style="color:var(--accent);font-style:normal">முழுமையான பேக்கேஜ்</em> உங்கள் வீட்டிற்கே.',
-    hero_desc:'100% பருத்தி, துவைக்கப்பட்டு, vacuum-sealed. நாடு முழுவதும் COD.',
-    explore:'பேக்கேஜ்கள் ↓',
-    optA_badge:'முறை A',optA_title:'முன்பே தயார் செய்யப்பட்ட பேக்கேஜ்கள்',optA_desc:'தேவையான அனைத்தும் தயார். எந்த பட்டியலும் வேண்டாம்.',
-    eco_badge:'அடிப்படை',eco_inc:'📦 சேர்க்கப்பட்டவை',order_eco:'✦ Essential Kit ஆர்டர்',
-    prem_tag:'முழு ஆடம்பரம்',prem_badge:'Premium',prem_inc:'👑 சேர்க்கப்பட்டவை',order_prem:'👑 Premium Kit ஆர்டர்',
-    faq_t1:'🧼 துவைக்கப்பட்டு சுத்தம்',faq_d1:'Hypoallergenic, vacuum-sealed — புதிய குழந்தைக்கு பாதுகாப்பானது.',
-    faq_t2:'🚚 நாடு முழுவதும் COD',faq_d2:'பொருட்கள் வந்த பிறகு பணம். 2–4 நாட்களில்.',
-    faq_t3:'🔄 7 நாள் பரிமாற்றம்',faq_d3:'குறை இருந்தால் கேள்விகளின்றி மாற்றித் தருவோம்.',
-    chat_header:'Mom & Baby உதவி',chat_subheader:'Online இப்போது',
-    chat_send:'அனுப்பு',chat_placeholder:'செய்தி தட்டச்சு செய்யவும்...',
-    chat_welcome:'👋 வணக்கம்! Option A அல்லது B இல் பேக்கேஜ் தேர்வு செய்யுங்கள்.',
-    qna_init:'💡 <strong>Q&A தயார்</strong>:<br>தரம், டெலிவரி, பேக்கிங் பற்றி கேளுங்கள்:',
-    status_init:'📦 <strong>Order Tracking</strong>:<br>தொலைபேசி எண் அல்லது Order Reference:',
-    cancel_init:'❌ <strong>ஆர்டர் ரத்து</strong>:<br>ஆர்டர் குறியீட்டை உள்ளிடவும்:',
-    ask_name:'🙋‍♀️ உங்கள் <strong>முழு பெயர்</strong>?',ask_phone:'📱 <strong>தொலைபேசி எண்</strong>? (10 இலக்கங்கள்)',
-    ask_phone_err:'⚠️ 0 இல் தொடங்கும் 10 இலக்க எண்ணை உள்ளிடவும்.',
-    ask_district:'📍 டெலிவரி <strong>மாவட்டம்</strong>:',ask_address:'🏠 <strong>வீட்டு முகவரி</strong>:',
-    confirm_title:'📝 <strong>ஆர்டர் உறுதிப்படுத்தல்:</strong>',place_order:'ஆர்டர் செய்யுங்கள் (COD) 🚚',
-    delivery_txt:'டெலிவரி',grand_txt:'மொத்தம்',
-    modal_title:'ஆர்டர் உறுதியானது! 🎉',modal_desc:'ஆர்டர் கிடைத்தது. எங்கள் குழு விரைவில் தொடர்பு கொள்வார்.',modal_close:'சரி',
-    footer_copy:'© 2026 Mom & Baby Care Sri Lanka. நாடு முழுவதும். அனைத்து உரிமைகளும்.',
-    eco_items:['✔ 06x பருத்தி Baby Shirts','✔ 12x Cotton Nappies','✔ 03x Caps, Mittens & Booties','✔ 02x Swaddle Wraps'],
-    prem_items:['✔ 12x Premium Cotton Baby Shirts','✔ 24x Ultra-Absorbent Nappies','✔ 06x Caps, Mittens & Booties Sets','✔ 04x Swaddle Wraps + Hooded Towels','✔ 02x Maternity Frocks','✔ 01x Changing Mat'],
-    builder_back:'← முகப்பிற்கு திரும்பு',builder_badge:'உங்கள் Kit உருவாக்குங்கள்',builder_title:'தேவையான ஒவ்வொரு பொருளையும் தேர்வு செய்யுங்கள்',builder_desc:'அனைத்து வகைகள் · அளவுகளை தேர்வு · தயாரானதும் ஆர்டர்',
-    builder_theme_label:'Baby theme:',builder_theme_boy:'💙 ஆண்',builder_theme_girl:'💗 பெண்',builder_search:'🔍 பொருட்களை தேடுங்கள்...',builder_total_label:'மொத்த தொகை',builder_checkout:'ஆர்டர் செய்யுங்கள் →',builder_empty:'பொருட்கள் கிடைக்கவில்லை',
-    cat_all:'அனைத்தும்',cat_baby_clothing:'Baby ஆடைகள்',cat_baby_acc:'Baby சாதனங்கள்',cat_nappies:'Nappies மற்றும் Diapering',cat_bedding:'Bedding மற்றும் Wraps',cat_baby_care:'Baby சுகாதாரம்',cat_feeding:'ஊட்டல்',cat_mom_clothing:'தாய் ஆடைகள்',cat_mom_care:'தாய் சேவை',cat_essentials:'Bag பொருட்கள்',
+    eyebrow:'🌸 பிரீமியம் மகப்பேறு ஸ்டோர் · இலங்கை',
+    hero_title:'உங்கள் குழந்தைக்கு தேவையான அனைத்தும்,',
+    hero_em:'அன்புடன் தொகுக்கப்பட்டது',
+    hero_sub:'100% பருத்தி, துவைக்கப்பட்டு, vacuum-sealed — Cash on Delivery நாடு முழுவதும்.',
+    cta1:'பேக்கேஜ்கள் ↓', cta2:'🧩 உங்கள் kit உருவாக்குங்கள்',
+    st1:'மகிழ்ச்சியான அம்மாக்கள்', st2:'Pure cotton', st3:'நாள் டெலிவரி', st4:'மாவட்டங்கள்',
+    pkg_eye:'Option A — Pre-Packed', pkg_title:'நீங்கள் தயாராக இருக்கும்போது.',
+    pkg_sub:'பட்டியல் இல்லை. மன அழுத்தம் இல்லை. அனைத்தும் தயாராக.',
+    eco_inc:'📦 சேர்க்கப்பட்டவை', prem_inc:'👑 அனைத்தும் சேர்க்கப்பட்டவை',
+    prem_best:'மிகவும் பிரபலமான',
+    btn_eco:'Essential Kit ஆர்டர் →', btn_prem:'Premium Package ஆர்டர் →',
+    cta_t:'உங்கள் kit உருவாக்குங்கள்', cta_d:'ஒவ்வொரு பொருளையும் நீங்களே தேர்வு செய்யுங்கள்.',
+    trust_eye:'ஏன் அம்மாக்கள் எங்களை தேர்வு செய்கிறார்கள்',
+    trust_title:'இலங்கை அம்மாக்களுக்காக.',
+    p1t:'துவைக்கப்பட்டு பாதுகாப்பானது', p1d:'Baby-safe detergent, vacuum-sealed. எந்த chemicals இல்லை.',
+    p2t:'Cash on Delivery', p2d:'வந்ததும் பணம். 25 மாவட்டங்கள். 2–4 நாட்கள்.',
+    p3t:'7 நாள் பரிமாற்றம்', p3d:'குறை இருந்தால் — கேள்விகள் இல்லாமல் மாற்றித் தருவோம்.',
+    b_eye:'Option B — Custom', b_title:'ஒவ்வொரு பொருளையும் தேர்வு செய்யுங்கள்',
+    b_lbl:'Baby', co_lbl:'மொத்த தொகை', co_btn:'ஆர்டர் →',
+    cpname:'Moms by Yasho', cp_status:'Online · உடனே பதில் தருவோம்',
+    welcome:'👋 வணக்கம்! ஒரு package தேர்வு செய்யுங்கள் அல்லது உங்கள் kit உருவாக்குங்கள்.',
+    ask_name:'🙋‍♀️ உங்கள் <strong>முழு பெயர்</strong>?',
+    ask_phone:'📱 <strong>தொலைபேசி எண்</strong>? (10 இலக்கங்கள்)',
+    err_phone:'⚠️ 0 இல் தொடங்கும் 10 இலக்க எண்ணை உள்ளிடவும்.',
+    ask_dist:'📍 <strong>மாவட்டம்</strong> தேர்வு செய்யுங்கள்:',
+    ask_addr:'🏠 <strong>வீட்டு முகவரி</strong>:',
+    confirm:'📝 <strong>ஆர்டர் உறுதிப்படுத்தல்:</strong>',
+    place_order:'ஆர்டர் செய்யுங்கள் (COD) 🚚',
+    delivery_lbl:'டெலிவரி', total_lbl:'மொத்தம்',
+    qna_hi:'💡 <strong>Q&A Ready.</strong> தரம், டெலிவரி பற்றி கேளுங்கள்:',
+    track_hi:'📦 <strong>Track Order.</strong> தொலைபேசி எண் / Reference:',
+    cancel_hi:'❌ <strong>Cancel Order.</strong> ஆர்டர் குறியீடு:',
+    footer:'© 2026 Moms by Yasho · Sri Lanka. நாடு முழுவதும் COD. அனைத்து உரிமைகளும்.',
+    m_title:'ஆர்டர் உறுதி! 🎉', m_sub:'உங்கள் kit confirmed. 2 மணி நேரத்தில் தொடர்பு கொள்வோம்.', m_btn:'நன்றி!',
+    eco_items:['06x பருத்தி Baby Shirts','12x Cotton Nappies','03x Caps, Mittens & Booties','02x Swaddle Wraps'],
+    prem_items:['12x Premium Cotton Baby Shirts','24x Ultra-Absorbent Nappies','06x Caps, Mittens & Booties Sets','04x Swaddle Wraps + Hooded Towels','02x Maternity Frocks','01x Changing Mat'],
   }
 };
 
-/* ─── HOME NAVIGATION (logo click) ─── */
-function goHome() {
-  showPage('home');
-}
-
-/* ─── THEME ─── */
+/* ── THEME ───────────────────────── */
 function setTheme(t) {
-  currentTheme = t;
+  theme = t;
   document.documentElement.setAttribute('data-theme', t);
   ['neutral','boy','girl'].forEach(x => {
-    const el = document.getElementById('pill-'+x);
-    if(!el) return;
-    el.style.background = x===t ? (x==='boy'?'#2563eb': x==='girl'?'#db2777':'var(--ink)') : 'transparent';
-    el.style.color = x===t ? 'white' : (x==='boy'?'#2563eb': x==='girl'?'#db2777':'var(--stone)');
+    const el = document.getElementById('tp-'+x);
+    if (el) el.classList.toggle('on', x===t);
   });
-  const bb = document.getElementById('builder-btn-boy');
-  const bg = document.getElementById('builder-btn-girl');
-  if(bb){bb.style.background=t==='boy'?'#2563eb':'white';bb.style.color=t==='boy'?'white':'#2563eb';}
-  if(bg){bg.style.background=t==='girl'?'#db2777':'white';bg.style.color=t==='girl'?'white':'#db2777';}
-
-  // Update background images
-  buildBgCanvas(t);
-
-  if(document.getElementById('page-builder').classList.contains('active')) renderBuilder();
+  const gb = document.getElementById('gb-boy');
+  const gg = document.getElementById('gb-girl');
+  if (gb) gb.classList.toggle('active', t==='boy');
+  if (gg) gg.classList.toggle('active', t==='girl');
+  buildPhotoBg(t);
+  if (document.getElementById('page-builder').classList.contains('active')) renderBuilder();
 }
 
-/* ─── PAGE NAVIGATION ─── */
+/* ── PAGE NAV ────────────────────── */
+function goHome() {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-home').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+  observeReveals();
+}
 function showPage(p) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
   document.getElementById('page-'+p).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(p==='builder') renderBuilder();
+  window.scrollTo({top:0, behavior:'smooth'});
+  if (p==='builder') renderBuilder();
 }
 
-/* ─── LANGUAGE ─── */
-function switchLang(lang) {
-  currentLang = lang;
-  const t = dict[lang];
-  const ids = {
-    txt_badge:'badge',txt_hero_title:'hero_title',txt_hero_desc:'hero_desc',btn_explore:'explore',
-    txt_optA_badge:'optA_badge',txt_optA_title:'optA_title',txt_optA_desc:'optA_desc',
-    txt_eco_badge:'eco_badge',txt_eco_inc:'eco_inc',btn_order_eco:'order_eco',
-    txt_prem_tag:'prem_tag',txt_prem_badge:'prem_badge',txt_prem_inc:'prem_inc',btn_order_prem:'order_prem',
-    faq_t1:'faq_t1',faq_d1:'faq_d1',faq_t2:'faq_t2',faq_d2:'faq_d2',faq_t3:'faq_t3',faq_d3:'faq_d3',
-    txt_chat_header:'chat_header',txt_chat_subheader:'chat_subheader',
-    btn_chat_send:'chat_send',txt_modal_title:'modal_title',txt_modal_desc:'modal_desc',
-    btn_modal_close:'modal_close',txt_footer_copy:'footer_copy',
+/* ── LANGUAGE ────────────────────── */
+function switchLang(l) {
+  lang = l;
+  const t = T[l];
+  const set = (id, html, inner=false) => {
+    const el = document.getElementById(id);
+    if (el) { if(inner) el.innerHTML=html; else el.textContent=html; }
   };
-  for(const [id,key] of Object.entries(ids)){
-    const el=document.getElementById(id);
-    if(el&&t[key]!==undefined) el.innerHTML=t[key];
-  }
-  const ph=document.getElementById('chatInputField');
-  if(ph) ph.placeholder=t.chat_placeholder;
-  const eco=document.getElementById('list_eco_items');
-  const prem=document.getElementById('list_prem_items');
-  if(eco) eco.innerHTML=t.eco_items.map(i=>`<li>${i}</li>`).join('');
-  if(prem) prem.innerHTML=t.prem_items.map(i=>`<li>${i}</li>`).join('');
-  const bids={
-    builder_back_btn:'builder_back',builder_badge_el:'builder_badge',builder_title_el:'builder_title',
-    builder_desc_el:'builder_desc',builder_theme_label_el:'builder_theme_label',
-    builder_theme_boy_el:'builder_theme_boy',builder_theme_girl_el:'builder_theme_girl',
-    builder_total_label_el:'builder_total_label',builder_checkout_el:'builder_checkout',
-  };
-  for(const [id,key] of Object.entries(bids)){
-    const el=document.getElementById(id);
-    if(el&&t[key]!==undefined) el.textContent=t[key];
-  }
-  const srch=document.getElementById('item-search');
-  if(srch&&t.builder_search) srch.placeholder=t.builder_search;
-  updateBuilderTotal();
-  if(chatStep===0) resetChat();
-  if(document.getElementById('page-builder').classList.contains('active')) renderBuilder();
+  set('h-eyebrow', t.eyebrow);
+  set('h-title', t.hero_title + ' ');
+  const em = document.getElementById('h-em');
+  if(em) em.textContent = t.hero_em;
+  set('h-sub', t.hero_sub);
+  set('h-cta1', t.cta1);
+  set('h-cta2', t.cta2);
+  set('st1', t.st1); set('st2', t.st2); set('st3', t.st3); set('st4', t.st4);
+  set('pkg-eye', t.pkg_eye); set('pkg-title', t.pkg_title); set('pkg-sub', t.pkg_sub);
+  set('eco-inc-lbl', t.eco_inc); set('prem-inc-lbl', t.prem_inc);
+  set('prem-best', t.prem_best);
+  set('btn-eco', t.btn_eco); set('btn-prem', t.btn_prem);
+  set('cta-custom-t', t.cta_t); set('cta-custom-d', t.cta_d);
+  set('trust-eye', t.trust_eye); set('trust-title', t.trust_title);
+  set('p1t', t.p1t); set('p1d', t.p1d);
+  set('p2t', t.p2t); set('p2d', t.p2d);
+  set('p3t', t.p3t); set('p3d', t.p3d);
+  set('b-eye', t.b_eye); set('b-title', t.b_title);
+  set('b-theme-lbl', t.b_lbl);
+  set('co-lbl', t.co_lbl); set('co-btn', t.co_btn);
+  set('cp-name', t.cpname); set('cp-status', t.cp_status);
+  set('footer-copy', t.footer);
+  set('m-title', t.m_title); set('m-sub', t.m_sub); set('m-btn', t.m_btn);
+  const cpInput = document.getElementById('cp-input');
+  if(cpInput) cpInput.placeholder = lang==='si'?'පණිවිඩය...': lang==='ta'?'செய்தி...':'Type a message…';
+  renderKitLists();
+  renderCatTabs();
+  if(document.getElementById('page-builder').classList.contains('active')) renderItems();
+  if(chatStep===0) initChat();
 }
 
-/* ─── BUILDER ─── */
-function renderBuilder() { renderCatTabs(); renderItems(); updateBuilderTotal(); }
+function renderKitLists() {
+  const t = T[lang];
+  const ecoEl = document.getElementById('list-eco');
+  const premEl = document.getElementById('list-prem');
+  if(ecoEl) ecoEl.innerHTML = t.eco_items.map(i=>`
+    <li class="kit-item kit-item-light">
+      <div class="kit-check kit-check-light">✓</div>
+      <span>${i}</span>
+    </li>`).join('');
+  if(premEl) premEl.innerHTML = t.prem_items.map(i=>`
+    <li class="kit-item kit-item-dark">
+      <div class="kit-check kit-check-dark">✓</div>
+      <span>${i}</span>
+    </li>`).join('');
+}
+
+/* ── BUILDER ─────────────────────── */
+function renderBuilder() { renderCatTabs(); renderItems(); updateTotal(); }
 
 function renderCatTabs() {
-  const el=document.getElementById('cat-tabs');
-  if(!el) return;
-  el.innerHTML=categories.map(c=>`
-    <button onclick="setCat('${c.id}')" class="cat-tab text-[11px] font-bold px-3 py-1.5 rounded-xl border cursor-pointer transition"
-      style="background:${activeCat===c.id?'var(--accent)':'var(--card-bg)'}; color:${activeCat===c.id?'white':'var(--stone)'}; border-color:${activeCat===c.id?'var(--accent)':'var(--accent-mid)'}; font-family:inherit">
-      ${c.icon} ${getCatLabel(c.id)}</button>`).join('');
+  const el = document.getElementById('cat-tabs');
+  if (!el) return;
+  el.innerHTML = CATS.map(c => `
+    <button class="cat-btn ${activeCat===c.id?'on':''}" onclick="setActiveCat('${c.id}')">
+      ${c.icon} ${c[lang]||c.en}
+    </button>`).join('');
 }
 
-function setCat(c) { activeCat=c; renderCatTabs(); renderItems(); }
-function filterItems() { renderItems(); }
+function setActiveCat(c) { activeCat=c; renderCatTabs(); renderItems(); }
 
 function renderItems() {
-  const el=document.getElementById('builder-content');
-  if(!el) return;
-  const search=(document.getElementById('item-search')?.value||'').toLowerCase();
-  const grouped={};
-  const catsToShow=activeCat==='all'?categories.filter(c=>c.id!=='all').map(c=>c.id):[activeCat];
-  catsToShow.forEach(catId=>{
-    let items=catalog.filter(p=>p.cat===catId);
-    if(currentTheme==='boy') items=items.filter(p=>!p.girlOnly);
-    if(search) items=items.filter(p=>p.name[currentLang].toLowerCase().includes(search)||p.name.en.toLowerCase().includes(search));
-    if(items.length) grouped[catId]=items;
-  });
-  let html='';
-  for(const [catId,items] of Object.entries(grouped)){
-    html+=`<div class="cat-section pt-8">
-      <div class="cat-section-header">
-        <span class="text-lg">${catIcons[catId]}</span>
-        <h2 class="font-display text-xl" style="color:var(--ink)">${getCatLabel(catId)}</h2>
-        <div class="cat-line"></div>
+  const el = document.getElementById('catalog');
+  if (!el) return;
+  const q = (document.getElementById('srch')?.value||'').toLowerCase();
+  const catsToShow = activeCat==='all' ? CATS.filter(c=>c.id!=='all').map(c=>c.id) : [activeCat];
+  let html = '';
+  catsToShow.forEach(catId => {
+    let items = CATALOG.filter(p => p.cat===catId);
+    if(theme==='boy') items = items.filter(p=>!p.girlOnly);
+    if(q) items = items.filter(p=>p.name[lang].toLowerCase().includes(q)||p.name.en.toLowerCase().includes(q));
+    if(!items.length) return;
+    html += `<div class="cat-group">
+      <div class="cat-group-header">
+        <span class="cat-group-icon">${CAT_ICON[catId]||'📦'}</span>
+        <div class="cat-group-title">${CATS.find(c=>c.id===catId)?.[lang]||catId}</div>
+        <div class="cat-group-line"></div>
       </div>
       <div class="items-grid">`;
-    items.forEach(p=>{
-      const q=qty[p.id]||0;
-      html+=`<div class="item-row rounded-2xl p-3.5 flex items-center gap-3" id="row-${p.id}">
-        <div class="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center text-xl" style="background:var(--accent-light)">${p.icon}</div>
-        <div class="flex-1 min-w-0">
-          <p class="font-semibold text-xs leading-snug" style="color:var(--ink)">${p.name[currentLang]}</p>
-          <p class="text-[10px] mt-0.5" style="color:var(--stone)">LKR ${p.price.toLocaleString()} · ${p.unit}</p>
+    items.forEach(p => {
+      const qv = qty[p.id]||0;
+      html += `<div class="item-card ${qv>0?'has-qty':''}" id="ic-${p.id}">
+        <div class="item-icon">${p.icon}</div>
+        <div class="item-info">
+          <div class="item-name">${p.name[lang]}</div>
+          <div class="item-price">LKR ${p.price.toLocaleString()} · ${p.unit}</div>
         </div>
-        <div class="flex items-center gap-1.5 flex-shrink-0">
-          <button class="stepper-btn w-7 h-7 rounded-full text-sm font-bold flex items-center justify-center border-2 cursor-pointer"
-            style="border-color:var(--accent-mid); background:var(--card-bg); color:var(--stone)"
-            onclick="changeQty('${p.id}',-1)">−</button>
-          <span id="qty-${p.id}" class="text-sm font-bold w-5 text-center ${q>0?'qty-positive':''}" style="color:${q>0?'var(--accent)':'var(--stone)'}">${q}</span>
-          <button class="stepper-btn w-7 h-7 rounded-full text-sm font-bold flex items-center justify-center border-2 cursor-pointer accent-grad text-white"
-            style="border-color:transparent"
-            onclick="changeQty('${p.id}',1)">+</button>
+        <div class="stepper">
+          <button class="step-btn step-minus" onclick="chQty('${p.id}',-1)">−</button>
+          <span class="step-val ${qv>0?'pos':''}" id="qv-${p.id}">${qv}</span>
+          <button class="step-btn step-plus" onclick="chQty('${p.id}',1)">+</button>
         </div>
       </div>`;
     });
-    html+='</div></div>';
-  }
-  if(!html) html=`<div class="py-16 text-center"><p class="text-sm font-medium" style="color:var(--stone)">${dict[currentLang].builder_empty||'No items found'}</p></div>`;
-  el.innerHTML=html;
+    html += '</div></div>';
+  });
+  if(!html) html = `<div style="padding:60px;text-align:center;color:var(--muted);font-size:14px">No items found</div>`;
+  el.innerHTML = html;
 }
 
-function changeQty(id,delta) {
-  qty[id]=Math.max(0,(qty[id]||0)+delta);
-  const span=document.getElementById('qty-'+id);
-  if(span){
-    span.textContent=qty[id];
-    span.style.color=qty[id]>0?'var(--accent)':'var(--stone)';
-    span.className=`text-sm font-bold w-5 text-center ${qty[id]>0?'qty-positive':''}`;
-  }
-  updateBuilderTotal();
+function chQty(id, d) {
+  qty[id] = Math.max(0, (qty[id]||0)+d);
+  const vEl = document.getElementById('qv-'+id);
+  const cEl = document.getElementById('ic-'+id);
+  if(vEl) { vEl.textContent=qty[id]; vEl.className='step-val '+(qty[id]>0?'pos':''); }
+  if(cEl) cEl.className='item-card '+(qty[id]>0?'has-qty':'');
+  updateTotal();
 }
 
-function updateBuilderTotal() {
-  let total=0,count=0;
-  catalog.forEach(p=>{ total+=p.price*(qty[p.id]||0); count+=qty[p.id]||0; });
-  const el=document.getElementById('builder-total');
-  const ce=document.getElementById('builder-item-count');
-  if(el) el.textContent='LKR '+total.toLocaleString();
-  if(ce) ce.textContent=count+' items';
+function updateTotal() {
+  let total=0, cnt=0;
+  CATALOG.forEach(p=>{total+=p.price*(qty[p.id]||0); cnt+=qty[p.id]||0;});
+  const te = document.getElementById('co-total');
+  const ce = document.getElementById('co-count');
+  if(te) te.textContent='LKR '+total.toLocaleString();
+  if(ce) ce.textContent=cnt+' items';
   return total;
 }
 
-function checkoutBuilder() {
-  const total=updateBuilderTotal();
-  if(total===0){ alert('Please add at least one item.'); return; }
-  let lines=[];
-  catalog.forEach(p=>{ if(qty[p.id]>0) lines.push(`${qty[p.id]}x ${p.name.en} (LKR ${(p.price*qty[p.id]).toLocaleString()})`); });
-  orderPayload='Custom Kit:\n'+lines.join('\n');
-  basePriceInt=total;
-  orderTotalStr='LKR '+total.toLocaleString();
+function doCheckout() {
+  const total = updateTotal();
+  if(total===0){ alert(lang==='si'?'Item එකක් හෝ add කරන්න.': lang==='ta'?'குறைந்தது ஒரு பொருளை சேர்க்கவும்.':'Please add at least one item.'); return; }
+  let lines = [];
+  CATALOG.forEach(p=>{ if(qty[p.id]>0) lines.push(`${qty[p.id]}x ${p.name.en} (LKR ${(p.price*qty[p.id]).toLocaleString()})`); });
+  orderPayload = 'Custom Kit:\n'+lines.join('\n');
+  orderBase = total;
   openChat();
-  setTimeout(()=>{ setIntent('qna'); startOrderFlow(); },400);
+  setTimeout(()=>startOrderFlow(), 300);
 }
 
-/* ─── ORDER FLOW (pre-packed) ─── */
-function selectFullPackage(name,price) {
-  basePriceInt=price;
-  orderPayload=name;
-  orderTotalStr='LKR '+price.toLocaleString();
+/* ── PACKAGE SELECTION ───────────── */
+function selectPkg(name, price) {
+  orderPayload = name;
+  orderBase = price;
   openChat();
-  setTimeout(()=>startOrderFlow(),400);
+  setTimeout(()=>startOrderFlow(), 300);
 }
 
 function startOrderFlow() {
-  chatStep=1;
-  addBotMsg(dict[currentLang].ask_name||'Your full name?');
+  chatStep = 1;
+  botMsg(T[lang].ask_name);
 }
 
-/* ─── CHAT ENGINE ─── */
-let chatOpen=false;
-let chatMinimized=false;
-
-function openChat(){
-  document.getElementById('chat-fab').classList.add('open');
-  document.getElementById('chat-badge')?.remove();
-  const panel=document.getElementById('chat-panel');
-  const mini=document.getElementById('chat-minimized');
-  panel.style.display='flex';
-  panel.classList.remove('closing');
+/* ── CHAT ────────────────────────── */
+function openChat() {
+  chatOpen = true;
+  const fab = document.getElementById('cw-fab');
+  const panel = document.getElementById('cw-panel');
+  const mini = document.getElementById('cw-mini');
+  const badge = document.getElementById('fab-badge');
+  fab.classList.add('open');
+  if(badge) badge.remove();
   mini.style.display='none';
-  chatOpen=true; chatMinimized=false;
-  if(chatStep===0) resetChat();
+  panel.classList.remove('out');
+  panel.style.display='flex';
+  if(chatStep===0) initChat();
 }
-
-function minimizeChat(){
-  const panel=document.getElementById('chat-panel');
-  panel.classList.add('closing');
-  setTimeout(()=>{panel.style.display='none';panel.classList.remove('closing');},200);
-  const mini=document.getElementById('chat-minimized');
-  mini.style.display='flex';
-  chatMinimized=true;
+function miniChat() {
+  const panel = document.getElementById('cw-panel');
+  panel.classList.add('out');
+  setTimeout(()=>{ panel.style.display='none'; panel.classList.remove('out'); },200);
+  document.getElementById('cw-mini').style.display='flex';
 }
-
-function expandChat(){ openChat(); }
-
-function closeChat(){
-  const panel=document.getElementById('chat-panel');
-  panel.classList.add('closing');
-  setTimeout(()=>{panel.style.display='none';panel.classList.remove('closing');},200);
-  document.getElementById('chat-minimized').style.display='none';
-  document.getElementById('chat-fab').classList.remove('open');
-  chatOpen=false; chatMinimized=false;
+function closeChat() {
+  const panel = document.getElementById('cw-panel');
+  panel.classList.add('out');
+  setTimeout(()=>{ panel.style.display='none'; panel.classList.remove('out'); },200);
+  document.getElementById('cw-mini').style.display='none';
+  document.getElementById('cw-fab').classList.remove('open');
+  chatOpen = false;
 }
-
-function setIntent(intent){
-  currentIntent=intent;
+function setIntent(i) {
+  chatIntent=i;
   chatStep=0;
-  ['qna','status','cancel'].forEach(x=>{
-    const b=document.getElementById('btn_'+x);
-    if(b){ b.style.background=x===intent?'var(--accent)':'var(--card-bg)'; b.style.color=x===intent?'white':'var(--stone)'; }
+  ['qna','track','cancel'].forEach(x=>{
+    document.getElementById('ct-'+x)?.classList.toggle('on',x===i);
   });
-  resetChat();
+  initChat();
 }
-
-function resetChat(){
-  const area=document.getElementById('chatMessageArea');
-  if(!area) return;
-  area.innerHTML='';
-  const t=dict[currentLang];
-  addBotMsg(t.chat_welcome||'Hi! How can we help?');
-  if(currentIntent==='qna') addBotMsg(t.qna_init||'Ask your question:');
-  else if(currentIntent==='status') addBotMsg(t.status_init||'Enter order reference:');
-  else if(currentIntent==='cancel') addBotMsg(t.cancel_init||'Enter order code:');
-  chatStep=0;
+function initChat() {
+  const msgs = document.getElementById('cp-msgs');
+  if(!msgs) return;
+  msgs.innerHTML='';
+  const t = T[lang];
+  botMsg(t.welcome);
+  if(chatIntent==='qna')    botMsg(t.qna_hi);
+  else if(chatIntent==='track')  botMsg(t.track_hi);
+  else if(chatIntent==='cancel') botMsg(t.cancel_hi);
 }
-
-function addBotMsg(html){
-  const area=document.getElementById('chatMessageArea');
-  if(!area) return;
-  const div=document.createElement('div');
-  div.className='bubble-msg flex gap-2';
-  div.innerHTML=`
-    <div class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] accent-grad mt-0.5">👑</div>
-    <div class="rounded-2xl rounded-tl-sm px-3 py-2 text-xs leading-relaxed max-w-[80%]" style="background:var(--card-bg); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,0.07)">${html}</div>`;
-  area.appendChild(div);
-  area.scrollTop=area.scrollHeight;
+function botMsg(html) {
+  const msgs = document.getElementById('cp-msgs');
+  if(!msgs) return;
+  const d = document.createElement('div');
+  d.className='cp-msg-bot msg-in';
+  d.innerHTML=`<div class="bot-av">👑</div><div class="bot-bubble">${html}</div>`;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
 }
-
-function addUserMsg(txt){
-  const area=document.getElementById('chatMessageArea');
-  if(!area) return;
-  const div=document.createElement('div');
-  div.className='bubble-msg flex justify-end';
-  div.innerHTML=`<div class="rounded-2xl rounded-tr-sm px-3 py-2 text-xs leading-relaxed max-w-[80%] text-white accent-grad">${txt}</div>`;
-  area.appendChild(div);
-  area.scrollTop=area.scrollHeight;
+function userMsg(txt) {
+  const msgs = document.getElementById('cp-msgs');
+  if(!msgs) return;
+  const d = document.createElement('div');
+  d.className='cp-msg-user msg-in';
+  d.innerHTML=`<div class="user-bubble">${txt}</div>`;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
 }
-
-function addChips(chips){
-  const area=document.getElementById('chatMessageArea');
-  if(!area) return;
-  const wrap=document.createElement('div');
-  wrap.className='flex flex-wrap gap-2 pl-8';
-  chips.forEach(c=>{
+function addChips(list) {
+  const msgs = document.getElementById('cp-msgs');
+  if(!msgs) return;
+  const wrap = document.createElement('div');
+  wrap.className='chips-row msg-in';
+  list.forEach(c=>{
     const btn=document.createElement('button');
-    btn.className='qr-chip';
-    btn.textContent=c;
-    btn.onclick=()=>{ wrap.remove(); handleUserInput(c); };
+    btn.className='chip'; btn.textContent=c;
+    btn.onclick=()=>{ wrap.remove(); handleInput(c); };
     wrap.appendChild(btn);
   });
-  area.appendChild(wrap);
-  area.scrollTop=area.scrollHeight;
+  msgs.appendChild(wrap);
+  msgs.scrollTop=msgs.scrollHeight;
 }
-
-function handleChat(){
-  const f=document.getElementById('chatInputField');
-  const val=(f?.value||'').trim();
+function chatSend() {
+  const inp = document.getElementById('cp-input');
+  const val = (inp?.value||'').trim();
   if(!val) return;
-  f.value='';
-  handleUserInput(val);
+  inp.value='';
+  handleInput(val);
 }
-
-function handleUserInput(val){
-  addUserMsg(val);
-  const t=dict[currentLang];
-  if(currentIntent!=='qna'||chatStep>0){
-    processOrderStep(val);
-  } else {
-    // QnA responses
+function handleInput(val) {
+  userMsg(val);
+  if(chatStep>0 || (chatIntent==='qna'&&chatStep===0)) processStep(val);
+}
+function processStep(val) {
+  const t = T[lang];
+  if(chatStep===0 && chatIntent==='qna') {
     setTimeout(()=>{
       const lv=val.toLowerCase();
-      let reply='';
-      if(lv.includes('cotton')||lv.includes('fabric')||lv.includes('quality')){
-        reply='We use 100% OEKO-TEX certified pure cotton — pre-washed, hypoallergenic, and safe for sensitive newborn skin. 🌿';
-      } else if(lv.includes('deliver')||lv.includes('days')||lv.includes('ship')){
-        reply='We deliver islandwide in 2–4 working days via Cash on Delivery. No upfront payment needed! 🚚';
-      } else if(lv.includes('exchange')||lv.includes('return')||lv.includes('wrong')){
-        reply='We offer a 7-day free exchange policy. If anything is wrong, just let us know and we\'ll sort it out. 🔄';
-      } else if(lv.includes('price')||lv.includes('cost')||lv.includes('lkr')){
-        reply='Essential Kit is LKR 15,000 and Premium Kit is LKR 22,000. You can also build a custom kit! 💰';
-      } else if(lv.includes('order')){
-        startOrderFlow();
-        return;
-      } else {
-        reply='Thank you for your message! For specific help, please call us or start an order above. 💗';
-      }
-      addBotMsg(reply);
-    },500);
-  }
-}
-
-function processOrderStep(val){
-  const t=dict[currentLang];
-  if(chatStep===1){
-    customerName=val;
-    chatStep=2;
-    setTimeout(()=>addBotMsg(t.ask_phone||'Your mobile number?'),400);
-  } else if(chatStep===2){
-    if(!/^0\d{9}$/.test(val.replace(/\s/g,''))){
-      addBotMsg(t.ask_phone_err||'Please enter a valid 10-digit number.');
-      return;
-    }
-    customerPhone=val;
-    chatStep=3;
-    setTimeout(()=>{
-      addBotMsg(t.ask_district||'Choose your district:');
-      addChips(Object.keys(deliveryFees));
+      if(lv.includes('cotton')||lv.includes('fabric')||lv.includes('material'))
+        botMsg('We use OEKO-TEX 100% pure cotton, washed with baby-safe detergent before sealing. 🌿');
+      else if(lv.includes('deliver')||lv.includes('days')||lv.includes('ship'))
+        botMsg('Islandwide in 2–4 working days, Cash on Delivery. No upfront payment. 🚚');
+      else if(lv.includes('exchange')||lv.includes('return'))
+        botMsg('7-day free exchange. If anything is wrong, we sort it out — no questions. 🔄');
+      else if(lv.includes('price')||lv.includes('cost')||lv.includes('lkr'))
+        botMsg('Essential Kit: LKR 15,000 · Premium Package: LKR 22,000. Custom kit pricing varies by items. 💰');
+      else if(lv.includes('order'))
+        { startOrderFlow(); return; }
+      else
+        botMsg('Thank you! For fastest help, tap a topic above or place your order. 💗');
     },400);
-  } else if(chatStep===3){
-    if(!deliveryFees[val]){ addBotMsg('Please select a district from the options.'); addChips(Object.keys(deliveryFees)); return; }
-    customerDistrict=val;
-    chatStep=4;
-    setTimeout(()=>addBotMsg(t.ask_address||'Your full address?'),400);
-  } else if(chatStep===4){
-    customerAddress=val;
-    chatStep=5;
-    const fee=deliveryFees[customerDistrict]||500;
-    const grand=basePriceInt+fee;
-    const summary=`
-      <p><strong>${t.confirm_title||'Confirm order:'}</strong></p>
-      <p>👤 ${customerName}</p>
-      <p>📱 ${customerPhone}</p>
-      <p>📍 ${customerDistrict}</p>
-      <p>🏠 ${customerAddress}</p>
-      <p>📦 ${orderPayload}</p>
-      <p>${t.delivery_txt||'Delivery'}: LKR ${fee.toLocaleString()}</p>
-      <p><strong>${t.grand_txt||'Total'}: LKR ${grand.toLocaleString()}</strong></p>`;
-    setTimeout(()=>{
-      addBotMsg(summary);
-      addChips([t.place_order||'Place Order (COD)']);
-    },400);
-  } else if(chatStep===5){
-    placeOrder();
+    return;
   }
+  if(chatStep===1) { orderName=val; chatStep=2; setTimeout(()=>botMsg(t.ask_phone),400); }
+  else if(chatStep===2) {
+    if(!/^0\d{9}$/.test(val.replace(/\s/g,''))) { botMsg(t.err_phone); return; }
+    orderPhone=val; chatStep=3;
+    setTimeout(()=>{ botMsg(t.ask_dist); addChips(Object.keys(FEES)); },400);
+  }
+  else if(chatStep===3) {
+    if(!FEES[val]) { botMsg('Please pick a district from the options.'); addChips(Object.keys(FEES)); return; }
+    orderDistrict=val; chatStep=4;
+    setTimeout(()=>botMsg(t.ask_addr),400);
+  }
+  else if(chatStep===4) {
+    orderAddress=val; chatStep=5;
+    const fee=FEES[orderDistrict]||500;
+    const grand=orderBase+fee;
+    setTimeout(()=>{
+      botMsg(`${t.confirm}
+        <br>👤 ${orderName}
+        <br>📱 ${orderPhone}
+        <br>📍 ${orderDistrict}
+        <br>🏠 ${orderAddress}
+        <br>📦 ${orderPayload}
+        <br>🚚 ${t.delivery_lbl}: LKR ${fee.toLocaleString()}
+        <br><strong>${t.total_lbl}: LKR ${grand.toLocaleString()}</strong>`);
+      addChips([t.place_order]);
+    },400);
+  }
+  else if(chatStep===5) { placeOrder(); }
 }
-
-async function placeOrder(){
-  const fee=deliveryFees[customerDistrict]||500;
-  const grand=basePriceInt+fee;
-  addBotMsg('⏳ Placing your order...');
+async function placeOrder() {
+  const fee=FEES[orderDistrict]||500;
+  const grand=orderBase+fee;
+  botMsg('⏳ Placing your order…');
   try {
-    const r=await fetch(WORKER+'/order',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:customerName,phone:customerPhone,district:customerDistrict,address:customerAddress,items:orderPayload,delivery:fee,total:grand,lang:currentLang,theme:currentTheme})
-    });
-    if(r.ok){
-      closeChat();
-      document.getElementById('successModal').classList.remove('hidden');
-    } else throw new Error();
-  } catch {
-    addBotMsg('✅ Order received! We will contact you shortly on '+customerPhone+'.');
-    setTimeout(()=>{closeChat();document.getElementById('successModal').classList.remove('hidden');},1800);
-  }
+    const r=await fetch(WORKER+'/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:orderName,phone:orderPhone,district:orderDistrict,address:orderAddress,items:orderPayload,delivery:fee,total:grand,lang,theme})});
+    if(!r.ok) throw new Error();
+  } catch(_) {}
+  closeChat();
+  document.getElementById('success-modal').classList.add('show');
   chatStep=0;
 }
 
-function closeModal(){
-  document.getElementById('successModal').classList.add('hidden');
-  qty && catalog.forEach(p=>{ qty[p.id]=0; });
-  renderBuilder();
+function closeModal() {
+  document.getElementById('success-modal').classList.remove('show');
+  CATALOG.forEach(p=>qty[p.id]=0);
+  updateTotal();
+  renderItems();
 }
 
-/* ─── INIT ─── */
+/* ── SCROLL REVEALS ──────────────── */
+function observeReveals() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i*80); } });
+  },{threshold:0.12});
+  els.forEach(e=>io.observe(e));
+}
+
+/* ── INIT ────────────────────────── */
 window.addEventListener('DOMContentLoaded',()=>{
   switchLang('si');
   setTheme('neutral');
-  buildBgCanvas('neutral');
-
-  // keyboard enter in chat
-  document.getElementById('chatInputField')?.addEventListener('keydown',e=>{
-    if(e.key==='Enter') handleChat();
-  });
+  buildPhotoBg('neutral');
+  observeReveals();
+  document.getElementById('cp-input')?.addEventListener('keydown',e=>{ if(e.key==='Enter') chatSend(); });
 });
 </script>
 </body>
